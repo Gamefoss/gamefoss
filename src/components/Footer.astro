@@ -1,0 +1,42 @@
+---
+import Logo from './Logo.astro';
+import { withBase } from '@/lib/site';
+import { FaInstagram, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
+---
+<footer class="site-footer">
+  <div class="site-footer__grid shell">
+    <div><Logo variant="vertical" /><p>Jogos, tecnologia, sociedade<br />e o que mais der na telha.</p></div>
+    <nav aria-label="Links do rodapé">
+      <a href={withBase('/sobre/')}>Sobre</a><a href={withBase('/contato/')}>Contato</a>
+      <a href={withBase('/privacidade/')}>Privacidade</a>
+      <button class="link-button" type="button" data-consent-settings>Preferências de cookies</button>
+    </nav>
+    <nav class="site-footer__socials" aria-label="Redes sociais">
+      <a href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter">
+        <FaTwitter aria-hidden="true" />
+      </a>
+      <a href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram">
+        <FaInstagram aria-hidden="true" />
+      </a>
+      <a href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube">
+        <FaYoutube aria-hidden="true" />
+      </a>
+      <a href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch">
+        <FaTwitch aria-hidden="true" />
+      </a>
+    </nav>
+  </div>
+  <div class="site-footer__bottom shell">
+    <span>© {new Date().getFullYear()} Gamefoss</span>
+    <span class="site-footer__credit">
+      Desenvolvido por:
+      <a
+        href="https://dihgg.com/?utm_source=gamefoss&utm_medium=footer&utm_campaign=credits&utm_content=gamefoss"
+        target="_blank"
+        rel="author noopener"
+      >
+        <img src={withBase('/images/main/dihgg.svg')} alt="{dihgg}" />
+      </a>
+    </span>
+  </div>
+</footer>

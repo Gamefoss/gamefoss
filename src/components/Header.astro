@@ -1,0 +1,28 @@
+---
+import Logo from './Logo.astro';
+import { withBase } from '@/lib/site';
+const links = [
+  ['Podcast', '/podcast/'], ['Artigos', '/artigos/'], ['Autores', '/autores/'], ['Sobre', '/sobre/'],
+];
+---
+<header class="site-header">
+  <div class="site-header__inner shell">
+    <Logo />
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+      <span class="sr-only">Abrir menu</span><span></span><span></span><span></span>
+    </button>
+    <nav id="main-navigation" class="site-header__nav" aria-label="Navegação principal">
+      {links.map(([label, href]) => <a href={withBase(href)}>{label}</a>)}
+      <a class="site-header__search" href={withBase('/busca/')} aria-label="Buscar">⌕ <span>Buscar</span></a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.site-header__toggle');
+  const nav = document.querySelector<HTMLElement>('.site-header__nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    nav?.classList.toggle('site-header__nav--open', !open);
+  });
+</script>

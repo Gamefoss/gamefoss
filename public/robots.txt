@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gamefoss.com.br/sitemap-index.xml

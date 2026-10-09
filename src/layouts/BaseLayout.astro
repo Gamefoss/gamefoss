@@ -1,0 +1,59 @@
+---
+import '@/styles/global.css';
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import ConsentBanner from '@/components/ConsentBanner.astro';
+import EnvironmentBanner from '@/components/EnvironmentBanner.astro';
+import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalPath?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+const {
+  title = SITE_NAME, description = SITE_DESCRIPTION, image = '/images/og-default.svg',
+  canonicalPath = Astro.url.pathname, type = 'website', noindex = false, jsonLd,
+} = Astro.props;
+const isPreview = import.meta.env.DEPLOY_ENV === 'development';
+const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+const canonical = new URL(canonicalPath.replace(/^\/dev/, ''), import.meta.env.SITE);
+const imageUrl = new URL(image.replace(/^\//, ''), `${import.meta.env.SITE.replace(/\/$/, '')}/`);
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#09090b" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={isPreview || noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} sizes="any" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon-196x196.png`} type="image/png" sizes="196x196" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon-32x32.png`} type="image/png" sizes="32x32" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon-16x16.png`} type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} sizes="180x180" />
+    <meta property="og:type" content={type} /><meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={fullTitle} /><meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} /><meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} /><meta name="twitter:image" content={imageUrl} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <EnvironmentBanner /><Header />
+    <main id="conteudo"><slot /></main>
+    <Footer /><ConsentBanner />
+  </body>
+</html>

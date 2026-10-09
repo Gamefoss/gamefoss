@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, withBase } from '@/lib/site';
+interface Props { article: CollectionEntry<'articles'>; featured?: boolean; }
+const { article, featured = false } = Astro.props;
+const category = article.data.categories[0] || 'Artigo';
+---
+<article class:list={['article-card', { 'article-card--featured': featured }]}>
+  <a class="article-card__image" href={withBase(`/artigos/${article.id}/`)}>
+    {article.data.cover ? <img src={withBase(article.data.cover)} alt={article.data.coverAlt || ''} loading={featured ? 'eager' : 'lazy'} /> : <div class="article-card__fallback">GF<span>+</span></div>}
+  </a>
+  <div class="article-card__body">
+    <span class="chip">{category}</span>
+    <h3><a href={withBase(`/artigos/${article.id}/`)}>{article.data.title}</a></h3>
+    <p>{article.data.description}</p>
+    <time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time>
+  </div>
+</article>

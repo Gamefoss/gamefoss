@@ -1,0 +1,7 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { withBase } from '@/lib/site';
+const authors = await getCollection('authors');
+---
+<BaseLayout title="Autores"><header class="page-hero"><div class="shell"><p class="eyebrow">QUEM ESCREVE</p><h1>Autores</h1></div></header><section class="section"><div class="episode-list shell">{authors.map((author) => <article class="episode-card"><div class="article-card__fallback">{author.data.name.slice(0,1)}</div><div><p class="eyebrow">AUTOR</p><h2><a href={withBase(`/autores/${author.id}/`)}>{author.data.name}</a></h2><p>{author.data.bio}</p></div></article>)}</div></section></BaseLayout>

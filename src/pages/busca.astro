@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Busca" description="Busque artigos, episódios, categorias e autores no Gamefoss.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow">ENCONTRE NO ARQUIVO</p><h1>Busca</h1></div></header>
+  <section class="section search-wrap"><div class="shell"><div id="search"></div></div></section>
+  <link rel="stylesheet" href={`${import.meta.env.BASE_URL}pagefind/pagefind-ui.css`} />
+  <script is:inline define:vars={{ base: import.meta.env.BASE_URL }}>
+    window.addEventListener('DOMContentLoaded', async () => {
+      try { await import(`${base}pagefind/pagefind-ui.js`); new window.PagefindUI({ element: '#search', showImages: true, showSubResults: true, resetStyles: false, bundlePath: `${base}pagefind/` }); }
+      catch { document.querySelector('#search').innerHTML = '<p>A busca fica disponível depois do primeiro build de produção.</p>'; }
+    });
+  </script>
+</BaseLayout>

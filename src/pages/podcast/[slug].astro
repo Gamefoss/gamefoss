@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import episodes from '@generated/episodes.json';
+import type { PodcastEpisode } from '@/lib/podcast';
+import { formatDate, withBase } from '@/lib/site';
+
+export function getStaticPaths() { return (episodes as PodcastEpisode[]).map((episode) => ({ params: { slug: episode.slug }, props: { episode } })); }
+const { episode } = Astro.props as { episode: PodcastEpisode };
+const episodeUrl = new URL(withBase(`/podcast/${episode.slug}/`), Astro.site).href;
+const jsonLd = { '@context': 'https://schema.org', '@type': 'PodcastEpisode', name: episode.title, datePublished: episode.publishedAt, description: episode.description.replace(/<[^>]+>/g, ' ').slice(0, 300), associatedMedia: { '@type': 'MediaObject', contentUrl: episode.audioUrl }, partOfSeries: { '@type': 'PodcastSeries', name: 'Gamefoss' } };
+---
+<BaseLayout title={episode.title} description={episode.description.replace(/<[^>]+>/g, ' ').slice(0, 155)} image={episode.artwork} jsonLd={jsonLd}>
+  <header class="page-hero"><div class="shell"><p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p><h1>{episode.title}</h1>{episode.duration && <p>Duração: {episode.duration}</p>}</div></header>
+  <div class="prose" data-pagefind-body>
+    {episode.artwork && <img src={episode.artwork} alt={`Capa do episódio ${episode.title}`} />}
+    <audio controls preload="metadata" src={episode.audioUrl}>Seu navegador não suporta áudio.</audio>
+    <p><a class="button" href={episode.spotifyUrl} target="_blank" rel="noopener">Ouvir no Spotify ↗</a></p>
+    <div set:html={episode.description} />
+    <div class="share"><span class="eyebrow">COMPARTILHE</span><a class="button button--ghost" href={`https://wa.me/?text=${encodeURIComponent(`${episode.title} ${episodeUrl}`)}`}>WhatsApp</a></div>
+  </div><AdSlot />
+</BaseLayout>

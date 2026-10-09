@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import EpisodeCard from '@/components/EpisodeCard.astro';
+import episodes from '@generated/episodes.json';
+import type { PodcastEpisode } from '@/lib/podcast';
+import { SPOTIFY_SHOW } from '@/lib/site';
+import Pagination from '@/components/Pagination.astro';
+const podcast = episodes as PodcastEpisode[];
+const pageSize = 8;
+---
+<BaseLayout title="Podcast" description="Todos os episódios do podcast Gamefoss.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow">GAMEFOSS PODCAST</p><h1>Ouça. Pense. Jogue.</h1><p>Conversas sobre jogos, tecnologia, sociedade e o que mais der na telha.</p><a class="button" href={SPOTIFY_SHOW} target="_blank" rel="noopener">Seguir no Spotify ↗</a></div></header>
+  <section class="section"><div class="episode-list shell">{podcast.slice(0, pageSize).map((episode) => <EpisodeCard episode={episode} />)}</div><Pagination current={1} last={Math.ceil(podcast.length / pageSize)} root="/podcast" /></section>
+</BaseLayout>
