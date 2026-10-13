@@ -16,6 +16,7 @@ import {
   FaTwitter,
   FaWhatsapp,
   FaYoutube,
+  FaPlay,
 } from 'react-icons/fa';
 import { SiCastbox } from 'react-icons/si';
 
@@ -37,6 +38,7 @@ const icons = {
   twitter: FaTwitter,
   whatsapp: FaWhatsapp,
   youtube: FaYoutube,
+  play: FaPlay,
 } satisfies Record<string, IconType>;
 
 export type IconName = keyof typeof icons;

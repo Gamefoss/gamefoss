@@ -26,7 +26,7 @@ const excerpt = latest ? sanitizeEpisodeHtml(latest.description).replace(/<[^>]+
   {latest && <section class="section"><div class="latest-episode shell">
     <div class="latest-episode__art">{latest.artwork && <img src={latest.artwork} alt={`Capa do episódio ${latest.title}`} />}</div>
     <div class="latest-episode__content">
-      <p class="eyebrow">▶ NOVO EPISÓDIO</p><h2>{latest.title}</h2><p>{excerpt}…</p>
+      <p class="eyebrow"><Icon name="play" />&nbsp;<span>NOVO EPISÓDIO</span></p><h2>{latest.title}</h2><p>{excerpt}…</p>
       <audio controls preload="none" src={latest.audioUrl}>Seu navegador não suporta áudio.</audio>
       <div class="latest-episode__actions"><Button as="a" href={withBase(`/podcast/${latest.slug}/`)}>Detalhes do episódio</Button><Button as="a" variant="ghost" href={SPOTIFY_SHOW} target="_blank" rel="noopener" icon="spotify" iconPosition="right">Ouvir no Spotify</Button></div>
     </div>
