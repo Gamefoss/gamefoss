@@ -1,0 +1,49 @@
+---
+title: "Heróis X Vilões: definindo os objetivos do jogador"
+description: "É fácil pensar em histórias que colocam como enredo central o clássico “mocinhos vs vilões”. Talvez esse seja o modelo mais repetido em qualquer mídia que tem como objetivo contar histórias. Com videogames isso não é diferente, já que a maior parte dos jogos mais famosos também roda nesse paradigma"
+publishedAt: 2019-02-12T13:00:28
+author: vitor
+categories: ["Fluxos"]
+cover: /images/articles/herois-x-viloes-definindo-os-objetivos-do-jogador/cover.jpg
+coverAlt: "Heróis X Vilões: definindo os objetivos do jogador"
+legacyUrl: https://gamefoss.com.br/ludokratia/herois-x-viloes-definindo-os-objetivos-do-jogador/
+draft: false
+featured: false
+---
+
+![](../../../public/images/articles/herois-x-viloes-definindo-os-objetivos-do-jogador/image-1.jpg)
+
+Mario vs Bowser, Megaman vs Dr Willy, Sonic vs Robotnik, da era clássica até hoje em dia com Borderlands 2, Assassin’s Creed ou até Fallout 4, abrindo um pouco a interpretação. É muito comum estabelecer uma motivação para o jogador através do modelo “mocinho vs vilão”, e sempre com o protagonista sendo o mocinho.
+
+Se formos analisar essa estrutura, vemos que existem dois tipos de vilão: o vilão de mecânica, que serve só para estabelecer um ponto de chegada para o jogador, ou o vilão de enredo, que vai servir de centro para a história e dará o tom do jogo, de acordo com seus motivos, ideias e crenças. Ambos puxam o trem que cria a **o conflito** e, com isso, a **motivação** do jogador. O trem que faz ele querer jogar e completar aquela missão. Assim como em livros e filmes, o **conflito** é o combustível da mecânica e da história. Sem esse **conflito**, não existe motivo para sair daquela situação.
+
+Se formos analisar essa estrutura, vemos que existem dois tipos de vilão: o vilão de mecânica, que serve só para estabelecer um ponto de chegada para o jogador, ou o vilão de enredo, que vai servir de centro para a história e dará o tom do jogo, de acordo com seus motivos, ideias e crenças. Ambos puxam o trem que cria a **o conflito** e, com isso, a **motivação** do jogador. O trem que faz ele querer jogar e completar aquela missão. Assim como em livros e filmes, o **conflito** é o combustível da mecânica e da história. Sem esse **conflito**, não existe motivo para sair daquela situação.
+
+Mas essa premissa de “mocinho vs vilão” cria um juízo de moral muito grande e não funciona para muitas histórias. Grandes personagens como Dorian Gray, Sherlock Holmes e até mesmo Peter Pan estão longe de serem mocinhos, mas são grandes **protagonistas**, com **objetivos** claros e **idéias** bem fundadas. E isso que fundamenta bem um personagem: **objetivos e ideias**. Ele precisa viver aquilo em que ele acredita, defender aquilo com unhas e dentes. São princípios como esses que criam empatia, carisma e principalmente **credibilidade** para a personagem.
+
+![](../../../public/images/articles/herois-x-viloes-definindo-os-objetivos-do-jogador/image-2.jpg)
+
+Se seguirmos uma ideia dessas, não teremos mais claros vilões e claros heróis, e sim tons de cinza, ideias. Batalha de crenças. Isso serve só para enriquecer personalidades, já que não existe uma pessoa no mundo que acredite no “mau” e faça as coisas por ele. Até mesmo personalidades como Osama Bin Laden faziam o que faziam por acreditar que era a coisa certa a fazer. Os métodos criaram uma corrente de violência que eles não conseguiam mas controlar, mas tudo o que eles fizeram foi pelo bem de uma causa, de um povo. Era nisso que Stálin, o supracitado Osama Bin Laden e até mesmo Adolf Hitler acreditavam. E mesmo assim eles se tornaram grandes vilões da humanidade.
+
+Nós também teremos, pensando nisso, a extinção do juízo de valor nas histórias. Será o receptor – seja leitor, espectador ou jogador – que decidirá quem é quem. A causa que ele defende e a causa que ele condena. E isso que torna uma história verossímil, sem imposições e rica de ideias, de cores. Abre o espaço para novas interpretações, inversões e reflexões. Mostra como mesmo a cor branca é a mistura de várias cores, então ela não é pura como pensam, muito pelo contrário.
+
+E é por isso que a própria premissa de estabelecer uma personagem como motivação para o jogador deve ser repensada e reestrita pelo contexto em que o jogo está inserido. Mesmo com o antagonista, a história não precisa girar em torno dele. Mesmo com o protagonista, ele não precisa estar sempre fazendo as coisas em prol de destruir o antagonista. Ele pode ser só um dos obstáculos a serem enfrentados. Afinal, se pensarmos em exemplos como Chrono Trigger, Lavos pode ser considerado um vilão? Um antagonista? Ou um obstáculo? Porque ele não tem diálogo ou personalidade, ele é apenas um parasita que precisa ser destruído. O mais próximo de antagonista que temos nesse jogo é o Magus que no final das contas acaba se juntando ao grupo! E mesmo assim a motivação do jogador está clara e estabelecida.
+
+Para trazer um objetivo, a única coisa que você precisa ter é uma **ambição**. A ambição de resgatar a Zelda, a ambição de ser forte o suficiente para vencer Sigma, ou simplesmente a ambição de vencer a Liga Pokémon. Tudo isso traz motivação, tudo isso nos manteve jogando por horas e horas. Q**ualquer ambição é válida, desde que seja coerente com seu protagonista, antagonista e universo.** Isso pode ser afirmado com certeza porque seguindo essa regra, você cria **imersão**. Uma imersão que está além de bons gráficos, de cenários coloridos e boa trilha sonora, mas algo que faz o jogador **compartilhar da motivação do protagonista**, seja ele bom, mau ou qualquer coisa que esteja entre esses juízos de valor.
+
+Puxando mais exemplos: se você jogar Harvest Moon ou Animal Crossing, não há antagonista, não há grande missão, são apenas objetivos simples e fáceis de cumprir e estão entre alguns dos jogos mais considerados imersivos e viciantes, porque? **Porque faz sentido.** E essa é a expressão-chave: fazer sentido. O jogador precisa entender porque ele precisa fazer aquilo. Se ele ficar perguntando “porque eu preciso fazer isso?” não tem imersão, logo, não há **motivação**.
+
+![](../../../public/images/articles/herois-x-viloes-definindo-os-objetivos-do-jogador/image-3.jpg)
+
+Para muitos isso parece óbvio, mas mesmo os jogos aparentemente mais inovadores como Undertale tendem a cair no estigma de “mocinho x vilão” se você tomar determinadas rotas. Mesmo que o objetivo não seja derrotar ninguém, mesmo que na maior parte do tempo, os personagens não sejam claramente heróis ou vilões. Mesmo que essa divisão de fato, se você olhar ao fundo, não exista fora das histórias infantis. Personagens “mocinhos” como Phoenix Wright e Miles Edgeworth na série _Ace Attorney_, Sora em _Kingdom Hearts_e até o Red em _Pokémon_ mostram sua porção de egoísmo, ganância e corrupção. Essa linha é seguida e adotada até quando não faz sentido, e as séries sofrem até que esse paradigma seja quebrado.
+
+Dessa forma, como criar **sentido**, **motivação** e **identificação** do jogador com a personagem? Como fazê-los compartilhar suas vontades e objetivos e criar essa **imersão** que eu mencionei no texto? Essas são coisas que não são unânimes, mas eu acho que você precisa arranjar uma maneira de aproximar ambos. E para aproximá-los, o protagonista tem que basicamente se adaptar ao jogador. De acordo com o estilo dele, com as decisões dele, com a maneira que ele joga. É transformar o protagonista na imagem e semelhança de quem joga com ele, muito além da customização física: é deixar o jogador escolher o que vai fazer e deixar sua personalidade transparecer na sua jornada.
+
+Para ilustrar melhor, vamos tomar um exemplo: o amado e odiado Minecraft. Ele talvez seja um dos jogos que mais causou reações e polêmicas porque é completamente diferente do que se viu antes. O mais próximo disso que tivemos é Terraria, que foi lançado meros meses antes do seu sucessor 3D. Existe algo nesses jogos que é talvez a maior qualidade e a maior inovação que eles fizeram: liberdade e ausência de limitações de espaço. Você pode andar para um lado para sempre e ambos os jogos vão se gerar sozinhos infinitamente e não há missão nem direção nenhuma. É uma experiência de descoberta constante até o próprio jogador estabelecer sua meta e tentar atingí-la.
+
+![](../../../public/images/articles/herois-x-viloes-definindo-os-objetivos-do-jogador/image-4.png)
+
+Contando que existe uma biblioteca enorme de skins feitas pela comunidade também, a personalização de Minecraft é infinita. As possibilidades não acabam porque você pode desde sair em uma aventura para matar um dragão ou programar um computador dentro do jogo, fazer uma montanha-russa, ou construir estátuas de referências da cultura pop em _pixel art._ O mundo em que você nasce no jogo é seu espaço para criar e aprender por conta própria, não à toa que até escolas o estão adotando como parte do currículo.
+
+Vocês veem como o mundo dos games tem possibilidades a serem exploradas? Eles já beberam conceitos da literatura, do teatro para criar uma estrutura parecida com outras mídias, com vilão e mocinho, protagonista e antagonista, mas está na hora de se abrir para novos horizontes e continuar experimentando essa estrutura que explora de verdade o conceito de interatividade, mostrando que estamos falando de uma mídia que é centrada e comandada pelo usuário. Não que a linearidade não possa ser usada, mas que trazer cada vez mais o jogador para dentro da sua obra pede mais voz dele, mais vontade dele, porque então será ele que criará sua motivação e terá uma imersão muito maior, um aproveitamento muito melhor da mídia.
+Os videogames precisam se tornar mais interativos para atingirem um novo paradigma e voltarem a inovar e surpreender dentro do seu ramo.
