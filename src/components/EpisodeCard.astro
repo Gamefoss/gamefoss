@@ -9,5 +9,5 @@ const { episode } = Astro.props;
     {episode.artwork ? <img src={episode.artwork} alt="" loading="lazy" /> : <span>GF</span>}
     <span class="episode-card__play" aria-hidden="true">▶</span>
   </a>
-  <div><p class="eyebrow">EPISÓDIO · {formatDate(episode.publishedAt)}</p><h3><a href={withBase(`/podcast/${episode.slug}/`)}>{episode.title}</a></h3>{episode.duration && <span>{episode.duration}</span>}</div>
+  <div><p class="eyebrow">{formatDate(episode.publishedAt)}</p><h3><a href={withBase(`/podcast/${episode.slug}/`)}>{episode.title}</a></h3>{episode.duration && <span class="episode-card__duration">{episode.duration}</span>}</div>
 </article>
