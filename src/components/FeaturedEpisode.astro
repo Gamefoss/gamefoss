@@ -1,0 +1,26 @@
+---
+import Button from './Button';
+import Icon from './Icon';
+import type { PodcastEpisode } from '@/lib/podcast';
+import { sanitizeEpisodeHtml } from '@/lib/podcast';
+import { withBase } from '@/lib/site';
+
+interface Props { episode: PodcastEpisode; }
+const { episode } = Astro.props;
+const excerpt = sanitizeEpisodeHtml(episode.description).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 260);
+---
+<article class="featured-episode">
+  <div class="featured-episode__art">{episode.artwork && <img src={episode.artwork} alt={`Capa do episódio ${episode.title}`} />}</div>
+  <div class="featured-episode__content">
+    <p class="eyebrow"><Icon name="play" /><span>NOVO EPISÓDIO</span></p>
+    <h2>{episode.title}</h2>
+    <p>{excerpt}…</p>
+  </div>
+  <div class="featured-episode__media">
+    <audio controls preload="none" src={episode.audioUrl}>Seu navegador não suporta áudio.</audio>
+    <div class="featured-episode__actions">
+      <Button as="a" href={withBase(`/podcast/${episode.slug}/`)}>Detalhes</Button>
+      <Button as="a" variant="ghost" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify">Spotify</Button>
+    </div>
+  </div>
+</article>

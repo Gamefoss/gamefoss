@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import EpisodeCard from '@/components/EpisodeCard.astro';
+import Icon from '@/components/Icon';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { SPOTIFY_SHOW } from '@/lib/site';
@@ -14,5 +15,5 @@ const RSS_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
 ---
 <BaseLayout title="Podcast" description="Todos os episódios do podcast Gamefoss.">
   <header class="page-hero"><div class="shell"><p class="eyebrow">GAMEFOSS PODCAST</p><h1>Ouça. Pense. Jogue.</h1><p>Conversas sobre jogos, tecnologia, sociedade e o que mais der na telha.</p><div class="podcast-platforms"><Button as="a" href={SPOTIFY_SHOW} target="_blank" rel="noopener" icon="spotify">Spotify</Button><Button as="a" variant="white" href={APPLE_PODCASTS} target="_blank" rel="noopener" icon="apple">Apple Podcasts</Button><Button as="a" variant="white" href={CASTBOX} target="_blank" rel="noopener" icon="castbox">Castbox</Button><Button as="a" variant="white" href={RSS_FEED} target="_blank" rel="noopener" icon="rss">RSS</Button></div></div></header>
-  <section class="section"><div class="episode-list shell">{podcast.slice(0, pageSize).map((episode) => <EpisodeCard episode={episode} />)}</div><Pagination current={1} last={Math.ceil(podcast.length / pageSize)} root="/podcast" /></section>
+  <section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">ARQUIVO <Icon name="headphones" /></p><h2>Episódios</h2></div></div><div class="episode-list">{podcast.slice(0, pageSize).map((episode) => <EpisodeCard episode={episode} />)}</div></div><Pagination current={1} last={Math.ceil(podcast.length / pageSize)} root="/podcast" /></section>
 </BaseLayout>
