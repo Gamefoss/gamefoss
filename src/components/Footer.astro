@@ -28,24 +28,26 @@ const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
         <Button variant="white" icon="cookie" className="site-footer__cookie" type="button" data-consent-settings>cookies</Button>
       </nav>
     </div>
+  </div>
+  <div class="site-footer__lower shell">
     <nav class="site-footer__socials" aria-label="Redes sociais">
       <Button as="a" variant="accent" icon="twitter" iconOnly href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter" />
       <Button as="a" variant="accent" icon="instagram" iconOnly href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram" />
       <Button as="a" variant="accent" icon="youtube" iconOnly href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube" />
       <Button as="a" variant="accent" icon="twitch" iconOnly href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch" />
     </nav>
-  </div>
-  <div class="site-footer__bottom shell">
-    <span>© {new Date().getFullYear()} Gamefoss</span>
-    <span class="site-footer__credit">
-      Desenvolvido por:
-      <a
-        href="https://dihgg.com/?utm_source=gamefoss&utm_medium=footer&utm_campaign=credits&utm_content=gamefoss"
-        target="_blank"
-        rel="author noopener"
-      >
-        <img src={withBase('/images/main/dihgg.svg')} alt="{dihgg}" />
-      </a>
-    </span>
+    <div class="site-footer__bottom">
+      <span>© {new Date().getFullYear()} Gamefoss</span>
+      <span class="site-footer__credit">
+        Desenvolvido por:
+        <a
+          href="https://dihgg.com/?utm_source=gamefoss&utm_medium=footer&utm_campaign=credits&utm_content=gamefoss"
+          target="_blank"
+          rel="author noopener"
+        >
+          <img src={withBase('/images/main/dihgg.svg')} alt="{dihgg}" />
+        </a>
+      </span>
+    </div>
   </div>
 </footer>
