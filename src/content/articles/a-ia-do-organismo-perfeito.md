@@ -3,7 +3,8 @@ title: "A IA do organismo perfeito"
 description: "Em Isolation, os desenvolvedores conseguiram levar para o mundo dos jogos toda a tensão que transformou o filme em um clássico."
 publishedAt: 2019-03-12T16:00:05
 author: dihgg
-categories: ["Fluxos","Game Design","IA","Programação","Sistemas"]
+category: ai
+tags: ["Fluxos", "Game Design", "Programação", "Sistemas"]
 cover: /images/articles/a-ia-do-organismo-perfeito/cover.jpg
 coverAlt: "A IA do organismo perfeito"
 legacyUrl: https://gamefoss.com.br/ludokratia/a-ia-do-organismo-perfeito/

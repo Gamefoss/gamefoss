@@ -3,7 +3,8 @@ title: "O que é um game com bom storytelling?"
 description: "Os games atualmente possuem responsabilidade de contar uma boa história, e essa responsabilidade é cada vez mais cobrada. O que cria uma boa história e como o storytelling pode se tornar convincente?"
 publishedAt: 2019-05-15T12:00:41
 author: vitor
-categories: ["Game Design"]
+category: game-design
+tags: []
 cover: /images/articles/o-que-e-um-game-com-bom-storytelling/cover.jpg
 coverAlt: "O que é um game com bom storytelling?"
 legacyUrl: https://gamefoss.com.br/ludokratia/o-que-e-um-game-com-bom-storytelling/

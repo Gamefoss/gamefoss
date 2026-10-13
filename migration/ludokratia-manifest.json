@@ -1,4 +1,14 @@
 {
   "source": "https://gamefoss.com.br/wp-json/wp/v2/ludokratia",
-  "entries": [1887, 1820, 1713, 1422, 1188, 1264, 1292, 1284, 1197]
+  "entries": [
+    { "id": 1887, "category": "game-design" },
+    { "id": 1820, "category": "game-design" },
+    { "id": 1713, "category": "ai" },
+    { "id": 1422, "category": "ai" },
+    { "id": 1188, "category": "game-design" },
+    { "id": 1264, "category": "ai" },
+    { "id": 1292, "category": "game-design" },
+    { "id": 1284, "category": "fluxos" },
+    { "id": 1197, "category": "game-design" }
+  ]
 }

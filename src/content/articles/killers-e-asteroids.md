@@ -3,7 +3,8 @@ title: "Killers e Asteroids"
 description: "Um dia desses precisava desenvolver uma cópia do jogo Asteroids, para fazer isso precisei olhar as regras e controles do jogo, isso expandiu minha mente em relação a interação entre os jogadores dentro e fora do jogo."
 publishedAt: 2019-01-04T01:08:31
 author: falme
-categories: ["Game Design"]
+category: game-design
+tags: []
 cover: /images/articles/killers-e-asteroids/cover.jpg
 coverAlt: "Killers e Asteroids"
 legacyUrl: https://gamefoss.com.br/ludokratia/killers-e-asteroids/

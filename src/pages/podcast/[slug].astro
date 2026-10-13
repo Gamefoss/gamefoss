@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
 import Button from '@/components/Button';
+import Share from '@/components/Share';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { formatDate, withBase } from '@/lib/site';
@@ -9,15 +10,17 @@ import { formatDate, withBase } from '@/lib/site';
 export function getStaticPaths() { return (episodes as PodcastEpisode[]).map((episode) => ({ params: { slug: episode.slug }, props: { episode } })); }
 const { episode } = Astro.props as { episode: PodcastEpisode };
 const episodeUrl = new URL(withBase(`/podcast/${episode.slug}/`), Astro.site).href;
+const episodeDescription = episode.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const jsonLd = { '@context': 'https://schema.org', '@type': 'PodcastEpisode', name: episode.title, datePublished: episode.publishedAt, description: episode.description.replace(/<[^>]+>/g, ' ').slice(0, 300), associatedMedia: { '@type': 'MediaObject', contentUrl: episode.audioUrl }, partOfSeries: { '@type': 'PodcastSeries', name: 'Gamefoss' } };
 ---
 <BaseLayout title={episode.title} description={episode.description.replace(/<[^>]+>/g, ' ').slice(0, 155)} image={episode.artwork} jsonLd={jsonLd}>
-  <header class="page-hero"><div class="shell"><p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p><h1>{episode.title}</h1>{episode.duration && <p>Duração: {episode.duration}</p>}</div></header>
+  <header class="page-hero page-hero--article page-hero--episode">
+    {episode.artwork && <div class="page-hero__backdrop" aria-hidden="true"><img src={episode.artwork} alt="" /></div>}
+    <div class="page-hero__content shell"><p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p><h1>{episode.title}</h1>{episode.duration && <p class="page-hero__description">Duração: {episode.duration}</p>}</div>
+  </header>
   <div class="prose" data-pagefind-body>
-    {episode.artwork && <img src={episode.artwork} alt={`Capa do episódio ${episode.title}`} />}
-    <audio controls preload="metadata" src={episode.audioUrl}>Seu navegador não suporta áudio.</audio>
-    <p><Button as="a" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify" iconPosition="right">Ouvir no Spotify</Button></p>
+    <div class="episode-player"><audio controls preload="metadata" src={episode.audioUrl}>Seu navegador não suporta áudio.</audio><Button as="a" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify">Spotify</Button></div>
     <div set:html={episode.description} />
-    <div class="share"><span class="eyebrow">COMPARTILHE</span><Button as="a" variant="ghost" href={`https://wa.me/?text=${encodeURIComponent(`${episode.title} ${episodeUrl}`)}`} icon="whatsapp">WhatsApp</Button></div>
+    <Share client:load title={episode.title} url={episodeUrl} description={episodeDescription} />
   </div><AdSlot />
 </BaseLayout>

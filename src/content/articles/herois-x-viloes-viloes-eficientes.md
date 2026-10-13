@@ -3,7 +3,8 @@ title: "Heróis X Vilões: Vilões Eficientes"
 description: "No último texto, falamos sobre como é importante definir os objetivos e vontades do protagonista e fazer o jogador se relacionar com eles. Também sobre como o modelo “mocinho x vilão” está saturado e precisa de uma renovada no universo do entretenimento de maneira geral, não só nos games. Mas isso não quer dizer que [&hellip;]"
 publishedAt: 2019-02-13T13:00:40
 author: vitor
-categories: ["Game Design"]
+category: game-design
+tags: []
 cover: /images/articles/herois-x-viloes-viloes-eficientes/cover.jpg
 coverAlt: "Heróis X Vilões: Vilões Eficientes"
 legacyUrl: https://gamefoss.com.br/ludokratia/herois-x-viloes-viloes-eficientes/

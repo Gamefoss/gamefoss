@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
@@ -10,7 +10,8 @@ const articles = defineCollection({
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
     author: z.string(),
-    categories: z.array(z.string()).default([]),
+    category: reference('categories'),
+    tags: z.array(z.string()).default([]),
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
     draft: z.boolean().default(false),
@@ -39,4 +40,13 @@ const authors = defineCollection({
   }),
 });
 
-export const collections = { articles, authors };
+const categories = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/categories' }),
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    order: z.number().int().nonnegative().default(100),
+  }),
+});
+
+export const collections = { articles, authors, categories };

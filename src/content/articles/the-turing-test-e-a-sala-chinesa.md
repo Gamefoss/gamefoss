@@ -3,7 +3,8 @@ title: "The Turing Test e a sala chinesa"
 description: "Esse jogo levanta questionamentos interessantes para quem gosta de inteligência artificial"
 publishedAt: 2019-03-01T18:00:52
 author: dihgg
-categories: ["IA","Programação"]
+category: ai
+tags: ["Programação"]
 cover: /images/articles/the-turing-test-e-a-sala-chinesa/cover.jpg
 coverAlt: "The Turing Test e a sala chinesa"
 legacyUrl: https://gamefoss.com.br/ludokratia/the-turing-test-e-a-sala-chinesa/

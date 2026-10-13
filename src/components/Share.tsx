@@ -41,7 +41,7 @@ export default function Share({ title, url, description }: Props) {
       await navigator.share({ title, text: description, url });
     } catch (error) {
       if (!(error instanceof DOMException && error.name === 'AbortError')) {
-        setStatus('Não foi possível compartilhar o artigo');
+        setStatus('Não foi possível compartilhar este conteúdo');
       }
     }
   }

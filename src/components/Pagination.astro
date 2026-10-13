@@ -6,7 +6,9 @@ const { current, last, root } = Astro.props;
 const href = (page:number) => page === 1 ? withBase(`${root}/`) : withBase(`${root}/pagina/${page}/`);
 ---
 {last > 1 && <nav class="pagination" aria-label="Paginação">
-  {current > 1 ? <Button as="a" variant="ghost" href={href(current - 1)} icon="arrow-left">Anterior</Button> : <span></span>}
-  <span>PÁGINA {current} / {last}</span>
-  {current < last ? <Button as="a" variant="ghost" href={href(current + 1)} icon="arrow-right" iconPosition="right">Próxima</Button> : <span></span>}
+  <span class="pagination__status">PÁGINA {current} / {last}</span>
+  <div class="pagination__actions">
+    {current > 1 ? <Button as="a" variant="ghost" href={href(current - 1)} icon="arrow-left">Anterior</Button> : <Button variant="ghost" icon="arrow-left" disabled aria-disabled="true">Anterior</Button>}
+    {current < last ? <Button as="a" variant="ghost" href={href(current + 1)} icon="arrow-right" iconPosition="right">Próxima</Button> : <Button variant="ghost" icon="arrow-right" iconPosition="right" disabled aria-disabled="true">Próxima</Button>}
+  </div>
 </nav>}

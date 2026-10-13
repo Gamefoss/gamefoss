@@ -17,12 +17,6 @@ const latest = podcast[0];
 const excerpt = latest ? sanitizeEpisodeHtml(latest.description).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 260) : '';
 ---
 <BaseLayout>
-  <section class="hero"><div class="hero__inner shell">
-    <p class="eyebrow">APERTE START PARA CONTINUAR</p>
-    <h1>JOGOS.<em>IDEIAS.</em>CULTURA.</h1>
-    <div class="hero__meta"><p>Um podcast independente sobre os games que jogamos e o mundo que construímos ao redor deles.</p><span class="hero__pixel">EST. 2016 · BRASIL</span></div>
-  </div></section>
-
   {latest && <section class="section"><div class="latest-episode shell">
     <div class="latest-episode__art">{latest.artwork && <img src={latest.artwork} alt={`Capa do episódio ${latest.title}`} />}</div>
     <div class="latest-episode__content">
@@ -32,13 +26,13 @@ const excerpt = latest ? sanitizeEpisodeHtml(latest.description).replace(/<[^>]+
     </div>
   </div></section>}
 
-  <AdSlot />
   <section class="section section--paper"><div class="shell">
     <div class="section-heading"><div><p class="eyebrow">LEIA, REFLITA & CONSTRUA</p><h2>Artigos</h2></div><a class="link-with-icon" href={withBase('/artigos/')}>VER TODOS <Icon name="arrow-right" /></a></div>
     <div class="article-grid">{articles.slice(0,5).map((article, index) => <ArticleCard article={article} featured={index === 0} />)}</div>
   </div></section>
+  <AdSlot />
   <section class="section"><div class="shell">
-    <div class="section-heading"><div><p class="eyebrow">NO SEU FONE</p><h2>Mais episódios</h2></div><a class="link-with-icon" href={withBase('/podcast/')}>VER TODOS <Icon name="arrow-right" /></a></div>
+    <div class="section-heading"><div><p class="eyebrow">NO SEU FONE <Icon name="headphones" /></p><h2>Mais episódios</h2></div><a class="link-with-icon" href={withBase('/podcast/')}>VER TODOS <Icon name="arrow-right" /></a></div>
     <div class="episode-list">{podcast.slice(1,5).map((episode) => <EpisodeCard episode={episode} />)}</div>
   </div></section>
 </BaseLayout>
