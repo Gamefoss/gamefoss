@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import '@fontsource/bungee/400.css';
 import '@fontsource/space-grotesk/400.css';
 import '@fontsource/space-grotesk/600.css';
 import '@fontsource/space-grotesk/700.css';
@@ -29,11 +30,11 @@ const canonical = new URL(canonicalPath.replace(/^\/dev/, ''), import.meta.env.S
 const imageUrl = new URL(image.replace(/^\//, ''), `${import.meta.env.SITE.replace(/\/$/, '')}/`);
 ---
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="gamefoss-retro">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#f2ead8" />
     <meta name="description" content={description} />
     <meta name="robots" content={isPreview || noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonical} />

@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
+import Icon from './Icon';
 import { withBase } from '@/lib/site';
-import { FaInstagram, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
 ---
 <footer class="site-footer">
   <div class="site-footer__grid shell">
@@ -13,16 +13,16 @@ import { FaInstagram, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
     </nav>
     <nav class="site-footer__socials" aria-label="Redes sociais">
       <a href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter">
-        <FaTwitter aria-hidden="true" />
+        <Icon name="twitter" />
       </a>
       <a href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram">
-        <FaInstagram aria-hidden="true" />
+        <Icon name="instagram" />
       </a>
       <a href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube">
-        <FaYoutube aria-hidden="true" />
+        <Icon name="youtube" />
       </a>
       <a href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch">
-        <FaTwitch aria-hidden="true" />
+        <Icon name="twitch" />
       </a>
     </nav>
   </div>

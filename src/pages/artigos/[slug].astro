@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
+import Share from '@/components/Share';
 import { formatDate, withBase } from '@/lib/site';
 
 export async function getStaticPaths() {
@@ -15,8 +16,13 @@ const articleUrl = new URL(withBase(`/artigos/${article.id}/`), Astro.site).href
 const jsonLd = { '@context': 'https://schema.org', '@type': 'Article', headline: article.data.title, description: article.data.description, datePublished: article.data.publishedAt.toISOString(), dateModified: (article.data.updatedAt || article.data.publishedAt).toISOString(), author: { '@type': 'Person', name: author?.data.name || article.data.author }, mainEntityOfPage: articleUrl };
 ---
 <BaseLayout title={article.data.seoTitle || article.data.title} description={article.data.seoDescription || article.data.description} image={article.data.cover} type="article" jsonLd={jsonLd}>
-  <header class="page-hero"><div class="shell"><p class="eyebrow">{article.data.categories.join(' · ') || 'ARTIGO'}</p><h1>{article.data.title}</h1><p>{article.data.description}</p><div class="prose__meta"><span>Por <a href={author ? withBase(`/autores/${author.id}/`) : '#'}>{author?.data.name || article.data.author}</a></span><time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time></div></div></header>
-  {article.data.cover && <img class="prose__cover" src={withBase(article.data.cover)} alt={article.data.coverAlt || ''} />}
-  <article class="prose" data-pagefind-body><Content /><div class="share"><span class="eyebrow">COMPARTILHE</span><a class="button button--ghost" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`}>LinkedIn</a><a class="button button--ghost" href={`https://wa.me/?text=${encodeURIComponent(`${article.data.title} ${articleUrl}`)}`}>WhatsApp</a></div></article>
+  <header class="page-hero page-hero--article">
+    {article.data.cover && <div class="page-hero__backdrop" aria-hidden="true"><img src={withBase(article.data.cover)} alt="" /></div>}
+    <div class="page-hero__content shell"><p class="eyebrow">{article.data.categories.join(' · ') || 'ARTIGO'}</p><h1>{article.data.title}</h1><p class="page-hero__description">{article.data.description}</p><div class="prose__meta">
+      <span>Por <a class="prose__author" href={author ? withBase(`/autores/${author.id}/`) : '#'}>{author?.data.portrait && <img src={withBase(author.data.portrait)} alt="" />}{author?.data.name || article.data.author}</a></span>
+      <time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time>
+    </div></div>
+  </header>
+  <article class="prose" data-pagefind-body><Content /><Share client:load title={article.data.title} url={articleUrl} description={article.data.description} /></article>
   <AdSlot />
 </BaseLayout>

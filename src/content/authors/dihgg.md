@@ -1,4 +1,6 @@
 ---
 name: "Diego Lopes"
 bio: "Cientista da computação, programador, podcaster, idealizador e produtor do GAMEFOSS. Super herói nas horas vagas."
+portrait: "/images/authors/dihgg.png"
+portraitAlt: "Retrato de Diego Lopes"
 ---
