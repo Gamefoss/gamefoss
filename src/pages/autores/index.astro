@@ -6,10 +6,10 @@ import { withBase } from '@/lib/site';
 const authors = await getCollection('authors');
 ---
 <BaseLayout title="Autores">
-  <header class="page-hero"><div class="shell"><p class="eyebrow">ESCOLHA SEU PLAYER</p><h1>Seleção de autores</h1><p>Conheça as pessoas por trás dos controles, microfones e textos do Gamefoss.</p></div></header>
+  <header class="page-hero"><div class="shell"><p class="eyebrow">ESCOLHA SEU PLAYER</p><h1>Autores</h1><p>Conheça as pessoas por trás dos controles, microfones e textos do Gamefoss.</p></div></header>
   <section class="section character-select-section">
     <div class="character-select shell">
-      <div class="character-select__screen" aria-hidden="true"><span>PLAYER SELECT</span><strong>03</strong></div>
+      <div class="character-select__screen" aria-hidden="true"><span>AUTORES</span><strong>03</strong></div>
       <div class="character-select__grid">
         {authors.map((author, index) => (
           <a class="character-card" href={withBase(`/autores/${author.id}/`)} style={`--player-index: ${index + 1}`}>

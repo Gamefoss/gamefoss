@@ -1,5 +1,19 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button';
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
 ---
-<BaseLayout title="Contato"><header class="page-hero"><div class="shell"><p class="eyebrow">CONTINUE A CONVERSA</p><h1>Contato</h1><p>Pautas, sugestões, parcerias ou só um “oi”: nossa caixa de entrada está aberta.</p></div></header><article class="prose"><h2>Envie uma mensagem</h2><p>Escreva para <a href={`mailto:${email}`}>{email}</a>. Não usamos formulário nem compartilhamos seu endereço com serviços de terceiros.</p><p><a class="button" href={`mailto:${email}?subject=Contato pelo site Gamefoss`}>Abrir seu e-mail</a></p><h2>Outros canais</h2><p><a href="https://instagram.com/game_foss">Instagram</a> · <a href="https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi">Spotify</a> · <a href="https://youtube.com/@gamefoss">YouTube</a></p></article></BaseLayout>
+<BaseLayout title="Contato">
+  <header class="page-hero"><div class="shell"><p class="eyebrow">CONTINUE A CONVERSA</p><h1>Contato</h1><p>Pautas, sugestões, parcerias ou só um “oi”: nossa caixa de entrada está aberta.</p></div></header>
+  <article class="prose">
+    <h2>Envie uma mensagem</h2>
+    <p>Escreva para <a href={`mailto:${email}`}>{email}</a>.</p>
+    <p><Button as="a" variant="accent" href={`mailto:${email}?subject=Contato pelo site Gamefoss`}>Abrir seu e-mail</Button></p>
+    <h2>Outros canais</h2>
+    <div class="contact-channels">
+      <Button as="a" variant="accent" icon="instagram" href="https://www.instagram.com/game_foss/" target="_blank" rel="noopener">Instagram</Button>
+      <Button as="a" variant="accent" icon="spotify" href="https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi" target="_blank" rel="noopener">Spotify</Button>
+      <Button as="a" variant="accent" icon="youtube" href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" target="_blank" rel="noopener">YouTube</Button>
+    </div>
+  </article>
+</BaseLayout>

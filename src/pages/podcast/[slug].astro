@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
+import Button from '@/components/Button';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { formatDate, withBase } from '@/lib/site';
@@ -15,8 +16,8 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'PodcastEpisode', na
   <div class="prose" data-pagefind-body>
     {episode.artwork && <img src={episode.artwork} alt={`Capa do episódio ${episode.title}`} />}
     <audio controls preload="metadata" src={episode.audioUrl}>Seu navegador não suporta áudio.</audio>
-    <p><a class="button" href={episode.spotifyUrl} target="_blank" rel="noopener">Ouvir no Spotify ↗</a></p>
+    <p><Button as="a" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify" iconPosition="right">Ouvir no Spotify</Button></p>
     <div set:html={episode.description} />
-    <div class="share"><span class="eyebrow">COMPARTILHE</span><a class="button button--ghost" href={`https://wa.me/?text=${encodeURIComponent(`${episode.title} ${episodeUrl}`)}`}>WhatsApp</a></div>
+    <div class="share"><span class="eyebrow">COMPARTILHE</span><Button as="a" variant="ghost" href={`https://wa.me/?text=${encodeURIComponent(`${episode.title} ${episodeUrl}`)}`} icon="whatsapp">WhatsApp</Button></div>
   </div><AdSlot />
 </BaseLayout>

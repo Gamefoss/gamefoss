@@ -1,29 +1,38 @@
 ---
 import Logo from './Logo.astro';
+import Button from './Button';
 import Icon from './Icon';
 import { withBase } from '@/lib/site';
+
+const SPOTIFY_SHOW = 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi';
+const APPLE_PODCASTS = 'https://podcasts.apple.com/us/podcast/gamefoss/id1455626041?uo=4';
+const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
 ---
 <footer class="site-footer">
   <div class="site-footer__grid shell">
     <div><Logo variant="vertical" /><p>Jogos, tecnologia, sociedade<br />e o que mais der na telha.</p></div>
-    <nav aria-label="Links do rodapé">
-      <a href={withBase('/sobre/')}>Sobre</a><a href={withBase('/contato/')}>Contato</a>
-      <a href={withBase('/privacidade/')}>Privacidade</a>
-      <button class="link-button" type="button" data-consent-settings>Preferências de cookies</button>
-    </nav>
+    <div class="site-footer__menus">
+      <nav aria-label="Artigos">
+        <a class="site-footer__heading" href={withBase('/artigos/')}>Artigos</a>
+      </nav>
+      <nav aria-label="Podcast">
+        <a class="site-footer__heading" href={withBase('/podcast/')}>Podcast</a>
+        <a class="site-footer__external" href={SPOTIFY_SHOW} target="_blank" rel="noopener">Spotify <Icon name="external-link" /></a>
+        <a class="site-footer__external" href={APPLE_PODCASTS} target="_blank" rel="noopener">Apple Podcasts <Icon name="external-link" /></a>
+        <a class="site-footer__external" href={CASTBOX} target="_blank" rel="noopener">Castbox <Icon name="external-link" /></a>
+      </nav>
+      <nav aria-label="Sobre">
+        <a class="site-footer__heading" href={withBase('/sobre/')}>Sobre</a>
+        <a href={withBase('/contato/')}>Contato</a>
+        <a href={withBase('/privacidade/')}>Privacidade</a>
+        <Button variant="white" icon="cookie" className="site-footer__cookie" type="button" data-consent-settings>cookies</Button>
+      </nav>
+    </div>
     <nav class="site-footer__socials" aria-label="Redes sociais">
-      <a href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter">
-        <Icon name="twitter" />
-      </a>
-      <a href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram">
-        <Icon name="instagram" />
-      </a>
-      <a href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube">
-        <Icon name="youtube" />
-      </a>
-      <a href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch">
-        <Icon name="twitch" />
-      </a>
+      <Button as="a" variant="accent" icon="twitter" iconOnly href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter" />
+      <Button as="a" variant="accent" icon="instagram" iconOnly href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram" />
+      <Button as="a" variant="accent" icon="youtube" iconOnly href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube" />
+      <Button as="a" variant="accent" icon="twitch" iconOnly href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch" />
     </nav>
   </div>
   <div class="site-footer__bottom shell">

@@ -1,8 +1,9 @@
 ---
 import Logo from './Logo.astro';
+import Button from './Button';
 import { withBase } from '@/lib/site';
 const links = [
-  ['Podcast', '/podcast/'], ['Artigos', '/artigos/'], ['Autores', '/autores/'], ['Sobre', '/sobre/'],
+  ['Podcast', '/podcast/'], ['Artigos', '/artigos/'], ['Autores', '/autores/'], ['Sobre', '/sobre/'], ['Contato', '/contato/'],
 ];
 ---
 <header class="site-header">
@@ -13,7 +14,7 @@ const links = [
     </button>
     <nav id="main-navigation" class="site-header__nav" aria-label="Navegação principal">
       {links.map(([label, href]) => <a href={withBase(href)}>{label}</a>)}
-      <a class="site-header__search" href={withBase('/busca/')} aria-label="Buscar">⌕ <span>Buscar</span></a>
+      <Button as="a" variant="accent" className="site-header__search" href={withBase('/busca/')} aria-label="Buscar" icon="search">Buscar</Button>
     </nav>
   </div>
 </header>

@@ -1,12 +1,12 @@
 ---
 import { withBase } from '@/lib/site';
-import Icon from './Icon';
+import Button from './Button';
 interface Props { current: number; last: number; root: string; }
 const { current, last, root } = Astro.props;
 const href = (page:number) => page === 1 ? withBase(`${root}/`) : withBase(`${root}/pagina/${page}/`);
 ---
 {last > 1 && <nav class="pagination" aria-label="Paginação">
-  {current > 1 ? <a class="button button--ghost" href={href(current - 1)}><Icon name="arrow-left" /> Anterior</a> : <span></span>}
+  {current > 1 ? <Button as="a" variant="ghost" href={href(current - 1)} icon="arrow-left">Anterior</Button> : <span></span>}
   <span>PÁGINA {current} / {last}</span>
-  {current < last ? <a class="button button--ghost" href={href(current + 1)}>Próxima <Icon name="arrow-right" /></a> : <span></span>}
+  {current < last ? <Button as="a" variant="ghost" href={href(current + 1)} icon="arrow-right" iconPosition="right">Próxima</Button> : <span></span>}
 </nav>}

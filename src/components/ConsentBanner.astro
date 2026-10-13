@@ -1,4 +1,6 @@
 ---
+import Button from './Button';
+
 const gtagId = import.meta.env.PUBLIC_GTAG_ID || '';
 const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
 ---
@@ -15,9 +17,9 @@ const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
       <label><input type="checkbox" name="ads" /> Publicidade</label>
     </div>
     <div class="consent__actions">
-      <button class="button button--ghost" value="reject">Só necessários</button>
-      <button class="button button--ghost" value="save">Salvar escolhas</button>
-      <button class="button" value="accept">Aceitar todos</button>
+      <Button variant="ghost" type="submit" value="reject">Só necessários</Button>
+      <Button variant="ghost" type="submit" value="save">Salvar escolhas</Button>
+      <Button type="submit" value="accept">Aceitar todos</Button>
     </div>
   </form>
 </dialog>

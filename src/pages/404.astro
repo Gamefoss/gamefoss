@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button';
 import { withBase } from '@/lib/site';
 ---
-<BaseLayout title="Página não encontrada" noindex><header class="page-hero"><div class="shell"><p class="eyebrow">GAME OVER?</p><h1>404</h1><p>Essa fase não existe — ou mudou de endereço.</p><a class="button" href={withBase('/')}>Voltar ao início</a></div></header></BaseLayout>
+<BaseLayout title="Página não encontrada" noindex><header class="page-hero"><div class="shell"><p class="eyebrow">GAME OVER?</p><h1>404</h1><p>Essa fase não existe — ou mudou de endereço.</p><Button as="a" href={withBase('/')} icon="arrow-left">Voltar ao início</Button></div></header></BaseLayout>

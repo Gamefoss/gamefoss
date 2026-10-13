@@ -19,7 +19,7 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'Article', headline:
   <header class="page-hero page-hero--article">
     {article.data.cover && <div class="page-hero__backdrop" aria-hidden="true"><img src={withBase(article.data.cover)} alt="" /></div>}
     <div class="page-hero__content shell"><p class="eyebrow">{article.data.categories.join(' · ') || 'ARTIGO'}</p><h1>{article.data.title}</h1><p class="page-hero__description">{article.data.description}</p><div class="prose__meta">
-      <span>Por <a class="prose__author" href={author ? withBase(`/autores/${author.id}/`) : '#'}>{author?.data.portrait && <img src={withBase(author.data.portrait)} alt="" />}{author?.data.name || article.data.author}</a></span>
+      <div class="prose__byline"><span>Por</span><a class="prose__author" href={author ? withBase(`/autores/${author.id}/`) : '#'}>{author?.data.portrait && <img src={withBase(author.data.portrait)} alt="" />}{author?.data.name || article.data.author}</a></div>
       <time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time>
     </div></div>
   </header>

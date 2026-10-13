@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import Icon, { type IconName } from './Icon';
+import Button from './Button';
+import type { IconName } from './Icon';
 
 interface Props {
   title: string;
@@ -55,17 +56,12 @@ export default function Share({ title, url, description }: Props) {
 
   return (
     <section className="share" aria-labelledby="share-title">
-      <div className="share__heading">
-        <span aria-hidden="true">+</span>
-        <h2 id="share-title">Compartilhe</h2>
-      </div>
+      <h2 className="share__title" id="share-title">Compartilhe</h2>
       <div className="share__actions">
-        {canCopy && <button className="share__action" type="button" onClick={copyLink}><Icon name="link" /><span>{copyLabel}</span></button>}
-        {canShare && <button className="share__action" type="button" onClick={nativeShare}><Icon name="share" /><span>Compartilhar</span></button>}
+        {canCopy && <Button variant="white" className="share__action" type="button" onClick={copyLink} icon="link">{copyLabel}</Button>}
+        {canShare && <Button variant="white" className="share__action" type="button" onClick={nativeShare} icon="share">Compartilhar</Button>}
         {links.map(({ label, href, icon }) => (
-          <a key={label} className="share__action" href={href} target="_blank" rel="noopener" aria-label={`Compartilhar no ${label}`}>
-            <Icon name={icon} /><span>{label}</span>
-          </a>
+          <Button key={label} as="a" variant="white" className="share__action" href={href} target="_blank" rel="noopener" aria-label={`Compartilhar no ${label}`} icon={icon}>{label}</Button>
         ))}
       </div>
       <p className="sr-only" role="status" aria-live="polite">{status}</p>
