@@ -20,6 +20,7 @@ import {
   FaPlay,
 } from 'react-icons/fa';
 import { SiCastbox } from 'react-icons/si';
+import { BsStarFill } from "react-icons/bs";
 
 const icons = {
   'arrow-left': FaArrowLeft,
@@ -41,6 +42,7 @@ const icons = {
   whatsapp: FaWhatsapp,
   youtube: FaYoutube,
   play: FaPlay,
+  star: BsStarFill,
 } satisfies Record<string, IconType>;
 
 export type IconName = keyof typeof icons;

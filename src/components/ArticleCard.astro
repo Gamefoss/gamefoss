@@ -1,6 +1,7 @@
 ---
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { formatDate, withBase } from '@/lib/site';
+import Icon from '@/components/Icon';
 interface Props { article: CollectionEntry<'articles'>; featured?: boolean; }
 const { article, featured = false } = Astro.props;
 const category = await getEntry(article.data.category);
@@ -10,7 +11,10 @@ const category = await getEntry(article.data.category);
     {article.data.cover ? <img src={withBase(article.data.cover)} alt={article.data.coverAlt || ''} loading={featured ? 'eager' : 'lazy'} /> : <div class="article-card__fallback">GF<span>+</span></div>}
   </a>
   <div class="article-card__body">
-    <a class="chip" href={withBase(`/categoria/${category.id}/`)} data-ga="article-card-category">{category.data.name}</a>
+    <div class="chip__container">
+      {featured && <span class="chip chip--featured"><Icon name="star" /></span>}
+      <a class="chip" href={withBase(`/categoria/${category.id}/`)} data-ga="article-card-category">{category.data.name}</a>
+    </div>
     <h3><a href={withBase(`/artigos/${article.id}/`)} data-ga="article-card-title">{article.data.title}</a></h3>
     <p>{article.data.description}</p>
     <time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time>

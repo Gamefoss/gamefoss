@@ -12,7 +12,10 @@ import Icon from '@/components/Icon';
 import Button from '@/components/Button';
 import Carousel from '@/components/Carousel.astro';
 
-const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return Number(b.data.featured) - Number(a.data.featured);
+  return b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
+});
 const podcast = episodes as PodcastEpisode[];
 const latest = podcast[0];
 ---
