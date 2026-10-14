@@ -302,6 +302,18 @@ audio { width: 100%; margin-top: 1.5rem; accent-color: var(--color-red); }
   .featured-episode__art { max-width: none; box-shadow: 6px 6px 0 var(--color-red); }
   .featured-episode__content h2 { font-size: clamp(1.35rem, 7vw, 2rem); }
   .featured-episode__content > p:last-child { display: -webkit-box; overflow: hidden; font-size: .9rem; -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
+  .article-carousel { margin-inline: calc(var(--gf-space-shell) * -1); }
+  .article-carousel .carousel__viewport { overflow: hidden; padding: .25rem 0 .75rem; }
+  .article-carousel .carousel__track { display: flex; gap: 1rem; padding-inline: var(--gf-space-shell); }
+  .article-carousel .carousel__track > * { flex: 0 0 calc(100% - 2.25rem); }
+  .article-carousel .carousel__track > :last-child { margin-right: var(--gf-space-shell); }
+  .carousel__controls { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: .75rem; margin-top: 1.25rem; padding-inline: var(--gf-space-shell); }
+  .carousel__button, .carousel__dot { display: grid; place-items: center; border: 2px solid var(--color-ink); background: var(--color-surface); color: var(--color-ink); cursor: pointer; }
+  .carousel__button { width: 44px; height: 44px; box-shadow: 3px 3px 0 var(--color-ink); }
+  .carousel__button:disabled { opacity: .35; box-shadow: none; cursor: default; }
+  .carousel__dots { display: flex; justify-content: center; gap: .55rem; }
+  .carousel__dot { width: 12px; height: 12px; padding: 0; }
+  .carousel__dot[aria-current="true"] { background: var(--color-red); }
   .featured-episode__media { align-items: stretch; flex-direction: column; }
   .featured-episode__actions { justify-content: stretch; }
   .featured-episode__actions .button { flex: 1; }
