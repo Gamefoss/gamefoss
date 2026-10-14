@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Carousel from '@/components/Carousel.astro';
 import Icon from '@/components/Icon';
 import { withBase } from '@/lib/site';
 const authors = await getCollection('authors');
@@ -9,8 +10,8 @@ const authors = await getCollection('authors');
   <header class="page-hero"><div class="shell"><p class="eyebrow">ESCOLHA SEU PLAYER</p><h1>Autores</h1><p>Conheça as pessoas por trás dos controles, microfones e textos do Gamefoss.</p></div></header>
   <section class="section character-select-section">
     <div class="character-select shell">
-      <div class="character-select__screen" aria-hidden="true"><span>AUTORES</span><strong>03</strong></div>
-      <div class="character-select__grid">
+      <div class="character-select__screen" aria-hidden="true"><span>AUTORES</span><strong>{String(authors.length).padStart(2, '0')}</strong></div>
+      <Carousel label="Selecionar autor" className="character-carousel" trackClass="character-select__grid">
         {authors.map((author, index) => (
           <a class="character-card" href={withBase(`/autores/${author.id}/`)} style={`--player-index: ${index + 1}`}>
             <span class="character-card__number">P{index + 1}</span>
@@ -25,7 +26,7 @@ const authors = await getCollection('authors');
             </div>
           </a>
         ))}
-      </div>
+      </Carousel>
     </div>
   </section>
 </BaseLayout>

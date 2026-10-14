@@ -289,6 +289,13 @@ audio { width: 100%; margin-top: 1.5rem; accent-color: var(--color-red); }
   .site-footer__menus nav { align-items: stretch; }
   .site-footer__menus nav > a { justify-content: flex-start; }
   .site-footer__external, .site-footer__cookie { align-self: flex-start; }
+  .character-carousel .carousel__viewport { overflow: hidden; }
+  .character-carousel .character-select__grid { display: flex; }
+  .character-carousel .character-card { flex: 0 0 100%; border-bottom: 0; }
+  .character-carousel .carousel__controls { margin-top: 0; padding: .85rem 1rem 1rem; border-top: 2px solid var(--color-surface); }
+  .character-carousel .carousel__button, .character-carousel .carousel__dot { border-color: var(--color-surface); background: var(--color-panel); color: var(--color-surface); }
+  .character-carousel .carousel__button { box-shadow: 3px 3px 0 var(--color-brand); }
+  .character-carousel .carousel__dot[aria-current="true"] { background: var(--color-accent); }
   .character-card { grid-template-columns: 1fr; }
   .character-card__info { border-top: 2px solid var(--color-surface); border-left: 0; }
   .author-hero__inner { grid-template-columns: 1fr; }
