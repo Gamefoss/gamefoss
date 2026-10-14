@@ -1,0 +1,106 @@
+name: Release, build and deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gamefoss-production-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    environment: production
+    outputs:
+      release_tag: ${{ steps.release_tag.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run check
+      - name: Configure release author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Generate changelog, version commit and tag
+        run: npm run release
+      - name: Push release commit and tag
+        run: git push --follow-tags origin HEAD:main
+      - name: Read release tag
+        id: release_tag
+        run: echo "tag=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
+      - name: Build production site
+        run: npm run build
+        env:
+          DEPLOY_ENV: production
+          PUBLIC_SITE_URL: https://gamefoss.com.br
+          PUBLIC_BASE_PATH: /
+          PUBLIC_GTAG_ID: ${{ vars.PUBLIC_GTAG_ID }}
+          PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT }}
+          PUBLIC_ADSENSE_SLOT: ${{ vars.PUBLIC_ADSENSE_SLOT }}
+          PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
+      - name: Validate generated links
+        run: npm run validate:links
+        env:
+          PUBLIC_BASE_PATH: /
+      - name: Package release
+        run: |
+          mkdir -p release
+          zip -r "release/gamefoss-${{ steps.release_tag.outputs.tag }}.zip" dist/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gamefoss-production
+          path: dist/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gamefoss-${{ steps.release_tag.outputs.tag }}
+          path: release/gamefoss-${{ steps.release_tag.outputs.tag }}.zip
+          if-no-files-found: error
+
+  create-release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: gamefoss-${{ needs.build.outputs.release_tag }}
+          path: release/
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build.outputs.release_tag }}
+          name: Release ${{ needs.build.outputs.release_tag }}
+          generate_release_notes: true
+          files: release/gamefoss-${{ needs.build.outputs.release_tag }}.zip
+
+  deploy:
+    needs: [build, create-release]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: gamefoss-production
+          path: dist/
+      - name: Deploy production over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ vars.FTP_SERVER }}
+          username: ${{ vars.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ vars.FTP_TARGET_DIR }}
+          dangerous-clean-slate: false

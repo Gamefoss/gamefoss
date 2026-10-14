@@ -25,7 +25,7 @@ Run `npm run content:migrate` to repeat the Ludokratia migration defined by `mig
 1. Open feature pull requests against `release/latest`.
 2. Merges to `release/latest` deploy to `https://gamefoss.com.br/dev/`.
 3. Promote the exact release through a pull request from `release/latest` to `main`.
-4. Merges to `main` deploy to `https://gamefoss.com.br/`.
+4. A human-authored merge to `main` runs `standard-version`, commits the generated version and `changelog.md`, creates a version tag and GitHub Release with a production ZIP, then deploys to `https://gamefoss.com.br/`.
 
 The deployment workflow can also rebuild either environment manually to pick up new podcast episodes. Manual production runs always check out `main`; development runs always check out `release/latest`.
 
@@ -41,4 +41,4 @@ Analytics and advertising values use the identifiers copied from their Google sn
 
 Clicks on elements carrying `data-ga` are reported as the GA4 event `ui_interaction`, with `interaction_name` set to the attribute value and `link_url` included for links. The delegated listener only emits events after Analytics consent has been granted.
 
-`dangerous-clean-slate` is intentionally enabled so each target is an exact mirror. The isolation of `FTP_TARGET_DIR` between GitHub Environments is therefore a required deployment safeguard.
+Development uses `dangerous-clean-slate` because `/dev/` is an isolated preview target. Production leaves it disabled so server-owned directories such as `/old/` and `/signatures/` are preserved. The isolation of `FTP_TARGET_DIR` between GitHub Environments remains a required deployment safeguard.

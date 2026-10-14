@@ -2,7 +2,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main, release/latest]
+    branches: [release/latest]
   workflow_dispatch:
     inputs:
       environment:
@@ -77,7 +77,7 @@ jobs:
           name: gamefoss-${{ needs.resolve.outputs.environment }}-${{ github.run_number }}
           path: dist/
           if-no-files-found: error
-      - name: Deploy exact mirror over FTP
+      - name: Deploy over FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ vars.FTP_SERVER }}
@@ -85,5 +85,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ${{ vars.FTP_TARGET_DIR }}
-          dangerous-clean-slate: true
+          dangerous-clean-slate: ${{ needs.resolve.outputs.environment == 'development' }}
 
