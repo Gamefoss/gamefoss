@@ -378,7 +378,7 @@ button, input { font: inherit; }
   .featured-episode__media { align-items: stretch; flex-direction: column; }
   .featured-episode__actions { justify-content: stretch; }
   .featured-episode__actions .button { flex: 1; }
-  .page-hero--article { min-height: 26rem; padding: 4.5rem 0 2.5rem; }
+  .page-hero--article { min-height: 10rem; padding: 4.5rem 0 2.5rem; }
   .podcast-platforms { justify-content: center; }
   .pagination__actions .button { flex: 1; }
   .search-wrap #search .pagefind-ui__results { grid-template-columns: 1fr; gap: 1.25rem; }
