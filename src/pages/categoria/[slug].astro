@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import Button from '@/components/Button';
+import { withBase } from '@/lib/site';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  return categories.map((category) => ({
+    params: { slug: category.id },
+    props: { category, articles: articles.filter((article) => article.data.category.id === category.id) },
+  }));
+}
+
+const { category, articles } = Astro.props;
+const { Content } = await render(category);
+---
+<BaseLayout title={category.data.name} description={category.data.description}>
+  <header class="page-hero" data-pagefind-body><div class="shell"><Button as="a" variant="accent" className="taxonomy-back" href={withBase('/categorias/')} icon="arrow-left">Categorias</Button><p class="eyebrow">CATEGORIA</p><h1>{category.data.name}</h1><p>{category.data.description}</p></div></header>
+  <section class="category-editorial"><div class="prose"><Content /></div></section>
+  <section class="section section--paper"><div class="article-grid shell">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
+</BaseLayout>

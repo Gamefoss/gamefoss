@@ -1,0 +1,35 @@
+---
+interface Props {
+  src: string;
+  label?: string;
+  preload?: 'none' | 'metadata' | 'auto';
+  className?: string;
+  analyticsLabel?: string;
+}
+
+const {
+  src,
+  label = 'Reprodutor de áudio',
+  preload = 'metadata',
+  className = '',
+  analyticsLabel = 'audio-player',
+} = Astro.props;
+---
+
+<div class:list={['audio-player-shell', className]} data-ga={analyticsLabel}>
+  <media-controller class="audio-player" audio aria-label={label}>
+    <audio slot="media" src={src} preload={preload}>Seu navegador não suporta áudio.</audio>
+    <media-control-bar>
+      <media-play-button aria-label="Reproduzir ou pausar"></media-play-button>
+      <media-time-display showduration aria-label="Tempo atual e duração"></media-time-display>
+      <media-time-range aria-label="Posição do áudio"></media-time-range>
+      <media-mute-button aria-label="Ativar ou desativar som"></media-mute-button>
+      <media-volume-range aria-label="Volume"></media-volume-range>
+      <media-playback-rate-button aria-label="Velocidade de reprodução"></media-playback-rate-button>
+    </media-control-bar>
+  </media-controller>
+</div>
+
+<script>
+  import 'media-chrome';
+</script>

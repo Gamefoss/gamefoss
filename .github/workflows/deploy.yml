@@ -1,0 +1,86 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main, release/latest]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment to rebuild with the latest podcast feed
+        type: choice
+        required: true
+        options: [development, production]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gamefoss-${{ github.event_name == 'workflow_dispatch' && inputs.environment || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.target.outputs.environment }}
+      ref: ${{ steps.target.outputs.ref }}
+    steps:
+      - id: target
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            environment="${{ inputs.environment }}"
+          elif [[ "${{ github.ref_name }}" == "release/latest" ]]; then
+            environment="development"
+          else
+            environment="production"
+          fi
+          if [[ "$environment" == "production" ]]; then ref="main"; else ref="release/latest"; fi
+          echo "environment=$environment" >> "$GITHUB_OUTPUT"
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: resolve
+    runs-on: ubuntu-latest
+    environment: ${{ needs.resolve.outputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.resolve.outputs.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Configure development crawler policy
+        if: needs.resolve.outputs.environment == 'development'
+        run: cp public/dev-robots.txt public/robots.txt
+      - run: npm test
+      - run: npm run check
+      - name: Build
+        run: npm run build
+        env:
+          DEPLOY_ENV: ${{ needs.resolve.outputs.environment }}
+          PUBLIC_SITE_URL: ${{ needs.resolve.outputs.environment == 'development' && 'https://gamefoss.com.br/dev' || 'https://gamefoss.com.br' }}
+          PUBLIC_BASE_PATH: ${{ needs.resolve.outputs.environment == 'development' && '/dev' || '/' }}
+          PUBLIC_GTAG_ID: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_GTAG_ID || '' }}
+          PUBLIC_ADSENSE_CLIENT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_CLIENT || '' }}
+          PUBLIC_ADSENSE_SLOT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT || '' }}
+          PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
+      - run: npm run validate:links
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gamefoss-${{ needs.resolve.outputs.environment }}-${{ github.run_number }}
+          path: dist/
+          if-no-files-found: error
+      - name: Deploy exact mirror over FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.6
+        with:
+          server: ${{ vars.FTP_SERVER }}
+          username: ${{ vars.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ vars.FTP_TARGET_DIR }}
+          dangerous-clean-slate: true
+
