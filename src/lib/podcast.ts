@@ -12,6 +12,12 @@ export interface PodcastEpisode {
   spotifyUrl: string;
 }
 
+export const DEFAULT_EPISODE_ARTWORK = '/images/podcast/default-artwork.png';
+
+export function getEpisodeArtwork(episode: PodcastEpisode) {
+  return episode.artwork || DEFAULT_EPISODE_ARTWORK;
+}
+
 export function sanitizeEpisodeHtml(value: string) {
   return sanitizeHtml(value, {
     allowedTags: ['p', 'h2', 'h3', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'br', 'blockquote'],

@@ -7,7 +7,34 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <link rel="stylesheet" href={`${import.meta.env.BASE_URL}pagefind/pagefind-ui.css`} />
   <script is:inline define:vars={{ base: import.meta.env.BASE_URL }}>
     window.addEventListener('DOMContentLoaded', async () => {
-      try { await import(`${base}pagefind/pagefind-ui.js`); new window.PagefindUI({ element: '#search', showImages: true, showSubResults: true, resetStyles: false, bundlePath: `${base}pagefind/` }); }
+      const search = document.querySelector('#search');
+      const resultType = (href) => {
+        const pathname = new URL(href, window.location.href).pathname;
+        if (pathname.includes('/podcast/')) return 'Episódio';
+        if (pathname.includes('/artigos/')) return 'Artigo';
+        if (pathname.includes('/autores/')) return 'Autor';
+        if (pathname.includes('/categoria/')) return 'Categoria';
+        if (pathname.includes('/tag/')) return 'Tag';
+        return 'Página';
+      };
+      const decorateResults = () => {
+        search.querySelectorAll('.pagefind-ui__result:not([data-result-decorated])').forEach((result) => {
+          const link = result.querySelector('.pagefind-ui__result-link');
+          const inner = result.querySelector('.pagefind-ui__result-inner');
+          if (!link || !inner) return;
+          const chip = document.createElement('span');
+          chip.className = 'chip pagefind-ui__result-type';
+          chip.textContent = resultType(link.href);
+          inner.prepend(chip);
+          result.dataset.resultDecorated = 'true';
+        });
+      };
+      try {
+        await import(`${base}pagefind/pagefind-ui.js`);
+        new window.PagefindUI({ element: '#search', showImages: true, showSubResults: true, resetStyles: false, bundlePath: `${base}pagefind/` });
+        new MutationObserver(decorateResults).observe(search, { childList: true, subtree: true });
+        decorateResults();
+      }
       catch { document.querySelector('#search').innerHTML = '<p>A busca fica disponível depois do primeiro build de produção.</p>'; }
     });
   </script>

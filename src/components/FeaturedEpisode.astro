@@ -2,20 +2,19 @@
 import Button from './Button';
 import Icon from './Icon';
 import type { PodcastEpisode } from '@/lib/podcast';
-import { sanitizeEpisodeHtml } from '@/lib/podcast';
+import { getEpisodeArtwork, sanitizeEpisodeHtml } from '@/lib/podcast';
 import { withBase } from '@/lib/site';
 
 interface Props { episode: PodcastEpisode; }
 const { episode } = Astro.props;
 const excerpt = sanitizeEpisodeHtml(episode.description).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 260);
+const artwork = getEpisodeArtwork(episode);
 ---
 <article class="featured-episode">
   <div class="featured-episode__art">
-    {episode.artwork && (
-      <a href={withBase(`/podcast/${episode.slug}/`)}>
-        <img src={episode.artwork} alt={`Capa do episódio ${episode.title}`} />
-      </a>
-    )}
+    <a href={withBase(`/podcast/${episode.slug}/`)}>
+      <img src={artwork} alt={`Capa do episódio ${episode.title}`} />
+    </a>
   </div>
   <div class="featured-episode__content">
     <p class="eyebrow"><Icon name="play" /><span>NOVO EPISÓDIO</span></p>

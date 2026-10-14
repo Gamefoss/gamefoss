@@ -1,12 +1,14 @@
 ---
 import type { PodcastEpisode } from '@/lib/podcast';
+import { getEpisodeArtwork } from '@/lib/podcast';
 import { formatDate, withBase } from '@/lib/site';
 interface Props { episode: PodcastEpisode; }
 const { episode } = Astro.props;
+const artwork = getEpisodeArtwork(episode);
 ---
 <article class="episode-card">
   <a class="episode-card__art" href={withBase(`/podcast/${episode.slug}/`)}>
-    {episode.artwork ? <img src={episode.artwork} alt="" loading="lazy" /> : <span>GF</span>}
+    <img src={artwork} alt="" loading="lazy" />
     <span class="episode-card__play" aria-hidden="true">▶</span>
   </a>
   <div><p class="eyebrow">{formatDate(episode.publishedAt)}</p><h3><a href={withBase(`/podcast/${episode.slug}/`)}>{episode.title}</a></h3>{episode.duration && <span class="episode-card__duration">{episode.duration}</span>}</div>

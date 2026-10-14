@@ -9,7 +9,7 @@ const articles = (await getCollection('articles', ({data}) => !data.draft && dat
 ---
 <BaseLayout title={author.data.name} description={author.data.bio}>
   <header class="page-hero author-hero" data-pagefind-body><div class="author-hero__inner shell">
-    {author.data.portrait && <img class="author-hero__portrait" src={withBase(author.data.portrait)} alt={author.data.portraitAlt || `Retrato de ${author.data.name}`} />}
+    {author.data.portrait && <img class="author-hero__portrait" src={withBase(author.data.portrait)} alt={author.data.portraitAlt || `Retrato de ${author.data.name}`} data-pagefind-meta="image[src], image_alt[alt]" />}
     <div><p class="eyebrow">PLAYER PROFILE</p><h1>{author.data.name}</h1><p>{author.data.bio}</p></div>
   </div></header>
   <section class="section section--paper"><div class="article-grid shell">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
