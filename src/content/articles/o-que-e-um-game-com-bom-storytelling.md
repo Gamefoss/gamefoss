@@ -60,7 +60,7 @@ Se pegarmos exemplos concretos, temos Undertale com uma construção de mundo qu
 
 ![](../../../public/images/articles/o-que-e-um-game-com-bom-storytelling/image-5.jpg)
 
-* * *
+---
 
 ## Conclusão
 

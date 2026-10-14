@@ -18,7 +18,7 @@ O jogo possui uma nota de 80 no metacritic (xbox), mas aqui é a **Ludokratia** 
 
 Existe uma questão neste jogo, que o norteia do começo ao fim e talvez até extrapole a 4ª parede. O próprio nome do jogo é uma dica sobre o que se trata esta questão e é disso que trataremos neste artigo.
 
-* * *
+---
 
 ## Sobre o Jogo
 
@@ -38,7 +38,7 @@ Já a história, por ser no espaço e, principalmente, por conta do protagonismo
 Todo o jogo gira em torno de uma pergunta: “Máquinas podem pensar?”
 E é deste questionamento que surge o famoso Teste de Turing
 
-* * *
+---
 
 ## O Teste de Turing
 
@@ -101,9 +101,9 @@ O teste de Turing foi a primeira tentativa de resolver a questão da inteligênc
 
 Inúmeras críticas existem a esta abordagem, as mais comuns são:
 
--   Por que um teste que julga o comportamento deveria ser a resposta final a questão da capacidade cognitiva das máquinas, a psicologia não se afastou do behaviorismo?
--   Como o comportamento pode ser suficiente se os mecanismos internos que o controlam não são humanos?
--   Como toda inteligência humana pode ser capturada por uma conversa?
+- Por que um teste que julga o comportamento deveria ser a resposta final a questão da capacidade cognitiva das máquinas, a psicologia não se afastou do behaviorismo?
+- Como o comportamento pode ser suficiente se os mecanismos internos que o controlam não são humanos?
+- Como toda inteligência humana pode ser capturada por uma conversa?
 
 Todas as questões reduzem-se a saber se algo poderia passar no teste de Turing, isto é, produzir conversação natural, não possuindo inteligência “real”. Esse argumento foi declarado de várias maneiras, a mais eloquente entre elas talvez seja a metáfora da **sala Chinesa** de _John Searle_.
 
@@ -139,20 +139,20 @@ A pergunta que quero deixar ao leitor, e que aparece em muitas obras de ficção
 
 Um computador tem a capacidade de ser consciente, e se essa consciência for meramente simulada, no que isso difere de uma real? Afinal, como **TOM** diz a _Mikail_ no game: “Se uma coisa se parece com um pato, nada como um pato e grasna como um pato, então provavelmente é um pato”.
 
-* * *
+---
 
 The Turing Test está disponível para [PC](https://store.steampowered.com/app/499520/The_Turing_Test/), [Xbox](https://www.microsoft.com/pt-br/p/the-turing-test/BS2MMFVLKXRK?activetab=pivot:overviewtab) e [Playstation 4](https://store.playstation.com/en-us/product/UP2527-CUSA07026_00-THETURINGTEST001).
 
-* * *
+---
 
 ## Referências
 
--   [https://www.iep.utm.edu/chineser/](https://www.iep.utm.edu/chineser/)
--   [https://www.aisb.org.uk/events/loebner-prize](https://www.aisb.org.uk/events/loebner-prize)
--   [http://www.psych.utoronto.ca/users/reingold/courses/ai/turing.html](http://www.psych.utoronto.ca/users/reingold/courses/ai/turing.html)
--   [http://www.psych.utoronto.ca/users/reingold/courses/ai/chinese.html](http://www.psych.utoronto.ca/users/reingold/courses/ai/chinese.html)
--   [http://cogprints.org/7150/1/10.1.1.83.5248.pdf](http://cogprints.org/7150/1/10.1.1.83.5248.pdf)
+- [Internet Encyclopedia of Philosophy — The Chinese Room Argument](https://www.iep.utm.edu/chineser/)
+- [AISB — Loebner Prize](https://www.aisb.org.uk/events/loebner-prize)
+- [University of Toronto — The Turing Test](http://www.psych.utoronto.ca/users/reingold/courses/ai/turing.html)
+- [University of Toronto — The Chinese Room](http://www.psych.utoronto.ca/users/reingold/courses/ai/chinese.html)
+- [John Searle — Minds, Brains, and Programs (PDF)](http://cogprints.org/7150/1/10.1.1.83.5248.pdf)
 
-* * *
+---
 
 ![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-8.jpg)

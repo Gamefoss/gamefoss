@@ -20,7 +20,7 @@ _Alien_, o Oitavo Passageiro é um clássico filme de terror e ficção científ
 **Alien Isolation** é uma tentativa bem-sucedida de adaptação deste clássico para o mundo dos games. O fluxo de tensão nesse _survival horror sci-fi_ consegue transportar o jogador para o universo opressivo, criado por Ridley Scott.
 Neste artigo analisamos a estrutura desenvolvida para criar a inteligência artificial por trás do organismo perfeito, também conhecido como **Alien** ou **Xenomorfo**.
 
-* * *
+---
 
 ## Objetivo
 
@@ -42,10 +42,10 @@ Como é a proximidade com o _Alien_ que comanda a tensão no jogo, o sistema é 
 
 A **IA Diretora** é responsável pelo que podemos chamar de medidor de ameaça, um sistema que coordena o nível de tensão. Isso é feito por medições de certas variáveis:
 
--   Proximidade entre o jogador e o **Xenomorfo**
--   Tempo perto do jogador
--   Tempo sendo visto pelo jogador
--   Tempo visível no sensor de movimento e perto o suficiente para atacar
+- Proximidade entre o jogador e o **Xenomorfo**
+- Tempo perto do jogador
+- Tempo sendo visto pelo jogador
+- Tempo visível no sensor de movimento e perto o suficiente para atacar
 
 Esse último é importante, pois o Alien pode estar no sensor de movimento, mas em outra sala, por exemplo, o que diminuiria o nível de ameaça.
 
@@ -89,15 +89,15 @@ Ele não possui sensores para saber se alguém pisou em seu rabo, mas possui um 
 O _Alien_ possui um sistema de busca. Quando a **IA Diretora** o encaminha para um ambiente, existe uma série de locais que devem ser vasculhados. Esses pontos de interesse podem ser definidos pelos desenvolvedores ou criados dinamicamente pela ação do jogador.
 O Alien se movimenta de modo a cobrir todos os pontos de interesse, porém ele não faz isso de maneira otimizada e pode passar pelo mesmo local mais de uma vez.
 
-* * *
+---
 
 Alien Isolation inova ao utilizar um antagonista completamente controlado por um sistema de IA dentro de um gênero de horror e é exatamente isso que carrega toda a força do título. Com certeza o jogo não seria tão interessante sem essa imprevisibilidade permitida pela IA.
 
-* * *
+---
 
 **Alien Isolation** está disponível para [PC](https://store.steampowered.com/app/214490/Alien_Isolation/), [XBOX](https://www.microsoft.com/pt-br/p/alien-isolation/c1h9v6slk2k5) e [Playstation 4](https://store.steampowered.com/app/214490/Alien_Isolation/).
 
-* * *
+---
 
 ## Referências:
 

@@ -16,7 +16,7 @@ No último texto, falamos sobre como é importante definir os objetivos e vontad
 
 > Inclusive, já deixo o aviso de spoilers. Irei analisar os acontecimentos a fundo, então irei trazer sim coisas que só quem jogou vai conhecer. Quem quer jogar e viver essas personagens antes, por favor, pare de ler por aqui.
 
-* * *
+---
 
 ## Flowey
 
@@ -28,7 +28,7 @@ O melhor da personagem, no entanto, é o fato de que, quanto mais você descobre
 
 Dessa forma, fica claro que aqui temos um antagonista que pode ser visto como vítima.  Asriel está sofrendo pelas coisas que aconteceram com ele, então também há uma jornada que a personagem faz para se vingar do que fizeram com ele, de destruir o mundo para poder resetá-lo. Isso dá profundidade para ele, tornando-o um vilão de enredo muito bom e que integra de maneira muito sólida o universo do jogo.
 
-* * *
+---
 
 ## World Ender
 
@@ -58,7 +58,7 @@ Isso porque Monaca usou da influência que ela conquistou na empresa de sua fam�
 
 Depois da morte de Junko, Monaca começa procurar uma sucessora, encontrando em Komaru Naegi (protagonista do terceiro jogo) um potencial enorme. Ela, seguindo o exemplo de sua mentora, a manipulou por uma série de “jogos demoníacos” para tentar fazê-la ser dominada pelo desespero e trazê-la como a segunda Junko Enoshima. A ideia era no final dos jogos, ela deixar Komaru pegar o controle dos capacetes de Monokuma e deixá-la com a decisão de ou desativas os capacetes ao custo da vida de todas as crianças da cidade ou não desativar e provocar a ira dos adultos, que clamavam pelo fim daquele pesadelo a qualquer custo. Com esse poder de manipulação e a inteligência até na maneira de se relacionar com as pessoas provavelmente faz Monaca ser de fato uma das melhores vilãs que eu já vi em um videogame.
 
-* * *
+---
 
 ## Dahlia Hawthorne
 
@@ -76,6 +76,6 @@ Depois de tudo isso, ela é condenada à morte, mas mesmo depois de morta, Dahli
 
 Dahila Hawthorne é o tipo de vilã que é perserverante, mas nunca consegue de fato cumprir suas ambições. Isso porque é bloqueada por Mia Fey, que a descobre e a impede sempre. O mais interessante é que Mia rouba todo o protagonismo nesse cenário, mesmo que o Personagem Jogável seja Phoenix Wright muitas vezes. Isso porque uma ordem foi estabelecida: enquanto Mia puder interferir, Dahlia nunca vai conseguir vencer.
 
-* * *
+---
 
 Esses vilões se estabelecem de maneiras diferentes, por motivos diferentes, mas sempre cumprem muito bem seu papel. Um bom vilão não segue regras, mas _princípios_, como ter uma motivação bem estabelecida, causam alguma espécie de empatia com o jogador e, principalmente: contribuem com a motivação do protagonista. Dessa forma, um vilão pode ser uma receita já saturada nas mídias, mas um bom vilão pode sim compensar por isso. É só usá-lo de forma que faz sentido e que se encaixa com o enredo.

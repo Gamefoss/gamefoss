@@ -34,21 +34,21 @@ Esquema de botões do jogo original
 
 Quando todos os asteroides da tela forem destruídos, um novo nível surge, com mais dois asteroides além dos mesmos que estavam no nível anterior, ou seja, se no nível 1 haviam 4 asteroides, no nível 2 agora teremos 6.
 
-* * *
+---
 
 ## Pontuações
 
 O Jogo original segue a seguinte lista de pontos:
 
--   Asteroide Grande = 30 pontos
--   Asteroide Médio = 50 pontos
--   Asteroide Pequeno = 100 pontos
--   OVNI Grande = 200 Pontos
--   OVNI Pequeno = 1000 pontos
+- Asteroide Grande = 30 pontos
+- Asteroide Médio = 50 pontos
+- Asteroide Pequeno = 100 pontos
+- OVNI Grande = 200 Pontos
+- OVNI Pequeno = 1000 pontos
 
 A cada 10.000 pontos, o jogador ganha uma vida extra
 
-* * *
+---
 
 ## Motivações
 
@@ -64,17 +64,17 @@ O botão de Hiperespaço, motivo de muitas fichas terem sido gastas, era usado e
 
 Mas nada Supera a tela de  **_Ranking_**. Ao final de cada partida, uma lista com os top 10 jogadores aparece e isso, como _Bartle_ explica, é extremamente importante como motivação.
 
-* * *
+---
 
 ## Taxonomia de Richard A. Bartle
 
 A Taxonomia de Richard A. Bartle, é uma ótima forma de explicar como pessoas interagem em um ambiente de jogo e amplamente utilizado em MMORPGs.
 Bartle diz que existem basicamente 4 tipos de jogadores:
 
--   Achievers
--   Explorers
--   Socializers
--   Killers
+- Achievers
+- Explorers
+- Socializers
+- Killers
 
 Nesse artigo quero dar um foco nos Assassinos (Killers).
 
@@ -98,7 +98,7 @@ Agora, **Asteroids** é um jogo em que Assassinos interagem com outros assassino
 
 Dentro do jogo, não, mas esse fenômeno acontece do lado de fora do _Arcade_.
 
-* * *
+---
 
 ## Rei da Montanha :
 
@@ -120,7 +120,7 @@ Todo o processo agora é uma competição de Assassino vs Assassino. Quem conseg
 
 Assassinos sempre querem ver seu nome no topo da lista de Ranking. No futuro aquele nome ainda vai estar lá e outras pessoas tentarão desbancá-lo, colocando muitas fichas naquela máquina. Com o advento da internet é possível elevar esse desafio a uma escala global, tanto que o [recordista mundial](https://www.wired.com/2010/04/asteroids-record/) de **Asteroids** jogou por três dias para conseguir essa pontuação.
 
-* * *
+---
 
 ## Quando não usar?
 
@@ -136,7 +136,7 @@ Habitica, uma lista de tarefas gameficada
 
 A **Gameficação** é outro tipo de projeto em que é possível se aproveitar deste perfil de jogador e utilizar o fato de que eles querem sempre se sobressair perante aos demais para incentivar, por exemplo, a serem os colaboradores a matar o maior número de tarefas possível.
 
-* * *
+---
 
 ## Jogo desenvolvido
 
