@@ -369,7 +369,6 @@ button, input { font: inherit; }
   .carousel__controls { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: .75rem; margin-top: 1.25rem; padding-inline: var(--gf-space-shell); }
   .carousel__button, .carousel__dot { display: grid; place-items: center; border: 2px solid var(--color-ink); background: var(--color-surface); color: var(--color-ink); cursor: pointer; }
   .carousel__button { width: 44px; height: 44px; box-shadow: 3px 3px 0 var(--color-ink); transition: background-color .15s ease, color .15s ease, transform .1s ease, box-shadow .1s ease; }
-  .carousel__button:not(:disabled):hover,
   .carousel__button:not(:disabled):focus-visible { background: var(--color-accent); color: var(--color-ink); }
   .carousel__button:not(:disabled):active { background: var(--color-accent); color: var(--color-ink); box-shadow: none; transform: translate(3px, 3px); }
   .carousel__button:disabled { opacity: .35; box-shadow: none; cursor: default; transform: none; }
