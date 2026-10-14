@@ -13,31 +13,31 @@ const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
     <div><Logo variant="vertical" /><p>Jogos, tecnologia, sociedade<br />e o que mais der na telha.</p></div>
     <div class="site-footer__menus">
       <nav aria-label="Artigos">
-        <a class="site-footer__heading" href={withBase('/artigos/')}>Artigos</a>
-        <a href={withBase('/categorias/')}>Categorias</a>
-        <a href={withBase('/tags/')}>Tags</a>
-        <a href={withBase('/autores/')}>Autores</a>
+        <a class="site-footer__heading" href={withBase('/artigos/')} data-ga="navigation-footer-articles">Artigos</a>
+        <a href={withBase('/categorias/')} data-ga="navigation-footer-categories">Categorias</a>
+        <a href={withBase('/tags/')} data-ga="navigation-footer-tags">Tags</a>
+        <a href={withBase('/autores/')} data-ga="navigation-footer-authors">Autores</a>
       </nav>
       <nav aria-label="Podcast">
-        <a class="site-footer__heading" href={withBase('/podcast/')}>Podcast</a>
-        <a class="site-footer__external" href={SPOTIFY_SHOW} target="_blank" rel="noopener">Spotify <Icon name="external-link" /></a>
-        <a class="site-footer__external" href={APPLE_PODCASTS} target="_blank" rel="noopener">Apple Podcasts <Icon name="external-link" /></a>
-        <a class="site-footer__external" href={CASTBOX} target="_blank" rel="noopener">Castbox <Icon name="external-link" /></a>
+        <a class="site-footer__heading" href={withBase('/podcast/')} data-ga="navigation-footer-podcast">Podcast</a>
+        <a class="site-footer__external" href={SPOTIFY_SHOW} target="_blank" rel="noopener" data-ga="podcast-footer-spotify">Spotify <Icon name="external-link" /></a>
+        <a class="site-footer__external" href={APPLE_PODCASTS} target="_blank" rel="noopener" data-ga="podcast-footer-apple">Apple Podcasts <Icon name="external-link" /></a>
+        <a class="site-footer__external" href={CASTBOX} target="_blank" rel="noopener" data-ga="podcast-footer-castbox">Castbox <Icon name="external-link" /></a>
       </nav>
       <nav aria-label="Sobre">
-        <a class="site-footer__heading" href={withBase('/sobre/')}>Sobre</a>
-        <a href={withBase('/contato/')}>Contato</a>
-        <a href={withBase('/privacidade/')}>Privacidade</a>
-        <Button variant="white" icon="cookie" className="site-footer__cookie" type="button" data-consent-settings>cookies</Button>
+        <a class="site-footer__heading" href={withBase('/sobre/')} data-ga="navigation-footer-about">Sobre</a>
+        <a href={withBase('/contato/')} data-ga="navigation-footer-contact">Contato</a>
+        <a href={withBase('/privacidade/')} data-ga="navigation-footer-privacy">Privacidade</a>
+        <Button variant="white" icon="cookie" className="site-footer__cookie" type="button" data-consent-settings data-ga="consent-open-settings">cookies</Button>
       </nav>
     </div>
   </div>
   <div class="site-footer__lower shell">
     <nav class="site-footer__socials" aria-label="Redes sociais">
-      <Button as="a" variant="accent" icon="twitter" iconOnly href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter" />
-      <Button as="a" variant="accent" icon="instagram" iconOnly href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram" />
-      <Button as="a" variant="accent" icon="youtube" iconOnly href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube" />
-      <Button as="a" variant="accent" icon="twitch" iconOnly href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch" />
+      <Button as="a" variant="accent" icon="twitter" iconOnly href="https://twitter.com/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss no Twitter" data-ga="social-footer-twitter" />
+      <Button as="a" variant="accent" icon="instagram" iconOnly href="https://www.instagram.com/game_foss/" rel="me noopener" target="_blank" aria-label="Gamefoss no Instagram" data-ga="social-footer-instagram" />
+      <Button as="a" variant="accent" icon="youtube" iconOnly href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" rel="me noopener" target="_blank" aria-label="Gamefoss no YouTube" data-ga="social-footer-youtube" />
+      <Button as="a" variant="accent" icon="twitch" iconOnly href="https://www.twitch.tv/game_foss" rel="me noopener" target="_blank" aria-label="Gamefoss na Twitch" data-ga="social-footer-twitch" />
     </nav>
     <div class="site-footer__bottom">
       <span>© {new Date().getFullYear()} Gamefoss</span>
@@ -47,6 +47,7 @@ const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
           href="https://dihgg.com/?utm_source=gamefoss&utm_medium=footer&utm_campaign=credits&utm_content=gamefoss"
           target="_blank"
           rel="author noopener"
+          data-ga="credits-dihgg"
         >
           <img src={withBase('/images/main/dihgg.svg')} alt="{dihgg}" />
         </a>

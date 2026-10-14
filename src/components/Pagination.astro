@@ -8,7 +8,7 @@ const href = (page:number) => page === 1 ? withBase(`${root}/`) : withBase(`${ro
 {last > 1 && <nav class="pagination" aria-label="Paginação">
   <span class="pagination__status">PÁGINA {current} / {last}</span>
   <div class="pagination__actions">
-    {current > 1 ? <Button as="a" variant="ghost" href={href(current - 1)} icon="arrow-left">Anterior</Button> : <Button variant="ghost" icon="arrow-left" disabled aria-disabled="true">Anterior</Button>}
-    {current < last ? <Button as="a" variant="ghost" href={href(current + 1)} icon="arrow-right" iconPosition="right">Próxima</Button> : <Button variant="ghost" icon="arrow-right" iconPosition="right" disabled aria-disabled="true">Próxima</Button>}
+    {current > 1 ? <Button as="a" variant="ghost" href={href(current - 1)} icon="arrow-left" data-ga="pagination-previous">Anterior</Button> : <Button variant="ghost" icon="arrow-left" disabled aria-disabled="true">Anterior</Button>}
+    {current < last ? <Button as="a" variant="ghost" href={href(current + 1)} icon="arrow-right" iconPosition="right" data-ga="pagination-next">Próxima</Button> : <Button variant="ghost" icon="arrow-right" iconPosition="right" disabled aria-disabled="true">Próxima</Button>}
   </div>
 </nav>}

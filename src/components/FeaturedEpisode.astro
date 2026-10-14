@@ -13,13 +13,13 @@ const artwork = getEpisodeArtwork(episode);
 ---
 <article class="featured-episode">
   <div class="featured-episode__art">
-    <a href={withBase(`/podcast/${episode.slug}/`)}>
+    <a href={withBase(`/podcast/${episode.slug}/`)} data-ga="featured-episode-artwork">
       <img src={artwork} alt={`Capa do episódio ${episode.title}`} />
     </a>
   </div>
   <div class="featured-episode__content">
     <p class="eyebrow"><Icon name="play" /><span>NOVO EPISÓDIO</span></p>
-    <a href={withBase(`/podcast/${episode.slug}/`)}>
+    <a href={withBase(`/podcast/${episode.slug}/`)} data-ga="featured-episode-title">
       <h2>{episode.title}</h2>
     </a>
     <p>{excerpt}…</p>
@@ -27,8 +27,8 @@ const artwork = getEpisodeArtwork(episode);
   <div class="featured-episode__media">
     <AudioPlayer src={episode.audioUrl} preload="none" label={`Ouvir ${episode.title}`} className="featured-episode__audio" />
     <div class="featured-episode__actions">
-      <Button as="a" href={withBase(`/podcast/${episode.slug}/`)}>Detalhes</Button>
-      <Button as="a" variant="ghost" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify">Spotify</Button>
+      <Button as="a" href={withBase(`/podcast/${episode.slug}/`)} data-ga="featured-episode-details">Detalhes</Button>
+      <Button as="a" variant="ghost" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify" data-ga="featured-episode-spotify">Spotify</Button>
     </div>
   </div>
 </article>

@@ -17,9 +17,9 @@ const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
       <label><input type="checkbox" name="ads" /> Publicidade</label>
     </div>
     <div class="consent__actions">
-      <Button variant="ghost" type="submit" value="reject">Só necessários</Button>
-      <Button variant="ghost" type="submit" value="save">Salvar escolhas</Button>
-      <Button type="submit" value="accept">Aceitar todos</Button>
+      <Button variant="ghost" type="submit" value="reject" data-ga="consent-reject">Só necessários</Button>
+      <Button variant="ghost" type="submit" value="save" data-ga="consent-save">Salvar escolhas</Button>
+      <Button type="submit" value="accept" data-ga="consent-accept">Aceitar todos</Button>
     </div>
   </form>
 </dialog>

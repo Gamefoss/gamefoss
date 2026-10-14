@@ -22,7 +22,7 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'PodcastEpisode', na
     <div class="page-hero__content shell"><p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p><h1>{episode.title}</h1>{episode.duration && <p class="page-hero__description">Duração: {episode.duration}</p>}</div>
   </header>
   <div class="prose" data-pagefind-body>
-    <div class="episode-player"><AudioPlayer src={episode.audioUrl} label={`Ouvir ${episode.title}`} className="episode-player__audio" /><Button as="a" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify">Spotify</Button></div>
+    <div class="episode-player"><AudioPlayer src={episode.audioUrl} label={`Ouvir ${episode.title}`} className="episode-player__audio" analyticsLabel="episode-audio-player" /><Button as="a" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify" data-ga="episode-spotify">Spotify</Button></div>
     <div set:html={episode.description} />
     <Share client:load title={episode.title} url={episodeUrl} description={episodeDescription} />
   </div><AdSlot />

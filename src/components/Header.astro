@@ -8,14 +8,14 @@ const links = [
 ---
 <header class="site-header">
   <div class="site-header__inner shell">
-    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="main-navigation" data-ga="navigation-menu-toggle">
       <span class="sr-only">Abrir menu</span><span></span><span></span><span></span>
     </button>
     <Logo />
-    <Button as="a" variant="accent" className="site-header__mobile-search" href={withBase('/busca/')} aria-label="Buscar" icon="search" iconOnly />
+    <Button as="a" variant="accent" className="site-header__mobile-search" href={withBase('/busca/')} aria-label="Buscar" icon="search" iconOnly data-ga="search-header-mobile" />
     <nav id="main-navigation" class="site-header__nav" aria-label="Navegação principal">
-      {links.map(([label, href]) => <a href={withBase(href)}>{label}</a>)}
-      <Button as="a" variant="accent" className="site-header__search" href={withBase('/busca/')} aria-label="Buscar" icon="search">Buscar</Button>
+      {links.map(([label, href]) => <a href={withBase(href)} data-ga={`navigation-header-${label.toLowerCase()}`}>{label}</a>)}
+      <Button as="a" variant="accent" className="site-header__search" href={withBase('/busca/')} aria-label="Buscar" icon="search" data-ga="search-header">Buscar</Button>
     </nav>
   </div>
   <button class="site-header__overlay" type="button" aria-label="Fechar menu" tabindex="-1"></button>

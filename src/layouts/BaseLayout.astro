@@ -58,5 +58,9 @@ const imageUrl = new URL(image.replace(/^\//, ''), `${import.meta.env.SITE.repla
     <EnvironmentBanner /><Header />
     <main id="conteudo"><slot /></main>
     <Footer /><ConsentBanner />
+    <script>
+      import { initAnalyticsTracking } from '@/lib/analytics';
+      initAnalyticsTracking();
+    </script>
   </body>
 </html>

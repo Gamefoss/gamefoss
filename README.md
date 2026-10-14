@@ -33,4 +33,12 @@ The RSS feed is the only podcast source of truth. `npm run dev`, `npm run check`
 
 Create GitHub Environments named `development` and `production`. In each, configure `FTP_SERVER`, `FTP_USERNAME`, `FTP_TARGET_DIR`, and `PUBLIC_CONTACT_EMAIL` as variables and `FTP_PASSWORD` as a secret. Production may additionally define `PUBLIC_GTAG_ID`, `PUBLIC_ADSENSE_CLIENT`, and `PUBLIC_ADSENSE_SLOT`. Set the development FTP target explicitly to `/dev/` and production to the hosting web root.
 
+Analytics and advertising values use the identifiers copied from their Google snippets:
+
+- `PUBLIC_GTAG_ID`: the GA4 web stream Measurement ID (`G-...`).
+- `PUBLIC_ADSENSE_CLIENT`: the complete AdSense client/publisher value (`ca-pub-...`).
+- `PUBLIC_ADSENSE_SLOT`: the numeric `data-ad-slot` value from the responsive display ad unit.
+
+Clicks on elements carrying `data-ga` are reported as the GA4 event `ui_interaction`, with `interaction_name` set to the attribute value and `link_url` included for links. The delegated listener only emits events after Analytics consent has been granted.
+
 `dangerous-clean-slate` is intentionally enabled so each target is an exact mirror. The isolation of `FTP_TARGET_DIR` between GitHub Environments is therefore a required deployment safeguard.

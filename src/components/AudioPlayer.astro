@@ -4,6 +4,7 @@ interface Props {
   label?: string;
   preload?: 'none' | 'metadata' | 'auto';
   className?: string;
+  analyticsLabel?: string;
 }
 
 const {
@@ -11,10 +12,11 @@ const {
   label = 'Reprodutor de áudio',
   preload = 'metadata',
   className = '',
+  analyticsLabel = 'audio-player',
 } = Astro.props;
 ---
 
-<div class:list={['audio-player-shell', className]}>
+<div class:list={['audio-player-shell', className]} data-ga={analyticsLabel}>
   <media-controller class="audio-player" audio aria-label={label}>
     <audio slot="media" src={src} preload={preload}>Seu navegador não suporta áudio.</audio>
     <media-control-bar>
