@@ -68,7 +68,10 @@ jobs:
           PUBLIC_ADSENSE_SLOT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT || '' }}
           PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
           PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
-      - run: npm run validate:links
+      - name: Validate generated links
+        run: npm run validate:links
+        env:
+          PUBLIC_BASE_PATH: ${{ needs.resolve.outputs.environment == 'development' && '/dev' || '/' }}
       - uses: actions/upload-artifact@v4
         with:
           name: gamefoss-${{ needs.resolve.outputs.environment }}-${{ github.run_number }}
