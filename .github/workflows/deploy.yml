@@ -75,7 +75,7 @@ jobs:
           path: dist/
           if-no-files-found: error
       - name: Deploy exact mirror over FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.6
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ vars.FTP_SERVER }}
           username: ${{ vars.FTP_USERNAME }}
