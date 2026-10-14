@@ -26,6 +26,7 @@
     "astro": "^7.3.8",
     "embla-carousel": "^8.6.0",
     "fast-xml-parser": "^5.2.5",
+    "media-chrome": "^4.19.3",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-icons": "^5.7.0",

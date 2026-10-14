@@ -1,5 +1,6 @@
 ---
 import Button from './Button';
+import AudioPlayer from './AudioPlayer.astro';
 import Icon from './Icon';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { getEpisodeArtwork, sanitizeEpisodeHtml } from '@/lib/podcast';
@@ -24,7 +25,7 @@ const artwork = getEpisodeArtwork(episode);
     <p>{excerpt}…</p>
   </div>
   <div class="featured-episode__media">
-    <audio controls preload="none" src={episode.audioUrl}>Seu navegador não suporta áudio.</audio>
+    <AudioPlayer src={episode.audioUrl} preload="none" label={`Ouvir ${episode.title}`} className="featured-episode__audio" />
     <div class="featured-episode__actions">
       <Button as="a" href={withBase(`/podcast/${episode.slug}/`)}>Detalhes</Button>
       <Button as="a" variant="ghost" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify">Spotify</Button>
