@@ -67,6 +67,7 @@ jobs:
           PUBLIC_ADSENSE_CLIENT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_CLIENT || '' }}
           PUBLIC_ADSENSE_SLOT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT || '' }}
           PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       - run: npm run validate:links
       - uses: actions/upload-artifact@v4
         with:

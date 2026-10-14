@@ -24,6 +24,7 @@ jobs:
           DEPLOY_ENV: production
           PUBLIC_SITE_URL: https://gamefoss.com.br
           PUBLIC_BASE_PATH: /
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       - run: npm run validate:links
       - uses: actions/upload-artifact@v4
         with:
