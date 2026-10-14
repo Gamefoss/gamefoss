@@ -1,6 +1,25 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button';
+import Icon from '@/components/Icon';
 import { withBase } from '@/lib/site';
 ---
-<BaseLayout title="Página não encontrada" noindex><header class="page-hero"><div class="shell"><p class="eyebrow">GAME OVER?</p><h1>404</h1><p>Essa fase não existe — ou mudou de endereço.</p><Button as="a" href={withBase('/')} icon="arrow-left">Voltar ao início</Button></div></header></BaseLayout>
+<BaseLayout title="Página não encontrada" noindex>
+  <header class="page-hero error-hero">
+    <div class="error-hero__content shell">
+      <p class="eyebrow"><strong>GAME OVER</strong></p>
+      <div class="error-hero__lives" aria-hidden="true">
+        <Icon name="heart" />
+        <Icon name="heart" />
+        <Icon name="heart-outline" />
+      </div>
+      <h1>404</h1>
+      <p class="error-hero__message">A princesa está em outro castelo!</p>
+      <p class="error-hero__prompt" aria-hidden="true">PRESS START TO CONTINUE</p>
+      <div class="error-hero__actions">
+        <Button as="a" variant="accent" href={withBase('/')} icon="home">Página inicial</Button>
+        <Button as="a" variant="ghost" href={withBase('/busca/')} icon="search">Buscar</Button>
+      </div>
+    </div>
+  </header>
+</BaseLayout>

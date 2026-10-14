@@ -24,7 +24,7 @@ const latest = podcast[0];
 
   <section class="section section--paper"><div class="shell">
     <div class="section-heading"><div><p class="eyebrow">LEIA, REFLITA & CONSTRUA</p><h2>Artigos</h2></div><a class="link-with-icon" href={withBase('/artigos/')}>VER TODOS <Icon name="arrow-right" /></a></div>
-    <Carousel label="Artigos em destaque" className="article-carousel" trackClass="article-grid article-grid--home">{articles.slice(0,6).map((article, index) => <ArticleCard article={article} featured={index === 0} />)}</Carousel>
+    <Carousel label="Artigos em destaque" className="article-carousel" trackClass="article-grid article-grid--home">{articles.slice(0,6).map((article) => <ArticleCard article={article} featured={article.data.featured} />)}</Carousel>
   </div></section>
   <AdSlot />
 </BaseLayout>

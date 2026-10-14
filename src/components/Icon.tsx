@@ -6,6 +6,8 @@ import {
   FaCookieBite,
   FaExternalLinkAlt,
   FaHeadphones,
+  FaHeart,
+  FaHome,
   FaInstagram,
   FaLink,
   FaLinkedinIn,
@@ -18,6 +20,7 @@ import {
   FaWhatsapp,
   FaYoutube,
   FaPlay,
+  FaRegHeart,
 } from 'react-icons/fa';
 import { SiCastbox } from 'react-icons/si';
 import { BsStarFill } from "react-icons/bs";
@@ -30,6 +33,9 @@ const icons = {
   cookie: FaCookieBite,
   'external-link': FaExternalLinkAlt,
   headphones: FaHeadphones,
+  heart: FaHeart,
+  'heart-outline': FaRegHeart,
+  home: FaHome,
   instagram: FaInstagram,
   link: FaLink,
   linkedin: FaLinkedinIn,
