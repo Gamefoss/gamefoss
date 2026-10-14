@@ -16,7 +16,7 @@ const podcast = episodes as PodcastEpisode[];
 const latest = podcast[0];
 ---
 <BaseLayout>
-  {latest && <section class="section"><div class="featured-podcast shell"><FeaturedEpisode episode={latest} /><aside class="featured-podcast__more"><div class="section-heading"><div><p class="eyebrow">NO SEU FONE <Icon name="headphones" /></p><h2>Episódios</h2></div></div><div class="episode-list episode-list--compact">{podcast.slice(1,4).map((episode) => <EpisodeCard episode={episode} />)}</div><div class="featured-podcast__more-action"><Button as="a" variant="accent" href={withBase('/podcast/')} icon="arrow-right" iconPosition="right">Ver todos</Button></div></aside></div></section>}
+  {latest && <section class="section"><div class="featured-podcast shell"><FeaturedEpisode episode={latest} /><aside class="featured-podcast__more"><div class="section-heading"><div><p class="eyebrow">NO SEU FONE <Icon name="headphones" /></p><h2>Episódios</h2></div></div><div class="episode-list episode-list--compact">{podcast.slice(1,3).map((episode) => <EpisodeCard episode={episode} />)}</div><div class="featured-podcast__more-action"><Button as="a" variant="accent" href={withBase('/podcast/')} icon="arrow-right" iconPosition="right">Ver todos</Button></div></aside></div></section>}
 
   <section class="section section--paper"><div class="shell">
     <div class="section-heading"><div><p class="eyebrow">LEIA, REFLITA & CONSTRUA</p><h2>Artigos</h2></div><a class="link-with-icon" href={withBase('/artigos/')}>VER TODOS <Icon name="arrow-right" /></a></div>
