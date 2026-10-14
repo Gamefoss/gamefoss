@@ -13,7 +13,8 @@
     "podcast:sync": "tsx scripts/sync-podcast.ts",
     "content:migrate": "tsx scripts/migrate-wordpress.ts",
     "validate:links": "tsx scripts/validate-links.ts",
-    "validate": "npm run test && npm run check && npm run build && npm run validate:links"
+    "validate": "npm run test && npm run check && npm run build && npm run validate:links",
+    "release": "standard-version --infile changelog.md"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.3",
@@ -40,6 +41,7 @@
     "@types/turndown": "^5.0.6",
     "@vitejs/plugin-react": "^6.1.2",
     "pagefind": "^1.4.0",
+    "standard-version": "^9.5.0",
     "tsx": "^4.20.6",
     "turndown": "^7.2.4",
     "turndown-plugin-gfm": "^1.0.2",
