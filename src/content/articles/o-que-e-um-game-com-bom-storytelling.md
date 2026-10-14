@@ -9,7 +9,7 @@ cover: /images/articles/o-que-e-um-game-com-bom-storytelling/cover.jpg
 coverAlt: "O que é um game com bom storytelling?"
 legacyUrl: https://gamefoss.com.br/ludokratia/o-que-e-um-game-com-bom-storytelling/
 draft: false
-featured: false
+featured: true
 ---
 
 ## A Arte de Contar Histórias

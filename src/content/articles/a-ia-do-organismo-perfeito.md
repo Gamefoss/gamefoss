@@ -9,7 +9,7 @@ cover: /images/articles/a-ia-do-organismo-perfeito/cover.jpg
 coverAlt: "A IA do organismo perfeito"
 legacyUrl: https://gamefoss.com.br/ludokratia/a-ia-do-organismo-perfeito/
 draft: false
-featured: true
+featured: false
 ---
 
 ![](../../../public/images/articles/a-ia-do-organismo-perfeito/image-1.jpg)

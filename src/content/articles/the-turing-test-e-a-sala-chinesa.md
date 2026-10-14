@@ -9,7 +9,7 @@ cover: /images/articles/the-turing-test-e-a-sala-chinesa/cover.jpg
 coverAlt: "The Turing Test e a sala chinesa"
 legacyUrl: https://gamefoss.com.br/ludokratia/the-turing-test-e-a-sala-chinesa/
 draft: false
-featured: false
+featured: true
 ---
 
 Recentemente joguei um jogo chamado [_The Turing Test_](https://store.steampowered.com/app/499520/The_Turing_Test/), da [Bulkhead Interactire](https://www.bulkheadinteractive.com).
