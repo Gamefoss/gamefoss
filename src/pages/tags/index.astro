@@ -7,6 +7,6 @@ const articles = await getCollection('articles', ({ data }) => !data.draft);
 const tags = [...new Set(articles.flatMap((article) => article.data.tags))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
 ---
 <BaseLayout title="Tags" description="Assuntos encontrados nos artigos do Gamefoss.">
-  <header class="page-hero" data-pagefind-body><div class="shell"><p class="eyebrow">EXPLORE OUTROS ASSUNTOS</p><h1>Tags</h1></div></header>
+  <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Página"><div class="shell"><p class="eyebrow">EXPLORE OUTROS ASSUNTOS</p><h1>Tags</h1></div></header>
   <section class="section section--paper"><div class="tag-list shell">{tags.map((tag) => <a class="chip" href={withBase(`/tag/${slugify(tag)}/`)}>{tag}</a>)}</div></section>
 </BaseLayout>

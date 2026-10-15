@@ -6,6 +6,7 @@ type Variant = 'primary' | 'ghost' | 'accent' | 'white';
 interface SharedProps {
   variant?: Variant;
   iconPosition?: 'left' | 'right';
+  compact?: boolean;
   className?: string;
 }
 
@@ -38,16 +39,17 @@ export default function Button(props: ButtonProps) {
     icon,
     iconOnly = false,
     iconPosition = 'left',
+    compact = false,
     className,
   } = props;
-  const classes = ['button', variant !== 'primary' && `button--${variant}`, iconOnly && 'button--icon-only', className].filter(Boolean).join(' ');
+  const classes = ['button', variant !== 'primary' && `button--${variant}`, iconOnly && 'button--icon-only', compact && 'button--compact', className].filter(Boolean).join(' ');
   const content = <>{icon && (iconOnly || iconPosition === 'left') && <Icon name={icon} />}{!iconOnly && <span>{children}</span>}{icon && !iconOnly && iconPosition === 'right' && <Icon name={icon} />}</>;
 
   if (props.as === 'a') {
-    const { as: _as, variant: _variant, icon: _icon, iconOnly: _iconOnly, iconPosition: _iconPosition, className: _className, children: _children, ...anchorProps } = props;
+    const { as: _as, variant: _variant, icon: _icon, iconOnly: _iconOnly, iconPosition: _iconPosition, compact: _compact, className: _className, children: _children, ...anchorProps } = props;
     return <a {...anchorProps} className={classes}>{content}</a>;
   }
 
-  const { as: _as, variant: _variant, icon: _icon, iconOnly: _iconOnly, iconPosition: _iconPosition, className: _className, children: _children, ...buttonProps } = props;
+  const { as: _as, variant: _variant, icon: _icon, iconOnly: _iconOnly, iconPosition: _iconPosition, compact: _compact, className: _className, children: _children, ...buttonProps } = props;
   return <button {...buttonProps} className={classes}>{content}</button>;
 }

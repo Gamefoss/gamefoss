@@ -7,7 +7,7 @@ const categories = (await getCollection('categories')).sort((a, b) => a.data.ord
 const articles = await getCollection('articles', ({ data }) => !data.draft);
 ---
 <BaseLayout title="Categorias" description="Explore os artigos do Gamefoss por categoria.">
-  <header class="page-hero" data-pagefind-body><div class="shell"><p class="eyebrow">SELECIONE UMA ÁREA</p><h1>Categorias</h1><p>Os grandes temas que organizam os artigos do Gamefoss.</p></div></header>
+  <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Página"><div class="shell"><p class="eyebrow">SELECIONE UMA ÁREA</p><h1>Categorias</h1><p>Os grandes temas que organizam os artigos do Gamefoss.</p></div></header>
   <section class="section section--paper">
     <div class="taxonomy-grid shell">
       {categories.map((category) => {

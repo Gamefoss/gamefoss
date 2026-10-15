@@ -1,0 +1,48 @@
+---
+import Button from './Button';
+import type { IconName } from './Icon';
+
+type SocialNetwork = 'website' | 'instagram' | 'youtube' | 'bluesky' | 'twitter' | 'github' | 'linkedin' | 'twitch';
+
+interface Props {
+  socials: Partial<Record<SocialNetwork, string>>;
+  owner: string;
+  label?: string;
+  className?: string;
+  gaPrefix?: string;
+}
+
+const {
+  socials,
+  owner,
+  label = `Redes sociais de ${owner}`,
+  className,
+  gaPrefix = 'social',
+} = Astro.props;
+
+const socialMeta = {
+  website: { label: 'Site', icon: 'link' },
+  instagram: { label: 'Instagram', icon: 'instagram' },
+  youtube: { label: 'YouTube', icon: 'youtube' },
+  bluesky: { label: 'Bluesky', icon: 'bluesky' },
+  twitter: { label: 'Twitter', icon: 'twitter' },
+  github: { label: 'GitHub', icon: 'github' },
+  linkedin: { label: 'LinkedIn', icon: 'linkedin' },
+  twitch: { label: 'Twitch', icon: 'twitch' },
+} satisfies Record<SocialNetwork, { label: string; icon: IconName }>;
+
+const links = Object.entries(socials).filter((entry): entry is [SocialNetwork, string] => Boolean(entry[1]));
+---
+{links.length > 0 && <nav class:list={['socials', className]} aria-label={label}>
+  {links.map(([network, href]) => <Button
+    as="a"
+    variant="accent"
+    icon={socialMeta[network].icon}
+    iconOnly
+    href={href}
+    target="_blank"
+    rel="me noopener"
+    aria-label={`${owner} no ${socialMeta[network].label}`}
+    data-ga={`${gaPrefix}-${network}`}
+  />)}
+</nav>}

@@ -20,6 +20,6 @@ export async function getStaticPaths() {
 const { tag, articles } = Astro.props;
 ---
 <BaseLayout title={tag} description={`Artigos do Gamefoss sobre ${tag}.`}>
-  <header class="page-hero" data-pagefind-body><div class="shell"><Button as="a" variant="accent" className="taxonomy-back" href={withBase('/tags/')} icon="arrow-left">Tags</Button><p class="eyebrow">TAG</p><h1>{tag}</h1></div></header>
+  <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Tag"><div class="shell"><Button as="a" variant="accent" className="taxonomy-back" href={withBase('/tags/')} icon="arrow-left">Tags</Button><p class="eyebrow">TAG</p><h1>{tag}</h1></div></header>
   <section class="section section--paper"><div class="article-grid shell">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
 </BaseLayout>

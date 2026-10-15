@@ -4,7 +4,9 @@ import {
   FaArrowRight,
   FaApple,
   FaCookieBite,
+  FaEnvelope,
   FaExternalLinkAlt,
+  FaGithub,
   FaHeadphones,
   FaHeart,
   FaHome,
@@ -23,6 +25,7 @@ import {
   FaRegHeart,
 } from 'react-icons/fa';
 import { SiCastbox } from 'react-icons/si';
+import { SiBluesky } from 'react-icons/si';
 import { BsStarFill } from "react-icons/bs";
 
 const icons = {
@@ -31,7 +34,9 @@ const icons = {
   apple: FaApple,
   castbox: SiCastbox,
   cookie: FaCookieBite,
+  email: FaEnvelope,
   'external-link': FaExternalLinkAlt,
+  github: FaGithub,
   headphones: FaHeadphones,
   heart: FaHeart,
   'heart-outline': FaRegHeart,
@@ -39,6 +44,7 @@ const icons = {
   instagram: FaInstagram,
   link: FaLink,
   linkedin: FaLinkedinIn,
+  bluesky: SiBluesky,
   search: FaSearch,
   share: FaShareAlt,
   rss: FaRss,
