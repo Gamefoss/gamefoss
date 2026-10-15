@@ -36,6 +36,9 @@ const authors = defineCollection({
       instagram: z.url().optional(),
       youtube: z.url().optional(),
       bluesky: z.url().optional(),
+      twitter: z.url().optional(),
+      github: z.url().optional(),
+      linkedin: z.url().optional(),
     }).optional(),
   }),
 });

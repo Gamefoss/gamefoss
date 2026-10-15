@@ -8,7 +8,7 @@ const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
   <article class="prose">
     <h2>Envie uma mensagem</h2>
     <p>Escreva para <a href={`mailto:${email}`}>{email}</a>.</p>
-    <p><Button as="a" variant="accent" href={`mailto:${email}?subject=Contato pelo site Gamefoss`}>Abrir seu e-mail</Button></p>
+    <p><Button as="a" variant="accent" icon="email" href={`mailto:${email}?subject=Contato pelo site Gamefoss`}>E-mail</Button></p>
     <h2>Outros canais</h2>
     <div class="contact-channels">
       <Button as="a" variant="accent" icon="instagram" href="https://www.instagram.com/game_foss/" target="_blank" rel="noopener">Instagram</Button>
