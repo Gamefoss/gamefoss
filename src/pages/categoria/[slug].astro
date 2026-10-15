@@ -18,7 +18,7 @@ const { category, articles } = Astro.props;
 const { Content } = await render(category);
 ---
 <BaseLayout title={category.data.name} description={category.data.description}>
-  <header class="page-hero" data-pagefind-body><div class="shell"><Button as="a" variant="accent" className="taxonomy-back" href={withBase('/categorias/')} icon="arrow-left">Categorias</Button><p class="eyebrow">CATEGORIA</p><h1>{category.data.name}</h1><p>{category.data.description}</p></div></header>
+  <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Categoria"><div class="shell"><Button as="a" variant="accent" className="taxonomy-back" href={withBase('/categorias/')} icon="arrow-left">Categorias</Button><p class="eyebrow">CATEGORIA</p><h1>{category.data.name}</h1><p>{category.data.description}</p></div></header>
   <section class="category-editorial"><div class="prose"><Content /></div></section>
   <section class="section section--paper"><div class="article-grid shell">{articles.map((article) => <ArticleCard article={article} />)}</div></section>
 </BaseLayout>

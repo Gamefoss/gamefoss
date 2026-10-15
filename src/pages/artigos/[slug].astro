@@ -24,6 +24,6 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'Article', headline:
       <time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time>
     </div>{article.data.tags.length > 0 && <nav class="article-tags" aria-label="Tags do artigo"><span>Tags</span>{article.data.tags.map((tag) => <a class="chip" href={withBase(`/tag/${slugify(tag)}/`)} data-ga="article-tag">{tag}</a>)}</nav>}</div>
   </header>
-  <article class="prose" data-pagefind-body><Content /><Share client:load title={article.data.title} url={articleUrl} description={article.data.description} /></article>
+  <article class="prose" data-pagefind-body data-pagefind-meta="type:Artigo"><Content /><Share client:load title={article.data.title} url={articleUrl} description={article.data.description} /></article>
   <AdSlot />
 </BaseLayout>

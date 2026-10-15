@@ -8,7 +8,7 @@ const { author } = Astro.props;
 const articles = (await getCollection('articles', ({data}) => !data.draft && data.author === author.id)).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 <BaseLayout title={author.data.name} description={author.data.bio}>
-  <header class="page-hero author-hero" data-pagefind-body><div class="author-hero__inner shell">
+  <header class="page-hero author-hero" data-pagefind-body data-pagefind-meta="type:Autor"><div class="author-hero__inner shell">
     {author.data.portrait && <img class="author-hero__portrait" src={withBase(author.data.portrait)} alt={author.data.portraitAlt || `Retrato de ${author.data.name}`} data-pagefind-meta="image[src], image_alt[alt]" />}
     <div><p class="eyebrow">PLAYER PROFILE</p><h1>{author.data.name}</h1><p>{author.data.bio}</p></div>
   </div></header>
