@@ -15,8 +15,10 @@ permissions:
   contents: read
 
 concurrency:
-  group: gamefoss-${{ github.event_name == 'workflow_dispatch' && inputs.environment || github.ref_name }}
-  cancel-in-progress: true
+  group: gamefoss-${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'development' }}
+  # Production shares this lock with release.yml. Queue rebuilds instead of
+  # cancelling an in-flight release while it is synchronizing over FTP.
+  cancel-in-progress: false
 
 jobs:
   resolve:

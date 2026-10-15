@@ -8,7 +8,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: gamefoss-production-release
+  # Share the production lock with manual production rebuilds in deploy.yml so
+  # two FTP synchronizations can never write to the live site concurrently.
+  group: gamefoss-production
   cancel-in-progress: false
 
 jobs:
