@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import AudioPlayer from '@/components/AudioPlayer.astro';
+import Button from '@/components/Button';
+import Share from '@/components/Share';
+import episodes from '@generated/episodes.json';
+import type { PodcastEpisode } from '@/lib/podcast';
+import { getEpisodeArtwork } from '@/lib/podcast';
+import { formatDate, withBase } from '@/lib/site';
+
+export function getStaticPaths() { return (episodes as PodcastEpisode[]).map((episode) => ({ params: { slug: episode.slug }, props: { episode } })); }
+const { episode } = Astro.props as { episode: PodcastEpisode };
+const artwork = getEpisodeArtwork(episode);
+const episodeUrl = new URL(withBase(`/podcast/${episode.slug}/`), Astro.site).href;
+const episodeDescription = episode.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+const jsonLd = { '@context': 'https://schema.org', '@type': 'PodcastEpisode', name: episode.title, image: new URL(artwork, Astro.site).href, datePublished: episode.publishedAt, description: episode.description.replace(/<[^>]+>/g, ' ').slice(0, 300), associatedMedia: { '@type': 'MediaObject', contentUrl: episode.audioUrl }, partOfSeries: { '@type': 'PodcastSeries', name: 'Gamefoss' } };
+---
+<BaseLayout title={episode.title} description={episode.description.replace(/<[^>]+>/g, ' ').slice(0, 155)} image={artwork} jsonLd={jsonLd}>
+  <header class="page-hero page-hero--article page-hero--episode">
+    <div class="page-hero__backdrop" aria-hidden="true"><img src={artwork} alt="" data-pagefind-meta="image[src]" /></div>
+    <div class="page-hero__content shell"><p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p><h1>{episode.title}</h1>{episode.duration && <p class="page-hero__description">Duração: {episode.duration}</p>}</div>
+  </header>
+  <div class="prose" data-pagefind-body data-pagefind-meta="type:Episódio">
+    <div class="episode-player"><AudioPlayer src={episode.audioUrl} label={`Ouvir ${episode.title}`} className="episode-player__audio" analyticsLabel="episode-audio-player" /><Button as="a" href={episode.spotifyUrl} target="_blank" rel="noopener" icon="spotify" data-ga="episode-spotify">Spotify</Button></div>
+    <div set:html={episode.description} />
+    <Share client:load title={episode.title} url={episodeUrl} description={episodeDescription} />
+  </div><AdSlot />
+</BaseLayout>

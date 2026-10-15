@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /dev/
+Disallow: /signatures/
+Disallow: /old/
+Sitemap: https://gamefoss.com.br/sitemap-index.xml

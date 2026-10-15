@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import Pagination from '@/components/Pagination.astro';
+const articles = (await getCollection('articles', ({data}) => !data.draft)).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const pageSize = 6;
+---
+<BaseLayout title="Artigos" description="Ensaios e reflexões sobre jogos, tecnologia e sociedade.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow">LUDOKRATIA CONTINUA</p><h1>Artigos</h1><p>Textos que olham além da tela: design, narrativa, tecnologia, cultura e as pessoas que fazem tudo isso acontecer.</p></div></header>
+  <section class="section section--paper"><div class="article-grid shell">{articles.slice(0, pageSize).map((article) => <ArticleCard article={article} />)}</div><Pagination current={1} last={Math.ceil(articles.length / pageSize)} root="/artigos" /></section>
+</BaseLayout>

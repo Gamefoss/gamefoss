@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const pagefindPath = `${import.meta.env.BASE_URL}pagefind/`;
+const resultTemplate = `
+  <li class="search-result">
+    <a class="search-result__media" href="{{ meta.url | default(url) | safeUrl }}" tabindex="-1" aria-hidden="true">
+      {{#if meta.image}}
+        <img src="{{ meta.image | resolveUrl(meta.url | default(url)) }}" alt="{{ meta.image_alt | default(meta.title) }}">
+      {{else}}
+        <span>GAME<br>FOSS</span>
+      {{/if}}
+    </a>
+    <div class="search-result__content">
+      <span class="chip search-result__type">{{ meta.type | default("Página") }}</span>
+      <h2 class="search-result__title"><a href="{{ meta.url | default(url) | safeUrl }}">{{ meta.title }}</a></h2>
+      {{#if excerpt}}<p class="search-result__excerpt">{{+ excerpt +}}</p>{{/if}}
+    </div>
+  </li>
+`;
+---
+<BaseLayout title="Busca" description="Busque artigos, episódios, categorias e autores no Gamefoss.">
+  <header class="page-hero"><div class="shell"><p class="eyebrow">ENCONTRE NO ARQUIVO</p><h1>Busca</h1></div></header>
+  <section class="section search-wrap">
+    <div class="search-ui shell" id="search">
+      <pagefind-config bundle-path={pagefindPath} lang="pt-br"></pagefind-config>
+      <pagefind-input placeholder="Buscar..."></pagefind-input>
+      <pagefind-summary></pagefind-summary>
+      <pagefind-results show-images>
+        <script is:inline type="text/pagefind-template" set:html={resultTemplate}></script>
+      </pagefind-results>
+      <noscript><p>Ative o JavaScript para usar a busca.</p></noscript>
+    </div>
+  </section>
+  <link rel="stylesheet" href={`${pagefindPath}pagefind-component-ui.css`} />
+  <script is:inline type="module" src={`${pagefindPath}pagefind-component-ui.js`}></script>
+  <script is:inline type="module">
+    await customElements.whenDefined('pagefind-input');
+    const manager = window.PagefindComponents.getInstanceManager();
+    const instance = manager.getInstance('default');
+    const initialTerm = new URLSearchParams(window.location.search).get('q');
+
+    instance.on('search', (term) => {
+      const url = new URL(window.location.href);
+      if (term) url.searchParams.set('q', term);
+      else url.searchParams.delete('q');
+      window.history.replaceState({}, '', url);
+    });
+
+    if (initialTerm) instance.triggerSearch(initialTerm);
+  </script>
+</BaseLayout>

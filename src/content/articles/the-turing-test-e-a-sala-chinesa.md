@@ -1,0 +1,158 @@
+---
+title: "The Turing Test e a sala chinesa"
+description: "Esse jogo levanta questionamentos interessantes para quem gosta de inteligência artificial"
+publishedAt: 2019-03-01T18:00:52
+author: dihgg
+category: ai
+tags: ["Programação"]
+cover: /images/articles/the-turing-test-e-a-sala-chinesa/cover.jpg
+coverAlt: "The Turing Test e a sala chinesa"
+legacyUrl: https://gamefoss.com.br/ludokratia/the-turing-test-e-a-sala-chinesa/
+draft: false
+featured: true
+---
+
+Recentemente joguei um jogo chamado [_The Turing Test_](https://store.steampowered.com/app/499520/The_Turing_Test/), da [Bulkhead Interactire](https://www.bulkheadinteractive.com).
+
+O jogo possui uma nota de 80 no metacritic (xbox), mas aqui é a **Ludokratia** e não foi por causa de uma Review que escolhi falar dele.
+
+Existe uma questão neste jogo, que o norteia do começo ao fim e talvez até extrapole a 4ª parede. O próprio nome do jogo é uma dica sobre o que se trata esta questão e é disso que trataremos neste artigo.
+
+---
+
+## Sobre o Jogo
+
+> O Teste de Turing é um desafiante jogo de quebra-cabeça em primeira pessoa em Europa, uma lua de Júpiter. Você é Ava Turing, uma engenheira da Agência Espacial Internacional (ISA) enviada para descobrir a causa por trás do desaparecimento da equipe solo.
+>
+> (Resumo do jogo na Steam)
+
+Acho que essa uma frase perfeita para fazer uma síntese sobre o jogo seria:
+“O encontro de **Portal** com o **HAL 9000**.”
+
+Em termos de gameplay, com um dispositivo em formato de arma que tem a capacidade de interagir com o ambiente, the Turing test lembra muito **Portal**, o querido jogo da Valve
+
+Já a história, por ser no espaço e, principalmente, por conta do protagonismo de **TOM**, a inteligência artificial que a acompanha o jogador, nos lembramos claramente do Icônico **HAL 9000** – Da obra prima de Kubrick: **2001 – uma odisseia no espaço**.
+
+## A pergunta central
+
+Todo o jogo gira em torno de uma pergunta: “Máquinas podem pensar?”
+E é deste questionamento que surge o famoso Teste de Turing
+
+---
+
+## O Teste de Turing
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-1.png)
+
+Alan Turing, matemático inglês e pai da computação moderna, propôs em um paper de 1951 um um teste chamado **O jogo da Imitação** (Mesmo nome que de seu filme biográfico), esse teste se constituía em 3 salas, cada qual interconectada por meio de um terminal, uma tela de computador somente capaz de exibir texto e um teclado. Na primeira sala senta-se um homem, na segunda uma mulher e na terceira você, que chamaremos de Juiz(a). O Trabalho do Juiz é determinar qual das pessoas é o homem. O Homem tentará provar que é homem com quaisquer provas que ele conseguir (algo difícil, considerando que ele só tem um terminal de texto simples). O Trabalho da mulher é enganar o juiz, ela deve fazê-lo acreditar que ela é o homem e desacreditar as provas que seu oponente apresentar.
+
+### E o que isso tem a ver com inteligência artificial?
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-2.png)
+
+A proposta de **Turing** consiste em uma modificação do jogo, ao invés de homem e mulher, existe um humano e uma máquina. O Trabalho do juiz é determinar qual dos competidores é o humano e qual é a máquina. **Turing** determinou que, sob estas condições, se o juiz tiver uma precisão inferior a 50%, ou seja, se há a mesma probabilidade de um juiz escolher erradamente quem é o humano e quem é a máquina, então esta seria uma simulação aceitável de uma pessoa e, portanto, inteligente. Existe uma variação do teste em que só existe um competidor e o juiz só precisa determinar se ele é ou não uma máquina.
+
+### Tentativas de passar no Teste de Turing
+
+Já sabemos o que é o **Teste de Turing**, mas como uma máquina poderia passar neste teste?
+
+Nos Anos 70 surgiram, em parte como tentativa de passar no Teste e em parte por pura diversão, grupos de programas que tentaram ultrapassar esta primeira barreira humano-computador: a linguagem.
+
+### Processamento de Linguagem Natural
+
+Esses programas, em parte com designs bastante simplificados, empregavam banco de dados de linguagem (geralmente em inglês) combinados com uma série de regras para formação de palavras inteligíveis.
+
+O mais famoso deles talvez seja o **ELIZA**, desenvolvido por _Joseph Weizenbaum._
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-3.png)
+
+Escrito em 1966, o **ELIZA** simulava um psicoterapista Rogeriano, o personagem simulado era empático, mas passivo, fazia as perguntas principais e falava muito pouco. por e.x: “Me diga mais sobre isso” ou “Como isso faz você se sentir?”.
+Não há indícios de inteligência no código do **ELIZA**, então como ele era capaz de conversar e, convincentemente, enganar o juiz no nosso teste?
+
+O **ELIZA** usava nada mais nada menos que Processamento de Linguagem natural (_Natural Language Processing_ – **NLP**, em inglês), junto com capacidade de encontrar palavras chave na conversa, tais como: “namorado”, “mãe” ou “Deprimido”, para fazer perguntas pertinentes ao assunto.
+
+Se o programa não encontrasse uma pergunta em seu banco de dados, ele gerava uma pergunta genérica na tentativa de continuar a conversação.
+Muitos programas parecidos com o **ELIZA** usavam de técnica parecida, de busca por palavras-chave juntamente com o conhecimento básico de estruturação de sentenças.
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-4.png)
+
+As Linguagens usam estruturas específicas para a geração de sentenças.
+
+#### **Converse com o ELIZA**
+
+Clique aqui para conversar com o ELIZA (Versão em Javascript, então vai funcionar para a maioria das pessoas)
+
+## O prêmio Loebner
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-5.jpg)
+
+O teste foi proposto em 1951, mas somente em na década de 1990 foi realmente implementado, o professor Dr. Hugh Loebner, interessado em ver o sucesso da IA, criou um concurso e com o prêmio máximo de US$ 100.000 para o primeiro participante que pudesse passar no teste.
+(Até hoje nenhum competidor conseguiu este prêmio, embora existam outras premiações menores que anualmente são distribuídas).
+
+Esta competição é anual e atualmente está sob os cuidados da [AISB](https://www.aisb.org.uk/events/loebner-prize). O Chatbot [Mitsuko](https://www.pandorabots.com/mitsuku/) foi o ganhador da última edição (2018) do prêmio, com uma pontuação de 33% (portanto ele não passou no teste de Turing, já que precisaria de pelo menos 50%).
+
+#### **Converse com a Mitsuko**
+
+Você pode conversar com Mitsuko [clicando aqui](https://www.pandorabots.com/mitsuku/).
+
+## Problemas do Teste de Turing
+
+O teste de Turing foi a primeira tentativa de resolver a questão da inteligência computacional. É um teste behaviorista, isto é, leva em consideração o comportamento. O Teste em si não julgava inteligência baseando-se em processos internos, ou fidelidade a uma estrutura neuronal, mas apenas na capacidade do computador se comunicar verbalmente.
+
+Inúmeras críticas existem a esta abordagem, as mais comuns são:
+
+- Por que um teste que julga o comportamento deveria ser a resposta final a questão da capacidade cognitiva das máquinas, a psicologia não se afastou do behaviorismo?
+- Como o comportamento pode ser suficiente se os mecanismos internos que o controlam não são humanos?
+- Como toda inteligência humana pode ser capturada por uma conversa?
+
+Todas as questões reduzem-se a saber se algo poderia passar no teste de Turing, isto é, produzir conversação natural, não possuindo inteligência “real”. Esse argumento foi declarado de várias maneiras, a mais eloquente entre elas talvez seja a metáfora da **sala Chinesa** de _John Searle_.
+
+## A Sala Chinesa
+
+No jogo, **T.O.M** fala sobre a sala chinesa, que inclusive aparece em um dos desafios extras.
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-6.png)
+
+A Sala Chinesa no jogo
+
+Publicado em um [paper](http://cogprints.org/7150/1/10.1.1.83.5248.pdf) intitulado “_Minds, Brains, and Programs_” (Mentes, Cérebros e Programas) em 1980 por _John Searle_, a **Sala Chinesa** é um experimento mental que tenta mostrar como um teste behaviorista tal qual proposto Turing não é suficiente para responder a questão da inteligência computacional.
+
+_Sarle_ pede ao leitor para imaginar uma sala, com um homem trancado dentro. O homem não fala chinês, nem confia que consiga distinguir caracteres em chinês de linhas desenhadas aleatoriamente em uma estrutura similar.
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-7.jpg)
+
+Um dia, enquanto ele estava sentado sem fazer muita coisa dentro daquela sala, alguém desliza um pedaço de papel por uma fresta na porta com (o que ele assume ser) escritos em chinês. Intrigado com isto por um momento, ele nota que existe um livro naquela sala intitulado: “O que fazer se alguém deslizar um pedaço de papel por uma fresta na porta”. Não tendo nada melhor para fazer ele abre o livro e começa a lê-lo. Ele descobre que o livro contém uma série de instruções de como produzir novos conteúdos em chinês baseados nos que são entregues pela fresta na porta.
+
+Todas as instruções estão na forma de declarações **SE/ENTÃO** descrevendo um padrão de símbolos relacionados a cada possível conjunto de símbolos recebidos. Ele segue o livro para produzir novos símbolos e desliza um novo pedaço de papel para fora da sala.
+
+O que o homem na sala não sabe é que os símbolos entrando são perguntas, escritas em chinês, e os símbolos que ele produz são respostas a essas perguntas. O mais interessante é que o livro de instruções está tão bem escrito que suas respostas não só estão em chinês, mas também fazem sentido e são indistinguíveis de respostas dadas por qualquer falante da língua.
+
+Fora da sala, todos estão surpresos como a sala entende chinês e como ela é inteligente. Por dentro, sabemos que o homem não entende bulhufas de chinês.
+
+### Sintaxe vs Semântica
+
+O que _Sarle_ descreve é um sistema que produz uma saída inteligível, mesmo que não tenha entendimento real sobre o assunto.
+
+Chamamos o conjunto de regras, princípios e processos, no exemplo, o livro que permite criar respostas em chinês de **sintaxe**. Já o significado consciente das palavras é o que chamamos de **semântica**, a palavra Lar e Casa tem diferença, mas apenas se entendermos a semântica por trás destas duas palavras.
+
+A pergunta que quero deixar ao leitor, e que aparece em muitas obras de ficção, incluindo **The Turing Test**, é:
+
+Um computador tem a capacidade de ser consciente, e se essa consciência for meramente simulada, no que isso difere de uma real? Afinal, como **TOM** diz a _Mikail_ no game: “Se uma coisa se parece com um pato, nada como um pato e grasna como um pato, então provavelmente é um pato”.
+
+---
+
+The Turing Test está disponível para [PC](https://store.steampowered.com/app/499520/The_Turing_Test/), [Xbox](https://www.microsoft.com/pt-br/p/the-turing-test/BS2MMFVLKXRK?activetab=pivot:overviewtab) e [Playstation 4](https://store.playstation.com/en-us/product/UP2527-CUSA07026_00-THETURINGTEST001).
+
+---
+
+## Referências
+
+- [Internet Encyclopedia of Philosophy — The Chinese Room Argument](https://www.iep.utm.edu/chineser/)
+- [AISB — Loebner Prize](https://www.aisb.org.uk/events/loebner-prize)
+- [University of Toronto — The Turing Test](http://www.psych.utoronto.ca/users/reingold/courses/ai/turing.html)
+- [University of Toronto — The Chinese Room](http://www.psych.utoronto.ca/users/reingold/courses/ai/chinese.html)
+- [John Searle — Minds, Brains, and Programs (PDF)](http://cogprints.org/7150/1/10.1.1.83.5248.pdf)
+
+---
+
+![](../../../public/images/articles/the-turing-test-e-a-sala-chinesa/image-8.jpg)

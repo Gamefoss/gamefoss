@@ -1,0 +1,13 @@
+---
+import { withBase } from '@/lib/site';
+
+interface Props {
+  variant?: 'horizontal' | 'vertical';
+}
+
+const { variant = 'horizontal' } = Astro.props;
+const filename = variant === 'vertical' ? 'vertical-logo.svg' : 'horizontal-logo.svg';
+---
+<a class:list={['logo', `logo--${variant}`]} href={withBase('/')} aria-label="Gamefoss — página inicial" data-ga="navigation-home">
+  <img class="logo__image" src={withBase(`/images/logo/${filename}`)} alt="" />
+</a>

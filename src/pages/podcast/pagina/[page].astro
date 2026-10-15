@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import EpisodeCard from '@/components/EpisodeCard.astro';
+import Pagination from '@/components/Pagination.astro';
+import episodes from '@generated/episodes.json';
+import type { PodcastEpisode } from '@/lib/podcast';
+import type { GetStaticPaths, Page } from 'astro';
+export const getStaticPaths = (({ paginate }) => paginate(episodes as PodcastEpisode[], { pageSize: 8 })) satisfies GetStaticPaths;
+interface Props { page: Page<PodcastEpisode>; }
+const { page } = Astro.props;
+---
+<BaseLayout title={`Podcast — página ${page.currentPage}`}><header class="page-hero"><div class="shell"><p class="eyebrow">ARQUIVO · PÁGINA {page.currentPage}</p><h1>Podcast</h1></div></header><section class="section"><div class="episode-list shell">{page.data.map((episode) => <EpisodeCard episode={episode} />)}</div><Pagination current={page.currentPage} last={page.lastPage} root="/podcast" /></section></BaseLayout>
