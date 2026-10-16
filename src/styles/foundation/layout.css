@@ -1,0 +1,106 @@
+@layer components {
+  .shell {
+    width: min(1180px, calc(100% - (var(--gf-space-shell) * 2)));
+    margin-inline: auto;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+  .skip-link {
+    position: fixed;
+    top: -5rem;
+    left: 1rem;
+    z-index: 100;
+    background: var(--color-yellow);
+    color: #000;
+    padding: 0.7rem 1rem;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+  .environment-banner {
+    background: var(--color-yellow);
+    color: #000;
+    text-align: center;
+    padding: 0.35rem;
+    font: 500 0.72rem var(--font-mono);
+    letter-spacing: 0.08em;
+  }
+  .eyebrow {
+    @apply flex items-center uppercase;
+
+    gap: 0.45rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-red);
+    font: 500 0.72rem var(--font-mono);
+    letter-spacing: 0.12em;
+  }
+  .eyebrow svg {
+    width: 1em;
+    height: 1em;
+  }
+  .chip__container {
+    @apply flex flex-wrap;
+
+    gap: 0.5rem;
+  }
+  .chip {
+    @apply inline-block uppercase;
+
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-red);
+    color: var(--color-red);
+    font: 500 0.68rem var(--font-mono);
+  }
+  .chip:hover {
+    background: var(--color-red);
+    color: var(--color-surface);
+  }
+  .section {
+    padding: var(--gf-space-section) 0;
+  }
+  .section--paper {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+  .section-heading {
+    @apply flex items-end justify-between;
+
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: 1rem;
+  }
+  .section-heading h1,
+  .section-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+  .section-heading a {
+    color: var(--color-brand-dark);
+    font: 600 0.75rem var(--font-interface);
+  }
+  .link-with-icon {
+    @apply inline-flex items-center;
+
+    gap: 0.45rem;
+  }
+  .link-with-icon svg {
+    width: 1em;
+    height: 1em;
+    transition: transform 0.18s ease;
+  }
+  .link-with-icon:hover svg {
+    transform: translateX(0.25rem);
+  }
+  .taxonomy-back {
+    width: fit-content;
+    margin-bottom: 1.5rem;
+  }
+}

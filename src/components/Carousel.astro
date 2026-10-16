@@ -55,7 +55,7 @@ const { label, className = '', trackClass = '' } = Astro.props;
     const dots = root.querySelector<HTMLElement>('[data-carousel-dots]');
     if (!viewport || !previous || !next || !dots) return;
 
-    const mobile = window.matchMedia('(max-width: 520px)');
+    const mobile = window.matchMedia('(width < 48rem)');
     let carousel: ReturnType<typeof EmblaCarousel> | undefined;
 
     const mount = () => {

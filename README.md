@@ -20,6 +20,17 @@ Copy `.env.example` to `.env` for environment-specific values. A full production
 
 Run `npm run content:migrate` to repeat the Ludokratia migration defined by `migration/ludokratia-manifest.json`. The command also writes migration diagnostics under `reports/migration/` and a redirect list to `public/legacy-redirects.conf`.
 
+## Styling
+
+`src/styles/global.css` is the single CSS entry point. It imports styles in cascade order from:
+
+- `foundation/` for theme tokens, document defaults, and shared layout primitives
+- `components/` for reusable UI
+- `pages/` for page-level compositions
+- `integrations/` for external services such as Pagefind, ads, and consent handling
+
+Styles are mobile-first and use only Tailwind's default `md` (tablet) and `lg` (desktop) variants. Keep responsive rules beside the selector they modify, prefer shallow native CSS nesting for states and descendants, and use `@apply` only for short, repeated utility recipes. Bespoke visual treatments should remain plain CSS.
+
 ## Release flow
 
 1. Open feature pull requests against `release/latest`.
