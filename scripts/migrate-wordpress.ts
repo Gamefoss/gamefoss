@@ -6,7 +6,7 @@ import { gfm } from 'turndown-plugin-gfm';
 
 interface Manifest { source: string; entries: Array<{ id:number; category:string }>; }
 interface WpPost { id:number; slug:string; date:string; link:string; author:number; title:{rendered:string}; excerpt:{rendered:string}; content:{rendered:string}; _embedded?:Record<string, unknown[]>; }
-const decode = (value:string) => value.replace(/&#038;/g, '&').replace(/&#8211;/g, '–').replace(/&#8217;/g, '’').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+const decode = (value:string) => value.replace(/\s*\[(?:&hellip;|&#8230;)\]\s*/g, '…').replace(/&hellip;|&#8230;/g, '…').replace(/&#038;/g, '&').replace(/&#8211;/g, '–').replace(/&#8217;/g, '’').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
 const yaml = (value:string) => JSON.stringify(decode(value).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
 const knownCategorySlugs:Record<string, string> = { 'IA': 'ai', 'Game Design': 'game-design', 'Fluxos': 'fluxos' };
 const categorySlug = (value:string) => knownCategorySlugs[value] || value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
