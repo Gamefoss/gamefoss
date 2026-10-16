@@ -1,6 +1,6 @@
 ---
 title: "The Turing Test e a sala chinesa"
-description: "Esse jogo levanta questionamentos interessantes para quem gosta de inteligência artificial"
+description: "Como The Turing Test provoca reflexões sobre inteligência artificial, consciência e a Sala Chinesa."
 publishedAt: 2019-03-01T18:00:52
 author: dihgg
 category: ai

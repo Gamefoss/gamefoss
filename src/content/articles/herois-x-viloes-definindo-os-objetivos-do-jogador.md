@@ -1,6 +1,6 @@
 ---
 title: "Heróis X Vilões: definindo os objetivos do jogador"
-description: "É fácil pensar em histórias que colocam como enredo central o clássico “mocinhos vs vilões”. Talvez esse seja o modelo mais repetido em qualquer mídia que tem como objetivo contar histórias. Com videogames isso não é diferente, já que a maior parte dos jogos mais famosos também roda nesse paradigma"
+description: "Como objetivos claros aproximam o jogador do protagonista e sustentam histórias de heróis contra vilões."
 publishedAt: 2019-02-12T13:00:28
 author: vitor
 category: fluxos
