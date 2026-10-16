@@ -1,0 +1,44 @@
+@theme inline {
+  --color-canvas: var(--gf-color-canvas);
+  --color-surface: var(--gf-color-surface);
+  --color-ink: var(--gf-color-ink);
+  --color-panel: var(--gf-color-panel);
+  --color-line: var(--gf-color-line);
+  --color-paper: var(--gf-color-surface);
+  --color-muted: var(--gf-color-muted);
+  --color-brand: var(--gf-color-brand);
+  --color-brand-dark: var(--gf-color-brand-dark);
+  --color-accent: var(--gf-color-accent);
+  --color-blue: var(--gf-color-blue);
+  --color-teal: var(--gf-color-teal);
+  --color-red: var(--gf-color-brand);
+  --color-yellow: var(--gf-color-accent);
+  --font-display: var(--gf-font-display);
+  --font-body: var(--gf-font-body);
+  --font-interface: var(--gf-font-interface);
+  --font-mono: var(--gf-font-interface);
+  --spacing-section: var(--gf-space-section);
+  --spacing-card: var(--gf-space-card);
+  --spacing-shell: var(--gf-space-shell);
+}
+
+:root,
+[data-theme='gamefoss-retro'] {
+  --gf-color-canvas: #f2ead8;
+  --gf-color-surface: #fffaf0;
+  --gf-color-ink: #17110f;
+  --gf-color-panel: #25181d;
+  --gf-color-line: #2d211d;
+  --gf-color-muted: #71665d;
+  --gf-color-brand: #ed1c24;
+  --gf-color-brand-dark: #890f33;
+  --gf-color-accent: #d9a928;
+  --gf-color-blue: #557fbd;
+  --gf-color-teal: #368c83;
+  --gf-font-display: 'Bungee', sans-serif;
+  --gf-font-body: 'Space Grotesk', sans-serif;
+  --gf-font-interface: 'IBM Plex Mono', monospace;
+  --gf-space-section: clamp(3.5rem, 8vw, 7rem);
+  --gf-space-card: clamp(1rem, 2vw, 1.5rem);
+  --gf-space-shell: clamp(1rem, 3vw, 2rem);
+}
