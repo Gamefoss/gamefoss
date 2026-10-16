@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Gamefoss/gamefoss/compare/v1.1.0...v1.2.0) (2026-10-16)
+
+
+### Features
+
+* **layout:** working on some styling ([b5b413f](https://github.com/Gamefoss/gamefoss/commit/b5b413f1a725954e17bb5351f002b4b17f018bc4))
+* **styles:** improving search styles ([96d03ff](https://github.com/Gamefoss/gamefoss/commit/96d03ff2155b511c6d17420866903b30b0dd3707))
+* **styles:** playing with styles ([d4e4e45](https://github.com/Gamefoss/gamefoss/commit/d4e4e4568e8eca36327710e0aaf8748b1f1f9f86))
+* **styles:** restructuring styles ([c06dfd6](https://github.com/Gamefoss/gamefoss/commit/c06dfd60ea9e82416af7ff03f24a262f288c8d2d))
+* **styles:** sticky footer ([751ff90](https://github.com/Gamefoss/gamefoss/commit/751ff9095747fdfa6b14ce9157ca1d53502190bc))
+* **tooling:** adding prettier ([79cecab](https://github.com/Gamefoss/gamefoss/commit/79cecab4d91b70a306ff35c7ec9cf0056b3c65aa))
+
+
+### Bug Fixes
+
+* **ads:** fixing ad-slot z-index ([6eee7bf](https://github.com/Gamefoss/gamefoss/commit/6eee7bf77983e5c2362560b7f08c854d276e25a8))
+* **migration:** adjusting Wordpress migration ([ba8f381](https://github.com/Gamefoss/gamefoss/commit/ba8f381e333f13eabfd28d984fa2a36162694bdc))
+* **search:** fixing search images ([9aab9e3](https://github.com/Gamefoss/gamefoss/commit/9aab9e3a9e959acfbc8fb2692fcf1c7fd778ab94))
+* **styles:** ad slot css containement ([28c9ded](https://github.com/Gamefoss/gamefoss/commit/28c9ded1a1379a2815443953c4538d4ddd238049))
+* **styles:** fixing ad styles ([bebd594](https://github.com/Gamefoss/gamefoss/commit/bebd594a274f4f1592d632de309a37c69614580d))
+* **styles:** fixing featured episode styles ([885cf64](https://github.com/Gamefoss/gamefoss/commit/885cf647dc5274c7045548be163c4a185a219d45))
+* **styles:** fixing footer link styles ([b23ab30](https://github.com/Gamefoss/gamefoss/commit/b23ab3097553ac9e986c2c004562eff1d9ded56f))
+* **styles:** fixing home hero articles grid ([6a9764f](https://github.com/Gamefoss/gamefoss/commit/6a9764f856880074996f5ebb2635ef1e255a39fa))
+
 ## 1.1.0 (2026-10-15)
 
 
