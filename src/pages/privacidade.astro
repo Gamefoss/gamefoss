@@ -2,4 +2,42 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
 ---
-<BaseLayout title="Privacidade"><header class="page-hero"><div class="shell"><p class="eyebrow">SEM PEGADINHAS</p><h1>Privacidade</h1><p>Como o Gamefoss usa cookies, métricas e publicidade.</p></div></header><article class="prose"><h2>Consentimento</h2><p>Recursos necessários guardam sua preferência de privacidade no seu navegador. Analytics e publicidade começam negados e só são ativados conforme sua escolha.</p><h2>Google Analytics</h2><p>Quando autorizado, o Google Analytics 4 ajuda a entender páginas visitadas e desempenho do site. Não usamos essa informação para identificar você diretamente.</p><h2>Publicidade</h2><p>Quando autorizado e configurado, o Google AdSense pode exibir anúncios e usar armazenamento conforme as escolhas registradas no banner.</p><h2>Alterar sua escolha</h2><p>Use o botão de <strong>cookies</strong> no rodapé para revisar sua decisão a qualquer momento.</p><h2>Contato</h2><p>Dúvidas sobre privacidade podem ser enviadas para <a href={`mailto:${email}`}>{email}</a>.</p></article></BaseLayout>
+
+<BaseLayout title="Privacidade">
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">SEM PEGADINHAS</p>
+      <h1>Privacidade</h1>
+      <p>Como o Gamefoss usa cookies, métricas e publicidade.</p>
+    </div>
+  </header>
+  <article class="prose">
+    <h2>Consentimento</h2>
+    <p>
+      Recursos necessários guardam sua preferência de privacidade no seu
+      navegador. Analytics e publicidade começam negados e só são ativados
+      conforme sua escolha.
+    </p>
+    <h2>Google Analytics</h2>
+    <p>
+      Quando autorizado, o Google Analytics 4 ajuda a entender páginas visitadas
+      e desempenho do site. Não usamos essa informação para identificar você
+      diretamente.
+    </p>
+    <h2>Publicidade</h2>
+    <p>
+      Quando autorizado e configurado, o Google AdSense pode exibir anúncios e
+      usar armazenamento conforme as escolhas registradas no banner.
+    </p>
+    <h2>Alterar sua escolha</h2>
+    <p>
+      Use o botão de <strong>cookies</strong> no rodapé para revisar sua decisão
+      a qualquer momento.
+    </p>
+    <h2>Contato</h2>
+    <p>
+      Dúvidas sobre privacidade podem ser enviadas para{' '}
+      <a href={`mailto:${email}`}>{email}</a>.
+    </p>
+  </article>
+</BaseLayout>

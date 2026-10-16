@@ -1,6 +1,6 @@
 ---
 title: "Heróis X Vilões: Vilões Eficientes"
-description: "No último texto, falamos sobre como é importante definir os objetivos e vontades do protagonista e fazer o jogador se relacionar com eles. Também sobre como o modelo “mocinho x vilão” está saturado e precisa de uma renovada no universo do entretenimento de maneira geral, não só nos games. Mas isso não quer dizer que [&hellip;]"
+description: "O que torna um vilão eficiente, relacionável e capaz de renovar o clássico conflito entre heróis e vilões."
 publishedAt: 2019-02-13T13:00:40
 author: vitor
 category: game-design

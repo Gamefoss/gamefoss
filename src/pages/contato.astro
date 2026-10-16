@@ -1,19 +1,68 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Button from '@/components/Button';
+import Button, { type ButtonProps } from '@/components/Button';
+import HeroDecoration from '@/components/HeroDecoration.astro';
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
 ---
+
 <BaseLayout title="Contato">
-  <header class="page-hero"><div class="shell"><p class="eyebrow">CONTINUE A CONVERSA</p><h1>Contato</h1><p>Pautas, sugestões, parcerias ou só um “oi”: nossa caixa de entrada está aberta.</p></div></header>
+  <header class="page-hero">
+    <HeroDecoration icon="email" />
+    <div class="shell">
+      <p class="eyebrow">CONTINUE A CONVERSA</p>
+      <h1>Contato</h1>
+      <p>
+        Pautas, sugestões, parcerias ou só um “oi”: nossa caixa de entrada está
+        aberta.
+      </p>
+    </div>
+  </header>
   <article class="prose">
     <h2>Envie uma mensagem</h2>
-    <p>Escreva para <a href={`mailto:${email}`}>{email}</a>.</p>
-    <p><Button as="a" variant="accent" icon="email" href={`mailto:${email}?subject=Contato pelo site Gamefoss`}>E-mail</Button></p>
+    <p>
+      Escreva para <a href={`mailto:${email}`}>{email}</a>.
+    </p>
+    <p>
+      <Button
+        as="a"
+        variant="accent"
+        icon="email"
+        href={`mailto:${email}?subject=Contato pelo site Gamefoss`}
+      >
+        E-mail
+      </Button>
+    </p>
     <h2>Outros canais</h2>
+    <p>Você também pode nos encontrar em outras plataformas.</p>
     <div class="contact-channels">
-      <Button as="a" variant="accent" icon="instagram" href="https://www.instagram.com/game_foss/" target="_blank" rel="noopener">Instagram</Button>
-      <Button as="a" variant="accent" icon="spotify" href="https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi" target="_blank" rel="noopener">Spotify</Button>
-      <Button as="a" variant="accent" icon="youtube" href="https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw" target="_blank" rel="noopener">YouTube</Button>
+      {[
+        {
+          icon: 'instagram',
+          href: 'https://www.instagram.com/game_foss/',
+          label: 'Instagram',
+        },
+        {
+          icon: 'spotify',
+          href: 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi',
+          label: 'Spotify',
+        },
+        {
+          icon: 'youtube',
+          href: 'https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw',
+          label: 'YouTube',
+        },
+      ].map(({ icon, href, label }) => (
+        <Button
+          as="a"
+          variant="accent"
+          icon={icon as ButtonProps['icon']}
+          href={href}
+          target="_blank"
+          rel="noopener"
+        >
+          {label}
+        </Button>
+      ))}
     </div>
   </article>
 </BaseLayout>

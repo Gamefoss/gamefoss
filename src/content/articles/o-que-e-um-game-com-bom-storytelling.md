@@ -1,6 +1,6 @@
 ---
 title: "O que é um game com bom storytelling?"
-description: "Os games atualmente possuem responsabilidade de contar uma boa história, e essa responsabilidade é cada vez mais cobrada. O que cria uma boa história e como o storytelling pode se tornar convincente?"
+description: "O que torna uma história convincente nos games e como o storytelling amplia a experiência de jogar."
 publishedAt: 2019-05-15T12:00:41
 author: vitor
 category: game-design

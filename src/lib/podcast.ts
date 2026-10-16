@@ -20,10 +20,25 @@ export function getEpisodeArtwork(episode: PodcastEpisode) {
 
 export function sanitizeEpisodeHtml(value: string) {
   return sanitizeHtml(value, {
-    allowedTags: ['p', 'h2', 'h3', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'br', 'blockquote'],
+    allowedTags: [
+      'p',
+      'h2',
+      'h3',
+      'ul',
+      'ol',
+      'li',
+      'strong',
+      'em',
+      'a',
+      'br',
+      'blockquote',
+    ],
     allowedAttributes: { a: ['href', 'title', 'target', 'rel'] },
     transformTags: {
-      a: (_tag, attrs) => ({ tagName: 'a', attribs: { ...attrs, rel: 'noopener noreferrer', target: '_blank' } }),
+      a: (_tag, attrs) => ({
+        tagName: 'a',
+        attribs: { ...attrs, rel: 'noopener noreferrer', target: '_blank' },
+      }),
     },
     allowedSchemes: ['http', 'https', 'mailto'],
   });

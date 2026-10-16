@@ -2,7 +2,15 @@
 import Button from './Button';
 import type { IconName } from './Icon';
 
-type SocialNetwork = 'website' | 'instagram' | 'youtube' | 'bluesky' | 'twitter' | 'github' | 'linkedin' | 'twitch';
+type SocialNetwork =
+  | 'website'
+  | 'instagram'
+  | 'youtube'
+  | 'bluesky'
+  | 'twitter'
+  | 'github'
+  | 'linkedin'
+  | 'twitch';
 
 interface Props {
   socials: Partial<Record<SocialNetwork, string>>;
@@ -31,18 +39,25 @@ const socialMeta = {
   twitch: { label: 'Twitch', icon: 'twitch' },
 } satisfies Record<SocialNetwork, { label: string; icon: IconName }>;
 
-const links = Object.entries(socials).filter((entry): entry is [SocialNetwork, string] => Boolean(entry[1]));
+const links = Object.entries(socials).filter(
+  (entry): entry is [SocialNetwork, string] => Boolean(entry[1]),
+);
 ---
-{links.length > 0 && <nav class:list={['socials', className]} aria-label={label}>
-  {links.map(([network, href]) => <Button
-    as="a"
-    variant="accent"
-    icon={socialMeta[network].icon}
-    iconOnly
-    href={href}
-    target="_blank"
-    rel="me noopener"
-    aria-label={`${owner} no ${socialMeta[network].label}`}
-    data-ga={`${gaPrefix}-${network}`}
-  />)}
-</nav>}
+
+{links.length > 0 && (
+  <nav class:list={['socials', className]} aria-label={label}>
+    {links.map(([network, href]) => (
+      <Button
+        as="a"
+        variant="accent"
+        icon={socialMeta[network].icon}
+        iconOnly
+        href={href}
+        target="_blank"
+        rel="me noopener"
+        aria-label={`${owner} no ${socialMeta[network].label}`}
+        data-ga={`${gaPrefix}-${network}`}
+      />
+    ))}
+  </nav>
+)}

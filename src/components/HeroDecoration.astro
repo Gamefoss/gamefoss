@@ -1,0 +1,14 @@
+---
+import Icon, { type IconName } from './Icon';
+
+interface Props {
+  icon: IconName;
+  className?: string;
+}
+
+const { icon, className } = Astro.props;
+---
+
+<div class:list={['hero-decoration', className]} aria-hidden="true">
+  <Icon name={icon} />
+</div>

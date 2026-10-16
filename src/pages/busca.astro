@@ -7,7 +7,7 @@ const resultTemplate = `
     <a class="search-result__media" href="{{ meta.url | default(url) | safeUrl }}" tabindex="-1" aria-hidden="true">
       {{#if meta.image}}
         <img src="{{ meta.image | resolveUrl(meta.url | default(url)) }}" alt="{{ meta.image_alt | default(meta.title) }}">
-      {{else}}
+      {{:else}}
         <span>GAME<br>FOSS</span>
       {{/if}}
     </a>
@@ -19,21 +19,43 @@ const resultTemplate = `
   </li>
 `;
 ---
-<BaseLayout title="Busca" description="Busque artigos, episódios, categorias e autores no Gamefoss.">
-  <header class="page-hero"><div class="shell"><p class="eyebrow">ENCONTRE NO ARQUIVO</p><h1>Busca</h1></div></header>
+
+<BaseLayout
+  title="Busca"
+  description="Busque artigos, episódios, categorias e autores no Gamefoss."
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">ENCONTRE NO ARQUIVO</p>
+      <h1>Busca</h1>
+    </div>
+  </header>
   <section class="section search-wrap">
     <div class="search-ui shell" id="search">
-      <pagefind-config bundle-path={pagefindPath} lang="pt-br"></pagefind-config>
+      <pagefind-config
+        bundle-path={pagefindPath}
+        lang="pt-br"
+      ></pagefind-config>
       <pagefind-input placeholder="Buscar..."></pagefind-input>
       <pagefind-summary></pagefind-summary>
       <pagefind-results show-images>
-        <script is:inline type="text/pagefind-template" set:html={resultTemplate}></script>
+        <script
+          is:inline
+          type="text/pagefind-template"
+          set:html={resultTemplate}
+        ></script>
       </pagefind-results>
-      <noscript><p>Ative o JavaScript para usar a busca.</p></noscript>
+      <noscript>
+        <p>Ative o JavaScript para usar a busca.</p>
+      </noscript>
     </div>
   </section>
   <link rel="stylesheet" href={`${pagefindPath}pagefind-component-ui.css`} />
-  <script is:inline type="module" src={`${pagefindPath}pagefind-component-ui.js`}></script>
+  <script
+    is:inline
+    type="module"
+    src={`${pagefindPath}pagefind-component-ui.js`}
+  ></script>
   <script is:inline type="module">
     await customElements.whenDefined('pagefind-input');
     const manager = window.PagefindComponents.getInstanceManager();

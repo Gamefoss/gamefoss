@@ -1,6 +1,51 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button';
+import HeroDecoration from '@/components/HeroDecoration.astro';
 import { withBase } from '@/lib/site';
 ---
-<BaseLayout title="Sobre"><section class="hero"><div class="hero__inner shell"><p class="eyebrow">APERTE START PARA CONTINUAR</p><h1>JOGOS.<em>IDEIAS.</em>CULTURA.</h1><div class="hero__meta"><p>Um podcast independente sobre os games que jogamos e o mundo que construímos ao redor deles.</p><span class="hero__pixel">EST. 2019 · BRASIL</span></div></div></section><article class="prose"><h2>Mais que uma tela</h2><p>O Gamefoss nasceu como podcast para falar de games, tecnologia, sociedade e tudo que atravessa essas conversas. Aqui, episódios e artigos dividem o mesmo espaço: ideias para ouvir, ler, discutir e levar para a próxima partida.</p><h2>Ideias para ler e discutir</h2><p>Além dos episódios, publicamos artigos sobre design, narrativa, tecnologia, cultura e as pessoas que fazem e jogam videogames. São textos para aprofundar conversas, provocar perguntas e continuar pensando depois que a tela apaga.</p><p class="prose__actions"><Button as="a" href={withBase('/contato/')} icon="arrow-right" iconPosition="right">Fale com a gente</Button></p></article></BaseLayout>
+
+<BaseLayout title="Sobre">
+  <section class="page-hero page-hero--about">
+    <HeroDecoration icon="gamepad" />
+    <div class="about-hero__inner shell">
+      <p class="eyebrow">APERTE START PARA CONTINUAR</p>
+      <h1>
+        JOGOS.<em>IDEIAS.</em>CULTURA.
+      </h1>
+      <div class="about-hero__meta">
+        <p>
+          Um podcast independente sobre os games que jogamos e o mundo que
+          construímos ao redor deles.
+        </p>
+        <span class="about-hero__pixel">EST. 2019 · BRASIL</span>
+      </div>
+    </div>
+  </section>
+  <article class="prose">
+    <h2>Para além dos pixels</h2>
+    <p>
+      O Gamefoss nasceu como podcast para falar de games, tecnologia, sociedade
+      e tudo que atravessa essas conversas. Aqui, episódios e artigos dividem o
+      mesmo espaço: ideias para ouvir, ler, discutir e levar para a próxima
+      partida.
+    </p>
+    <h2>Ideias para ouvir, ler e discutir</h2>
+    <p>
+      Além dos episódios, publicamos artigos sobre design, narrativa,
+      tecnologia, cultura e as pessoas que fazem e jogam videogames. São textos
+      para aprofundar conversas, provocar perguntas e continuar pensando depois
+      que a tela apaga.
+    </p>
+    <p class="prose__actions">
+      <Button
+        as="a"
+        href={withBase('/contato/')}
+        icon="message"
+        variant="accent"
+      >
+        Fale Conosco
+      </Button>
+    </p>
+  </article>
+</BaseLayout>

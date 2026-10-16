@@ -5,11 +5,42 @@ import type { GetStaticPaths, Page } from 'astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import Pagination from '@/components/Pagination.astro';
+import HeroDecoration from '@/components/HeroDecoration.astro';
+import Icon from '@/components/Icon';
 export const getStaticPaths = (async ({ paginate }) => {
-  const articles = (await getCollection('articles', ({data}) => !data.draft)).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  const articles = (
+    await getCollection('articles', ({ data }) => !data.draft)
+  ).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
   return paginate(articles, { pageSize: 6 });
 }) satisfies GetStaticPaths;
-interface Props { page: Page<CollectionEntry<'articles'>>; }
+interface Props {
+  page: Page<CollectionEntry<'articles'>>;
+}
 const { page } = Astro.props;
 ---
-<BaseLayout title={`Artigos — página ${page.currentPage}`}><header class="page-hero"><div class="shell"><p class="eyebrow">ARQUIVO · PÁGINA {page.currentPage}</p><h1>Artigos</h1></div></header><section class="section section--paper"><div class="article-grid shell">{page.data.map((article) => <ArticleCard article={article} />)}</div><Pagination current={page.currentPage} last={page.lastPage} root="/artigos" /></section></BaseLayout>
+
+<BaseLayout title={`Artigos — página ${page.currentPage}`}>
+  <header class="page-hero">
+    <HeroDecoration icon="newspaper" />
+    <div class="shell">
+      <p class="eyebrow">
+        <span>ARQUIVO</span>
+        <Icon name="minus" />
+        <span>PÁGINA {page.currentPage}</span>
+      </p>
+      <h1>Artigos</h1>
+    </div>
+  </header>
+  <section class="section section--paper">
+    <div class="article-grid shell">
+      {page.data.map((article) => (
+        <ArticleCard article={article} />
+      ))}
+    </div>
+    <Pagination
+      current={page.currentPage}
+      last={page.lastPage}
+      root="/artigos"
+    />
+  </section>
+</BaseLayout>

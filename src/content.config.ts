@@ -4,24 +4,26 @@ import { z } from 'astro/zod';
 
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishedAt: z.coerce.date(),
-    updatedAt: z.coerce.date().optional(),
-    author: z.string(),
-    category: reference('categories'),
-    tags: z.array(z.string()).default([]),
-    cover: z.string().optional(),
-    coverAlt: z.string().optional(),
-    draft: z.boolean().default(false),
-    featured: z.boolean().default(false),
-    legacyUrl: z.string().optional(),
-    seoTitle: z.string().optional(),
-    seoDescription: z.string().optional(),
-  }).refine((data) => !data.cover || Boolean(data.coverAlt), {
-    message: 'coverAlt is required when cover is defined',
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      description: z.string(),
+      publishedAt: z.coerce.date(),
+      updatedAt: z.coerce.date().optional(),
+      author: z.string(),
+      category: reference('categories'),
+      tags: z.array(z.string()).default([]),
+      cover: z.string().optional(),
+      coverAlt: z.string().optional(),
+      draft: z.boolean().default(false),
+      featured: z.boolean().default(false),
+      legacyUrl: z.string().optional(),
+      seoTitle: z.string().optional(),
+      seoDescription: z.string().optional(),
+    })
+    .refine((data) => !data.cover || Boolean(data.coverAlt), {
+      message: 'coverAlt is required when cover is defined',
+    }),
 });
 
 const authors = defineCollection({
@@ -31,15 +33,17 @@ const authors = defineCollection({
     bio: z.string(),
     portrait: z.string().optional(),
     portraitAlt: z.string().optional(),
-    socials: z.object({
-      website: z.url().optional(),
-      instagram: z.url().optional(),
-      youtube: z.url().optional(),
-      bluesky: z.url().optional(),
-      twitter: z.url().optional(),
-      github: z.url().optional(),
-      linkedin: z.url().optional(),
-    }).optional(),
+    socials: z
+      .object({
+        website: z.url().optional(),
+        instagram: z.url().optional(),
+        youtube: z.url().optional(),
+        bluesky: z.url().optional(),
+        twitter: z.url().optional(),
+        github: z.url().optional(),
+        linkedin: z.url().optional(),
+      })
+      .optional(),
   }),
 });
 

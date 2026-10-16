@@ -1,14 +1,59 @@
 ---
 import { withBase } from '@/lib/site';
 import Button from './Button';
-interface Props { current: number; last: number; root: string; }
+interface Props {
+  current: number;
+  last: number;
+  root: string;
+}
 const { current, last, root } = Astro.props;
-const href = (page:number) => page === 1 ? withBase(`${root}/`) : withBase(`${root}/pagina/${page}/`);
+const href = (page: number) =>
+  page === 1 ? withBase(`${root}/`) : withBase(`${root}/pagina/${page}/`);
 ---
-{last > 1 && <nav class="pagination" aria-label="Paginação">
-  <span class="pagination__status">PÁGINA {current} / {last}</span>
-  <div class="pagination__actions">
-    {current > 1 ? <Button as="a" variant="ghost" href={href(current - 1)} icon="arrow-left" data-ga="pagination-previous">Anterior</Button> : <Button variant="ghost" icon="arrow-left" disabled aria-disabled="true">Anterior</Button>}
-    {current < last ? <Button as="a" variant="ghost" href={href(current + 1)} icon="arrow-right" iconPosition="right" data-ga="pagination-next">Próxima</Button> : <Button variant="ghost" icon="arrow-right" iconPosition="right" disabled aria-disabled="true">Próxima</Button>}
-  </div>
-</nav>}
+
+{last > 1 && (
+  <nav class="pagination" aria-label="Paginação">
+    <span class="pagination__status">
+      PÁGINA {current} / {last}
+    </span>
+    <div class="pagination__actions">
+      {current > 1 ? (
+        <Button
+          as="a"
+          variant="ghost"
+          href={href(current - 1)}
+          icon="arrow-left"
+          data-ga="pagination-previous"
+        >
+          Anterior
+        </Button>
+      ) : (
+        <Button variant="ghost" icon="arrow-left" disabled aria-disabled="true">
+          Anterior
+        </Button>
+      )}
+      {current < last ? (
+        <Button
+          as="a"
+          variant="ghost"
+          href={href(current + 1)}
+          icon="arrow-right"
+          iconPosition="right"
+          data-ga="pagination-next"
+        >
+          Próxima
+        </Button>
+      ) : (
+        <Button
+          variant="ghost"
+          icon="arrow-right"
+          iconPosition="right"
+          disabled
+          aria-disabled="true"
+        >
+          Próxima
+        </Button>
+      )}
+    </div>
+  </nav>
+)}

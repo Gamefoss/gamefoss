@@ -1,4 +1,9 @@
 ---
 const isPreview = import.meta.env.DEPLOY_ENV === 'development';
 ---
-{isPreview && <div class="environment-banner">AMBIENTE DE HOMOLOGAÇÃO · conteúdo não indexado</div>}
+
+{isPreview && (
+  <div class="environment-banner">
+    AMBIENTE DE HOMOLOGAÇÃO · conteúdo não indexado
+  </div>
+)}

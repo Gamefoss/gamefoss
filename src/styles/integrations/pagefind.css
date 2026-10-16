@@ -1,0 +1,181 @@
+.search-wrap {
+  min-height: 50vh;
+  background: var(--color-paper);
+}
+.search-ui {
+  --pf-text: var(--color-ink);
+  --pf-text-secondary: var(--color-muted);
+  --pf-text-muted: var(--color-muted);
+  --pf-background: #fff;
+  --pf-border: var(--color-ink);
+  --pf-border-focus: var(--color-ink);
+  --pf-hover: color-mix(in srgb, var(--color-accent) 18%, #fff);
+  --pf-mark: var(--color-ink);
+  --pf-outline-focus: var(--color-accent);
+  --pf-outline-width: 3px;
+  --pf-outline-offset: 2px;
+  --pf-font: var(--font-body);
+  --pf-input-height: 4rem;
+  --pf-input-font-size: 1rem;
+  --pf-summary-font-size: 0.75rem;
+  --pf-results-display: grid;
+  --pf-results-columns: repeat(2, minmax(0, 1fr));
+  --pf-results-gap: 1.5rem;
+  --pf-border-radius: 0;
+}
+.search-ui pagefind-input,
+.search-ui pagefind-summary,
+.search-ui pagefind-results {
+  display: block;
+}
+.search-ui pagefind-input {
+  box-shadow: 6px 6px 0 var(--color-accent);
+}
+.search-ui .pf-input {
+  border: 3px solid var(--color-ink) !important;
+  padding-inline-start: 3.25rem !important;
+  padding-inline-end: 5.5rem !important;
+  font-family: var(--font-interface) !important;
+  font-weight: 600 !important;
+}
+.search-ui .pf-input-wrapper::before {
+  inset-inline-start: 1.15rem !important;
+  background-color: var(--color-ink) !important;
+}
+.search-ui .pf-input-clear {
+  color: var(--color-brand-dark) !important;
+  font: 600 0.7rem var(--font-interface) !important;
+  text-transform: uppercase;
+}
+.search-ui pagefind-summary {
+  margin: 2rem 0 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 2px solid var(--color-ink);
+}
+.search-ui .pf-summary {
+  color: var(--color-ink) !important;
+  font-family: var(--font-interface) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.search-result {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: stretch;
+  min-width: 0;
+  border: 3px solid var(--color-ink);
+  background: #fff;
+  box-shadow: 7px 7px 0 var(--color-brand);
+  color: var(--color-ink);
+  transition: background-color 0.15s ease;
+}
+.search-result:hover {
+  background: color-mix(in srgb, var(--color-accent) 18%, #fff);
+}
+.search-result__media {
+  display: grid;
+  min-height: 150px;
+  place-items: center;
+  overflow: hidden;
+  color: var(--color-surface);
+  font: 400 2rem/0.75 var(--font-display);
+  padding: 0 0.5rem;
+}
+.search-result__media img {
+  max-width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid var(--color-ink);
+  box-shadow: 5px 5px 0 var(--color-teal);
+  transform: rotate(-2deg);
+}
+
+.search-result__content {
+  min-width: 0;
+  padding: 1rem;
+}
+.search-result__type {
+  margin-bottom: 0.5rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-accent);
+  color: var(--color-ink);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  line-height: 1.35;
+}
+.search-result__title {
+  margin: 0 0 0.55rem;
+  font: 400 1.1rem/1.12 var(--font-display);
+  letter-spacing: -0.025em;
+}
+.search-result__title a:hover {
+  color: var(--color-brand-dark);
+}
+.search-result__excerpt {
+  min-width: 0;
+  margin: 0;
+  color: var(--color-muted);
+  font: 0.88rem/1.45 var(--font-body);
+}
+.search-ui mark {
+  padding: 0.05em 0.18em;
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
+.search-ui {
+  --pf-results-columns: 1fr;
+  --pf-results-gap: 1.25rem;
+
+  @variant md {
+    --pf-results-columns: repeat(2, minmax(0, 1fr));
+    --pf-results-gap: 1.5rem;
+  }
+}
+
+.search-result {
+  grid-template-columns: 105px minmax(0, 1fr);
+
+  @variant md {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+}
+
+.search-result__media {
+  min-height: 132px;
+
+  @variant md {
+    min-height: 150px;
+  }
+}
+
+.search-result__content {
+  padding: 0.85rem;
+
+  @variant md {
+    padding: 1rem;
+  }
+}
+
+.search-result__title {
+  font-size: 1rem;
+
+  @variant md {
+    font-size: 1.1rem;
+  }
+}
+
+.search-result__excerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.82rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+
+  @variant md {
+    display: block;
+    overflow: visible;
+    font-size: 0.88rem;
+    -webkit-line-clamp: initial;
+  }
+}

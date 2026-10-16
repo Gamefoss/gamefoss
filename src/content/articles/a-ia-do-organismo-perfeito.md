@@ -1,6 +1,6 @@
 ---
 title: "A IA do organismo perfeito"
-description: "Em Isolation, os desenvolvedores conseguiram levar para o mundo dos jogos toda a tensão que transformou o filme em um clássico."
+description: "Como Alien: Isolation transformou a inteligência artificial do Xenomorfo em uma fonte constante de tensão."
 publishedAt: 2019-03-12T16:00:05
 author: dihgg
 category: ai

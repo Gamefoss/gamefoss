@@ -1,0 +1,94 @@
+@layer components {
+  .episode-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 0 0.4rem 0.4rem 0;
+  }
+  .episode-card {
+    --episode-shadow: var(--color-red);
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1.3rem;
+    align-items: center;
+    position: relative;
+    border: 3px solid var(--color-ink);
+    padding: 1.1rem;
+    background: #fff;
+    color: var(--color-ink);
+    box-shadow: 6px 6px 0 var(--episode-shadow);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .episode-list > .episode-card:nth-child(4n + 2) {
+    --episode-shadow: var(--color-accent);
+  }
+  .episode-list > .episode-card:nth-child(4n + 3) {
+    --episode-shadow: var(--color-blue);
+  }
+  .episode-list > .episode-card:nth-child(4n) {
+    --episode-shadow: var(--color-teal);
+  }
+  .episode-card:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 var(--episode-shadow);
+  }
+  .episode-card__art {
+    position: relative;
+    border: 2px solid var(--color-ink);
+    overflow: hidden;
+  }
+  .episode-card__art img {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .episode-card__play {
+    position: absolute;
+    inset: auto 0.4rem 0.4rem auto;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--color-ink);
+    background: var(--color-accent);
+    color: var(--color-ink);
+    box-shadow: 2px 2px 0 var(--color-ink);
+    font-size: 0.7rem;
+  }
+  .episode-card .eyebrow {
+    display: inline-flex;
+    margin-bottom: 0.65rem;
+    padding: 0.25rem 0.4rem;
+    background: var(--color-accent);
+    color: var(--color-ink);
+    letter-spacing: 0.06em;
+  }
+  .episode-card h3 {
+    margin: 0;
+    color: var(--color-ink);
+    line-height: 1.1;
+  }
+  .episode-card__duration {
+    display: inline-block;
+    margin-top: 0.55rem;
+    color: var(--color-muted);
+    font: 0.7rem var(--font-mono);
+  }
+
+  .episode-list {
+    grid-template-columns: 1fr;
+
+    @variant md {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .episode-card {
+    grid-template-columns: 110px 1fr;
+
+    @variant md {
+      grid-template-columns: 150px 1fr;
+    }
+  }
+}

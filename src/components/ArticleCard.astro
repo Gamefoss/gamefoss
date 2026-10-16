@@ -2,26 +2,85 @@
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { formatDate, withBase } from '@/lib/site';
 import Icon from '@/components/Icon';
-interface Props { article: CollectionEntry<'articles'>; featured?: boolean; showAuthor?: boolean; }
-const { article, featured = false, showAuthor = true } = Astro.props;
+interface Props {
+  article: CollectionEntry<'articles'>;
+  featured?: boolean;
+  hero?: boolean;
+  showAuthor?: boolean;
+}
+const {
+  article,
+  featured = false,
+  showAuthor = true,
+  hero = false,
+} = Astro.props;
 const category = await getEntry(article.data.category);
-const author = showAuthor ? await getEntry('authors', article.data.author) : undefined;
+const author = showAuthor
+  ? await getEntry('authors', article.data.author)
+  : undefined;
 ---
-<article class:list={['article-card', { 'article-card--featured': featured }]}>
-  <a class="article-card__image" href={withBase(`/artigos/${article.id}/`)} data-ga="article-card-image">
-    {article.data.cover ? <img src={withBase(article.data.cover)} alt={article.data.coverAlt || ''} loading={featured ? 'eager' : 'lazy'} /> : <div class="article-card__fallback">GF<span>+</span></div>}
+
+<article
+  class:list={[
+    'article-card',
+    { 'article-card--featured': featured, 'article-card--hero': hero },
+  ]}
+>
+  <a
+    class="article-card__image"
+    href={withBase(`/artigos/${article.id}/`)}
+    data-ga="article-card-image"
+  >
+    {article.data.cover ? (
+      <img
+        src={withBase(article.data.cover)}
+        alt={article.data.coverAlt || ''}
+        loading={featured ? 'eager' : 'lazy'}
+      />
+    ) : (
+      <div class="article-card__fallback">
+        GF<span>+</span>
+      </div>
+    )}
   </a>
   <div class="article-card__body">
     <div class="chip__container">
-      {featured && <span class="chip chip--featured"><Icon name="star" /></span>}
-      <a class="chip" href={withBase(`/categoria/${category.id}/`)} data-ga="article-card-category">{category.data.name}</a>
+      {featured && (
+        <span class="chip chip--featured">
+          <Icon name="star" />
+        </span>
+      )}
+      <a
+        class="chip"
+        href={withBase(`/categoria/${category.id}/`)}
+        data-ga="article-card-category"
+      >
+        {category.data.name}
+      </a>
     </div>
-    <h3><a href={withBase(`/artigos/${article.id}/`)} data-ga="article-card-title">{article.data.title}</a></h3>
-    <p>{article.data.description}</p>
-    {author && <a class="article-card__author" href={withBase(`/autores/${author.id}/`)} data-ga="article-card-author">
-      {author.data.portrait && <img src={withBase(author.data.portrait)} alt="" loading="lazy" />}
-      <span>{author.data.name}</span>
-    </a>}
-    <time datetime={article.data.publishedAt.toISOString()}>{formatDate(article.data.publishedAt)}</time>
+    <h3>
+      <a
+        href={withBase(`/artigos/${article.id}/`)}
+        data-ga="article-card-title"
+      >
+        {article.data.title}
+      </a>
+    </h3>
+    <p class="article-card__excerpt">{article.data.description}</p>
+    {author && (
+      <a
+        class="article-card__author"
+        href={withBase(`/autores/${author.id}/`)}
+        data-ga="article-card-author"
+      >
+        {author.data.portrait && (
+          <img src={withBase(author.data.portrait)} alt="" loading="lazy" />
+        )}
+        <span>{author.data.name}</span>
+      </a>
+    )}
+    <time datetime={article.data.publishedAt.toISOString()}>
+      {formatDate(article.data.publishedAt)}
+    </time>
   </div>
 </article>

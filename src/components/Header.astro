@@ -3,27 +3,80 @@ import Logo from './Logo.astro';
 import Button from './Button';
 import { withBase } from '@/lib/site';
 const links = [
-  ['Podcast', '/podcast/'], ['Artigos', '/artigos/'], ['Autores', '/autores/'], ['Sobre', '/sobre/'], ['Contato', '/contato/'],
+  ['Podcast', '/podcast/'],
+  ['Artigos', '/artigos/'],
+  ['Autores', '/autores/'],
+  ['Sobre', '/sobre/'],
+  ['Contato', '/contato/'],
 ];
 ---
+
 <header class="site-header">
   <div class="site-header__inner shell">
-    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="main-navigation" data-ga="navigation-menu-toggle">
-      <span class="sr-only">Abrir menu</span><span></span><span></span><span></span>
+    <button
+      class="site-header__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+      data-ga="navigation-menu-toggle"
+    >
+      <span class="sr-only">Abrir menu</span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
     <Logo />
-    <Button as="a" variant="accent" className="site-header__mobile-search" href={withBase('/busca/')} aria-label="Buscar" icon="search" iconOnly data-ga="search-header-mobile" />
-    <nav id="main-navigation" class="site-header__nav" aria-label="Navegação principal">
-      {links.map(([label, href]) => <a href={withBase(href)} data-ga={`navigation-header-${label.toLowerCase()}`}>{label}</a>)}
-      <Button as="a" variant="accent" className="site-header__search" href={withBase('/busca/')} aria-label="Buscar" icon="search" data-ga="search-header">Buscar</Button>
+    <Button
+      as="a"
+      variant="accent"
+      className="site-header__mobile-search"
+      href={withBase('/busca/')}
+      aria-label="Buscar"
+      icon="search"
+      iconOnly
+      data-ga="search-header-mobile"
+    />
+    <nav
+      id="main-navigation"
+      class="site-header__nav"
+      aria-label="Navegação principal"
+    >
+      {links.map(([label, href]) => (
+        <a
+          href={withBase(href)}
+          data-ga={`navigation-header-${label.toLowerCase()}`}
+        >
+          {label}
+        </a>
+      ))}
+      <Button
+        as="a"
+        variant="accent"
+        className="site-header__search"
+        href={withBase('/busca/')}
+        aria-label="Buscar"
+        icon="search"
+        data-ga="search-header"
+      >
+        Buscar
+      </Button>
     </nav>
   </div>
-  <button class="site-header__overlay" type="button" aria-label="Fechar menu" tabindex="-1"></button>
+  <button
+    class="site-header__overlay"
+    type="button"
+    aria-label="Fechar menu"
+    tabindex="-1"
+  ></button>
 </header>
 <script>
-  const toggle = document.querySelector<HTMLButtonElement>('.site-header__toggle');
+  const toggle = document.querySelector<HTMLButtonElement>(
+    '.site-header__toggle',
+  );
   const nav = document.querySelector<HTMLElement>('.site-header__nav');
-  const overlay = document.querySelector<HTMLButtonElement>('.site-header__overlay');
+  const overlay = document.querySelector<HTMLButtonElement>(
+    '.site-header__overlay',
+  );
   const label = toggle?.querySelector<HTMLElement>('.sr-only');
 
   const setMenuOpen = (open: boolean) => {
@@ -34,9 +87,15 @@ const links = [
     if (label) label.textContent = open ? 'Fechar menu' : 'Abrir menu';
   };
 
-  toggle?.addEventListener('click', () => setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  toggle?.addEventListener('click', () =>
+    setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true'),
+  );
   overlay?.addEventListener('click', () => setMenuOpen(false));
-  nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+  nav
+    ?.querySelectorAll('a')
+    .forEach((link) =>
+      link.addEventListener('click', () => setMenuOpen(false)),
+    );
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') setMenuOpen(false);
   });
