@@ -2,10 +2,13 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button';
 import Icon from '@/components/Icon';
+import HeroDecoration from '@/components/HeroDecoration.astro';
 import { withBase } from '@/lib/site';
 ---
 <BaseLayout title="Página não encontrada" noindex>
   <header class="page-hero error-hero">
+    <HeroDecoration icon="ghost" className="error-hero__decoration error-hero__decoration--left" />
+    <HeroDecoration icon="gamepad" className="error-hero__decoration error-hero__decoration--right" />
     <div class="error-hero__content shell">
       <p class="eyebrow"><strong>GAME OVER</strong></p>
       <div class="error-hero__lives" aria-hidden="true">

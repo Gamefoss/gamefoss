@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import EpisodeCard from '@/components/EpisodeCard.astro';
 import Pagination from '@/components/Pagination.astro';
+import HeroDecoration from '@/components/HeroDecoration.astro';
+import Icon from '@/components/Icon';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import type { GetStaticPaths, Page } from 'astro';
@@ -9,4 +11,10 @@ export const getStaticPaths = (({ paginate }) => paginate(episodes as PodcastEpi
 interface Props { page: Page<PodcastEpisode>; }
 const { page } = Astro.props;
 ---
-<BaseLayout title={`Podcast — página ${page.currentPage}`}><header class="page-hero"><div class="shell"><p class="eyebrow">ARQUIVO · PÁGINA {page.currentPage}</p><h1>Podcast</h1></div></header><section class="section"><div class="episode-list shell">{page.data.map((episode) => <EpisodeCard episode={episode} />)}</div><Pagination current={page.currentPage} last={page.lastPage} root="/podcast" /></section></BaseLayout>
+<BaseLayout title={`Podcast — página ${page.currentPage}`}>
+  <header class="page-hero">
+    <HeroDecoration icon="headphones" />
+    <div class="shell"><p class="eyebrow"><span>ARQUIVO</span><Icon name="minus" /><span>PÁGINA {page.currentPage}</span></p><h1>Podcast</h1></div>
+  </header>
+  <section class="section"><div class="episode-list shell">{page.data.map((episode) => <EpisodeCard episode={episode} />)}</div><Pagination current={page.currentPage} last={page.lastPage} root="/podcast" /></section>
+</BaseLayout>

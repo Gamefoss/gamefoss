@@ -9,9 +9,13 @@ const { author } = Astro.props;
 const articles = (await getCollection('articles', ({data}) => !data.draft && data.author === author.id)).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 <BaseLayout title={author.data.name} description={author.data.bio}>
-  <header class="page-hero author-hero" data-pagefind-body data-pagefind-meta="type:Autor"><div class="author-hero__inner shell">
-    {author.data.portrait && <img class="author-hero__portrait" src={withBase(author.data.portrait)} alt={author.data.portraitAlt || `Retrato de ${author.data.name}`} data-pagefind-meta="image[src], image_alt[alt]" />}
-    <div><p class="eyebrow">PLAYER PROFILE</p><h1>{author.data.name}</h1><p>{author.data.bio}</p><Socials socials={author.data.socials || {}} owner={author.data.name} className="author-hero__socials" gaPrefix="author-social" /></div>
+  <header class="page-hero page-hero--author" data-pagefind-body data-pagefind-meta="type:Autor"><div class="author-profile shell">
+    {author.data.portrait && <img class="author-profile__portrait" src={withBase(author.data.portrait)} alt={author.data.portraitAlt || `Retrato de ${author.data.name}`} data-pagefind-meta="image[src], image_alt[alt]" />}
+    <div class="author-profile__content">
+      <div class="author-profile__heading"><p class="eyebrow">PLAYER PROFILE</p><h1>{author.data.name}</h1></div>
+      <p class="author-profile__bio">{author.data.bio}</p>
+      <Socials socials={author.data.socials || {}} owner={author.data.name} className="author-profile__socials" gaPrefix="author-social" />
+    </div>
   </div></header>
   <section class="section section--paper"><div class="article-grid shell">{articles.map((article) => <ArticleCard article={article} showAuthor={false} />)}</div></section>
 </BaseLayout>
