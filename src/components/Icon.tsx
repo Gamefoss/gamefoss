@@ -29,7 +29,7 @@ import {
   FaPlay,
   FaRegHeart,
 } from 'react-icons/fa';
-import { FaMessage } from "react-icons/fa6";
+import { FaMessage } from 'react-icons/fa6';
 import { SiCastbox } from 'react-icons/si';
 import { SiBluesky } from 'react-icons/si';
 import { BsStarFill } from 'react-icons/bs';

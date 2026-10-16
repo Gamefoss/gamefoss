@@ -766,7 +766,7 @@ input {
 }
 .article-grid--home {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-areas: 
+  grid-template-areas:
     'mi-1 mi-1 mi-2'
     'mi-1 mi-1 mi-3'
     'mi-4 mi-5 mi-6';
@@ -1755,7 +1755,7 @@ input {
   .article-grid--home > :nth-child(n) {
     grid-area: auto;
   }
-  
+
   .taxonomy-grid {
     grid-template-columns: 1fr;
   }
@@ -1895,7 +1895,7 @@ input {
     font-size: clamp(2rem, 4vw, 3.2rem);
   }
   .article-grid--home > :nth-child(2) .article-card__image img,
-  .article-grid--home > :nth-child(3) .article-card__image img{
+  .article-grid--home > :nth-child(3) .article-card__image img {
     aspect-ratio: 16/6;
   }
 }

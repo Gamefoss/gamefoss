@@ -44,7 +44,11 @@ const jsonLd = {
   <header class="page-hero page-hero--article">
     {article.data.cover && (
       <div class="page-hero__backdrop" aria-hidden="true">
-        <img src={withBase(article.data.cover)} alt="" data-pagefind-meta="image[src]"/>
+        <img
+          src={withBase(article.data.cover)}
+          alt=""
+          data-pagefind-meta="image[src]"
+        />
       </div>
     )}
     <div class="page-hero__content shell">
