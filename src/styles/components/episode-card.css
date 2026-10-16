@@ -79,7 +79,7 @@
   .episode-list {
     grid-template-columns: 1fr;
 
-    @variant lg {
+    @variant md {
       grid-template-columns: 1fr 1fr;
     }
   }
