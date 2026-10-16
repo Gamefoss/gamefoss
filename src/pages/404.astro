@@ -5,12 +5,21 @@ import Icon from '@/components/Icon';
 import HeroDecoration from '@/components/HeroDecoration.astro';
 import { withBase } from '@/lib/site';
 ---
+
 <BaseLayout title="Página não encontrada" noindex>
   <header class="page-hero error-hero">
-    <HeroDecoration icon="ghost" className="error-hero__decoration error-hero__decoration--left" />
-    <HeroDecoration icon="gamepad" className="error-hero__decoration error-hero__decoration--right" />
+    <HeroDecoration
+      icon="ghost"
+      className="error-hero__decoration error-hero__decoration--left"
+    />
+    <HeroDecoration
+      icon="gamepad"
+      className="error-hero__decoration error-hero__decoration--right"
+    />
     <div class="error-hero__content shell">
-      <p class="eyebrow"><strong>GAME OVER</strong></p>
+      <p class="eyebrow">
+        <strong>GAME OVER</strong>
+      </p>
       <div class="error-hero__lives" aria-hidden="true">
         <Icon name="heart" />
         <Icon name="heart" />
@@ -18,10 +27,16 @@ import { withBase } from '@/lib/site';
       </div>
       <h1>404</h1>
       <p class="error-hero__message">A princesa está em outro castelo!</p>
-      <p class="error-hero__prompt" aria-hidden="true">PRESS START TO CONTINUE</p>
+      <p class="error-hero__prompt" aria-hidden="true">
+        PRESS START TO CONTINUE
+      </p>
       <div class="error-hero__actions">
-        <Button as="a" variant="accent" href={withBase('/')} icon="home">Página inicial</Button>
-        <Button as="a" variant="ghost" href={withBase('/busca/')} icon="search">Buscar</Button>
+        <Button as="a" variant="accent" href={withBase('/')} icon="home">
+          Página inicial
+        </Button>
+        <Button as="a" variant="ghost" href={withBase('/busca/')} icon="search">
+          Buscar
+        </Button>
       </div>
     </div>
   </header>

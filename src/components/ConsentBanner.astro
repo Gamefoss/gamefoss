@@ -4,22 +4,43 @@ import Button from './Button';
 const gtagId = import.meta.env.PUBLIC_GTAG_ID || '';
 const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
 ---
+
 <dialog class="consent" data-consent-dialog aria-labelledby="consent-title">
   <form method="dialog" class="consent__panel">
     <div>
       <p class="eyebrow">SEUS DADOS, SUAS REGRAS</p>
       <h2 id="consent-title">Cookies sem fase secreta</h2>
-      <p>Usamos métricas e publicidade para entender e sustentar o site. Você escolhe o que ativar.</p>
+      <p>
+        Usamos métricas e publicidade para entender e sustentar o site. Você
+        escolhe o que ativar.
+      </p>
     </div>
     <div class="consent__options">
-      <label><input type="checkbox" checked disabled /> Necessários</label>
-      <label><input type="checkbox" name="analytics" /> Analytics</label>
-      <label><input type="checkbox" name="ads" /> Publicidade</label>
+      <label>
+        <input type="checkbox" checked disabled /> Necessários
+      </label>
+      <label>
+        <input type="checkbox" name="analytics" /> Analytics
+      </label>
+      <label>
+        <input type="checkbox" name="ads" /> Publicidade
+      </label>
     </div>
     <div class="consent__actions">
-      <Button variant="ghost" type="submit" value="reject" data-ga="consent-reject">Só necessários</Button>
-      <Button variant="ghost" type="submit" value="save" data-ga="consent-save">Salvar escolhas</Button>
-      <Button type="submit" value="accept" data-ga="consent-accept">Aceitar todos</Button>
+      <Button
+        variant="ghost"
+        type="submit"
+        value="reject"
+        data-ga="consent-reject"
+      >
+        Só necessários
+      </Button>
+      <Button variant="ghost" type="submit" value="save" data-ga="consent-save">
+        Salvar escolhas
+      </Button>
+      <Button type="submit" value="accept" data-ga="consent-accept">
+        Aceitar todos
+      </Button>
     </div>
   </form>
 </dialog>
@@ -27,29 +48,71 @@ const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
   (() => {
     const key = 'gamefoss-consent-v1';
     const dialog = document.querySelector('[data-consent-dialog]');
-    const getChoice = () => { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } };
+    const getChoice = () => {
+      try {
+        return JSON.parse(localStorage.getItem(key));
+      } catch {
+        return null;
+      }
+    };
     window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
-    window.gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
-    const loadScript = (src, id) => { if (!src || document.getElementById(id)) return; const s=document.createElement('script'); s.id=id; s.async=true; s.src=src; document.head.appendChild(s); };
+    window.gtag =
+      window.gtag ||
+      function () {
+        window.dataLayer.push(arguments);
+      };
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+    });
+    const loadScript = (src, id) => {
+      if (!src || document.getElementById(id)) return;
+      const s = document.createElement('script');
+      s.id = id;
+      s.async = true;
+      s.src = src;
+      document.head.appendChild(s);
+    };
     const apply = (choice) => {
       window.gtag('consent', 'update', {
         analytics_storage: choice.analytics ? 'granted' : 'denied',
-        ad_storage: choice.ads ? 'granted' : 'denied', ad_user_data: choice.ads ? 'granted' : 'denied',
+        ad_storage: choice.ads ? 'granted' : 'denied',
+        ad_user_data: choice.ads ? 'granted' : 'denied',
         ad_personalization: choice.ads ? 'granted' : 'denied',
       });
       if (choice.analytics && gtagId) {
-        loadScript(`https://www.googletagmanager.com/gtag/js?id=${gtagId}`, 'gamefoss-gtag');
-        window.gtag('js', new Date()); window.gtag('config', gtagId);
+        loadScript(
+          `https://www.googletagmanager.com/gtag/js?id=${gtagId}`,
+          'gamefoss-gtag',
+        );
+        window.gtag('js', new Date());
+        window.gtag('config', gtagId);
       }
-      if (choice.ads && adsenseClient) loadScript(`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`, 'gamefoss-adsense');
+      if (choice.ads && adsenseClient)
+        loadScript(
+          `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`,
+          'gamefoss-adsense',
+        );
     };
-    const existing = getChoice(); if (existing) apply(existing); else dialog?.showModal();
+    const existing = getChoice();
+    if (existing) apply(existing);
+    else dialog?.showModal();
     dialog?.addEventListener('close', () => {
-      const value = dialog.returnValue; const form = dialog.querySelector('form');
-      const choice = value === 'accept' ? {analytics:true,ads:true} : value === 'reject' ? {analytics:false,ads:false} : {analytics:form.analytics.checked,ads:form.ads.checked};
-      localStorage.setItem(key, JSON.stringify(choice)); apply(choice);
+      const value = dialog.returnValue;
+      const form = dialog.querySelector('form');
+      const choice =
+        value === 'accept'
+          ? { analytics: true, ads: true }
+          : value === 'reject'
+            ? { analytics: false, ads: false }
+            : { analytics: form.analytics.checked, ads: form.ads.checked };
+      localStorage.setItem(key, JSON.stringify(choice));
+      apply(choice);
     });
-    document.querySelectorAll('[data-consent-settings]').forEach((el) => el.addEventListener('click', () => dialog?.showModal()));
+    document
+      .querySelectorAll('[data-consent-settings]')
+      .forEach((el) => el.addEventListener('click', () => dialog?.showModal()));
   })();
 </script>

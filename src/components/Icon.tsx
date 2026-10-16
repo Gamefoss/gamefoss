@@ -29,15 +29,17 @@ import {
   FaPlay,
   FaRegHeart,
 } from 'react-icons/fa';
+import { FaMessage } from 'react-icons/fa6';
 import { SiCastbox } from 'react-icons/si';
 import { SiBluesky } from 'react-icons/si';
-import { BsStarFill } from "react-icons/bs";
+import { BsStarFill } from 'react-icons/bs';
 
 const icons = {
   'arrow-left': FaArrowLeft,
   'arrow-right': FaArrowRight,
   apple: FaApple,
   castbox: SiCastbox,
+  message: FaMessage,
   cookie: FaCookieBite,
   email: FaEnvelope,
   'external-link': FaExternalLinkAlt,

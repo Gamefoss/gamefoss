@@ -9,6 +9,7 @@ interface Props {
 
 const { label, className = '', trackClass = '' } = Astro.props;
 ---
+
 <section class:list={['carousel', className]} aria-label={label} data-carousel>
   <div class="carousel__viewport" data-carousel-viewport>
     <div class:list={['carousel__track', trackClass]}>
@@ -16,11 +17,25 @@ const { label, className = '', trackClass = '' } = Astro.props;
     </div>
   </div>
   <div class="carousel__controls">
-    <button class="carousel__button carousel__button--prev" type="button" aria-label="Item anterior" data-carousel-prev>
+    <button
+      class="carousel__button carousel__button--prev"
+      type="button"
+      aria-label="Item anterior"
+      data-carousel-prev
+    >
       <Icon name="arrow-left" />
     </button>
-    <div class="carousel__dots" aria-label="Escolher item" data-carousel-dots></div>
-    <button class="carousel__button carousel__button--next" type="button" aria-label="Próximo item" data-carousel-next>
+    <div
+      class="carousel__dots"
+      aria-label="Escolher item"
+      data-carousel-dots
+    ></div>
+    <button
+      class="carousel__button carousel__button--next"
+      type="button"
+      aria-label="Próximo item"
+      data-carousel-next
+    >
       <Icon name="arrow-right" />
     </button>
   </div>
@@ -30,8 +45,12 @@ const { label, className = '', trackClass = '' } = Astro.props;
   import EmblaCarousel from 'embla-carousel';
 
   document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
-    const viewport = root.querySelector<HTMLElement>('[data-carousel-viewport]');
-    const previous = root.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+    const viewport = root.querySelector<HTMLElement>(
+      '[data-carousel-viewport]',
+    );
+    const previous = root.querySelector<HTMLButtonElement>(
+      '[data-carousel-prev]',
+    );
     const next = root.querySelector<HTMLButtonElement>('[data-carousel-next]');
     const dots = root.querySelector<HTMLElement>('[data-carousel-dots]');
     if (!viewport || !previous || !next || !dots) return;
@@ -41,9 +60,17 @@ const { label, className = '', trackClass = '' } = Astro.props;
 
     const mount = () => {
       if (!mobile.matches || carousel) return;
-      const firstSlide = viewport.querySelector<HTMLElement>('.carousel__track > *');
-      const gutter = firstSlide ? firstSlide.getBoundingClientRect().left - viewport.getBoundingClientRect().left : 0;
-      carousel = EmblaCarousel(viewport, { align: () => gutter, containScroll: 'trimSnaps' });
+      const firstSlide = viewport.querySelector<HTMLElement>(
+        '.carousel__track > *',
+      );
+      const gutter = firstSlide
+        ? firstSlide.getBoundingClientRect().left -
+          viewport.getBoundingClientRect().left
+        : 0;
+      carousel = EmblaCarousel(viewport, {
+        align: () => gutter,
+        containScroll: 'trimSnaps',
+      });
       const dotButtons = carousel.scrollSnapList().map((_, index) => {
         const dot = document.createElement('button');
         dot.type = 'button';
@@ -58,7 +85,12 @@ const { label, className = '', trackClass = '' } = Astro.props;
         if (!carousel) return;
         previous.disabled = !carousel.canScrollPrev();
         next.disabled = !carousel.canScrollNext();
-        dotButtons.forEach((dot, index) => dot.setAttribute('aria-current', String(index === carousel?.selectedScrollSnap())));
+        dotButtons.forEach((dot, index) =>
+          dot.setAttribute(
+            'aria-current',
+            String(index === carousel?.selectedScrollSnap()),
+          ),
+        );
       };
 
       previous.onclick = () => carousel?.scrollPrev();

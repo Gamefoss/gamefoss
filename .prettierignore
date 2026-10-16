@@ -1,0 +1,13 @@
+# Dependencies and generated output
+node_modules/
+dist/
+.astro/
+.cache/
+coverage/
+
+# Imported or generated content/assets
+migration/
+public/
+src/content/articles/
+changelog.md
+package-lock.json

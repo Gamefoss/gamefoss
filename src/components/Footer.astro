@@ -6,7 +6,8 @@ import Socials from './Socials.astro';
 import { withBase } from '@/lib/site';
 
 const SPOTIFY_SHOW = 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi';
-const APPLE_PODCASTS = 'https://podcasts.apple.com/us/podcast/gamefoss/id1455626041?uo=4';
+const APPLE_PODCASTS =
+  'https://podcasts.apple.com/us/podcast/gamefoss/id1455626041?uo=4';
 const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
 const socials = {
   twitter: 'https://twitter.com/game_foss',
@@ -15,32 +16,109 @@ const socials = {
   twitch: 'https://www.twitch.tv/game_foss',
 };
 ---
+
 <footer class="site-footer">
   <div class="site-footer__grid shell">
-    <div><Logo variant="vertical" /><p>Jogos, tecnologia, sociedade<br />e o que mais der na telha.</p></div>
+    <div>
+      <Logo variant="vertical" />
+      <p>
+        Jogos, tecnologia, sociedade
+        <br />e o que mais der na telha.
+      </p>
+    </div>
     <div class="site-footer__menus">
       <nav aria-label="Artigos">
-        <a class="site-footer__heading" href={withBase('/artigos/')} data-ga="navigation-footer-articles">Artigos</a>
-        <a href={withBase('/categorias/')} data-ga="navigation-footer-categories">Categorias</a>
-        <a href={withBase('/tags/')} data-ga="navigation-footer-tags">Tags</a>
-        <a href={withBase('/autores/')} data-ga="navigation-footer-authors">Autores</a>
+        <a
+          class="site-footer__heading"
+          href={withBase('/artigos/')}
+          data-ga="navigation-footer-articles"
+        >
+          Artigos
+        </a>
+        <a
+          href={withBase('/categorias/')}
+          data-ga="navigation-footer-categories"
+        >
+          Categorias
+        </a>
+        <a href={withBase('/tags/')} data-ga="navigation-footer-tags">
+          Tags
+        </a>
+        <a href={withBase('/autores/')} data-ga="navigation-footer-authors">
+          Autores
+        </a>
       </nav>
       <nav aria-label="Podcast">
-        <a class="site-footer__heading" href={withBase('/podcast/')} data-ga="navigation-footer-podcast">Podcast</a>
-        <a class="site-footer__external" href={SPOTIFY_SHOW} target="_blank" rel="noopener" data-ga="podcast-footer-spotify">Spotify <Icon name="external-link" /></a>
-        <a class="site-footer__external" href={APPLE_PODCASTS} target="_blank" rel="noopener" data-ga="podcast-footer-apple">Apple Podcasts <Icon name="external-link" /></a>
-        <a class="site-footer__external" href={CASTBOX} target="_blank" rel="noopener" data-ga="podcast-footer-castbox">Castbox <Icon name="external-link" /></a>
+        <a
+          class="site-footer__heading"
+          href={withBase('/podcast/')}
+          data-ga="navigation-footer-podcast"
+        >
+          Podcast
+        </a>
+        <a
+          class="site-footer__external"
+          href={SPOTIFY_SHOW}
+          target="_blank"
+          rel="noopener"
+          data-ga="podcast-footer-spotify"
+        >
+          Spotify <Icon name="external-link" />
+        </a>
+        <a
+          class="site-footer__external"
+          href={APPLE_PODCASTS}
+          target="_blank"
+          rel="noopener"
+          data-ga="podcast-footer-apple"
+        >
+          Apple Podcasts <Icon name="external-link" />
+        </a>
+        <a
+          class="site-footer__external"
+          href={CASTBOX}
+          target="_blank"
+          rel="noopener"
+          data-ga="podcast-footer-castbox"
+        >
+          Castbox <Icon name="external-link" />
+        </a>
       </nav>
       <nav aria-label="Sobre">
-        <a class="site-footer__heading" href={withBase('/sobre/')} data-ga="navigation-footer-about">Sobre</a>
-        <a href={withBase('/contato/')} data-ga="navigation-footer-contact">Contato</a>
-        <a href={withBase('/privacidade/')} data-ga="navigation-footer-privacy">Privacidade</a>
-        <Button variant="white" icon="cookie" className="site-footer__cookie" type="button" data-consent-settings data-ga="consent-open-settings">cookies</Button>
+        <a
+          class="site-footer__heading"
+          href={withBase('/sobre/')}
+          data-ga="navigation-footer-about"
+        >
+          Sobre
+        </a>
+        <a href={withBase('/contato/')} data-ga="navigation-footer-contact">
+          Contato
+        </a>
+        <a href={withBase('/privacidade/')} data-ga="navigation-footer-privacy">
+          Privacidade
+        </a>
+        <Button
+          variant="white"
+          icon="cookie"
+          className="site-footer__cookie"
+          type="button"
+          data-consent-settings
+          data-ga="consent-open-settings"
+        >
+          cookies
+        </Button>
       </nav>
     </div>
   </div>
   <div class="site-footer__lower shell">
-    <Socials socials={socials} owner="Gamefoss" label="Redes sociais" className="site-footer__socials" gaPrefix="social-footer" />
+    <Socials
+      socials={socials}
+      owner="Gamefoss"
+      label="Redes sociais"
+      className="site-footer__socials"
+      gaPrefix="social-footer"
+    />
     <div class="site-footer__bottom">
       <span>© {new Date().getFullYear()} Gamefoss</span>
       <span class="site-footer__credit">

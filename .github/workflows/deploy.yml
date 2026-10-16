@@ -88,4 +88,3 @@ jobs:
           local-dir: ./dist/
           server-dir: ${{ vars.FTP_TARGET_DIR }}
           dangerous-clean-slate: ${{ needs.resolve.outputs.environment == 'development' }}
-
