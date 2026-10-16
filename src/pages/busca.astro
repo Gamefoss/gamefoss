@@ -7,7 +7,7 @@ const resultTemplate = `
     <a class="search-result__media" href="{{ meta.url | default(url) | safeUrl }}" tabindex="-1" aria-hidden="true">
       {{#if meta.image}}
         <img src="{{ meta.image | resolveUrl(meta.url | default(url)) }}" alt="{{ meta.image_alt | default(meta.title) }}">
-      {{else}}
+      {{:else}}
         <span>GAME<br>FOSS</span>
       {{/if}}
     </a>
