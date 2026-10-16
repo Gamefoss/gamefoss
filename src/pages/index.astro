@@ -57,7 +57,6 @@ const latest = podcast[0];
       </div>
     </section>
   )}
-
   <section class="section section--paper">
     <div class="shell">
       <div class="section-heading">
@@ -81,8 +80,12 @@ const latest = podcast[0];
         className="article-carousel"
         trackClass="article-grid article-grid--home"
       >
-        {articles.slice(0, 6).map((article) => (
-          <ArticleCard article={article} featured={article.data.featured} />
+        {articles.slice(0, 6).map((article, index) => (
+          <ArticleCard
+            article={article}
+            featured={article.data.featured}
+            hero={index === 0}
+          />
         ))}
       </Carousel>
     </div>
