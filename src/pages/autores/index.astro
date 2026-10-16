@@ -7,23 +7,58 @@ import HeroDecoration from '@/components/HeroDecoration.astro';
 import { withBase } from '@/lib/site';
 const authors = await getCollection('authors');
 ---
+
 <BaseLayout title="Autores">
-  <header class="page-hero"><HeroDecoration icon="users" /><div class="shell"><p class="eyebrow">ESCOLHA SEU PLAYER</p><h1>Autores</h1><p>Conheça as pessoas por trás dos controles, microfones e textos do Gamefoss.</p></div></header>
+  <header class="page-hero">
+    <HeroDecoration icon="users" />
+    <div class="shell">
+      <p class="eyebrow">ESCOLHA SEU PLAYER</p>
+      <h1>Autores</h1>
+      <p>
+        Conheça as pessoas por trás dos controles, microfones e textos do
+        Gamefoss.
+      </p>
+    </div>
+  </header>
   <section class="section character-select-section">
     <div class="character-select shell">
-      <div class="character-select__screen" aria-hidden="true"><span>AUTORES</span><strong>{String(authors.length).padStart(2, '0')}</strong></div>
-      <Carousel label="Selecionar autor" className="character-carousel" trackClass="character-select__grid">
+      <div class="character-select__screen" aria-hidden="true">
+        <span>AUTORES</span>
+        <strong>{String(authors.length).padStart(2, '0')}</strong>
+      </div>
+      <Carousel
+        label="Selecionar autor"
+        className="character-carousel"
+        trackClass="character-select__grid"
+      >
         {authors.map((author, index) => (
-          <a class="character-card" href={withBase(`/autores/${author.id}/`)} style={`--player-index: ${index + 1}`}>
+          <a
+            class="character-card"
+            href={withBase(`/autores/${author.id}/`)}
+            style={`--player-index: ${index + 1}`}
+          >
             <span class="character-card__number">P{index + 1}</span>
             <div class="character-card__portrait">
-              {author.data.portrait ? <img src={withBase(author.data.portrait)} alt={author.data.portraitAlt || `Retrato de ${author.data.name}`} /> : <span>{author.data.name.slice(0, 1)}</span>}
+              {author.data.portrait ? (
+                <img
+                  src={withBase(author.data.portrait)}
+                  alt={
+                    author.data.portraitAlt || `Retrato de ${author.data.name}`
+                  }
+                />
+              ) : (
+                <span>{author.data.name.slice(0, 1)}</span>
+              )}
             </div>
             <div class="character-card__info">
-              <span class="eyebrow" aria-hidden>{['READY!', 'SET!', 'GO!'][index % 3]}</span>
+              <span class="eyebrow" aria-hidden>
+                {['READY!', 'SET!', 'GO!'][index % 3]}
+              </span>
               <h2>{author.data.name}</h2>
               <p>{author.data.bio}</p>
-              <span class="character-card__select">Selecionar <Icon name="arrow-right" /></span>
+              <span class="character-card__select">
+                Selecionar <Icon name="arrow-right" />
+              </span>
             </div>
           </a>
         ))}

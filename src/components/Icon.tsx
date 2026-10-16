@@ -31,7 +31,7 @@ import {
 } from 'react-icons/fa';
 import { SiCastbox } from 'react-icons/si';
 import { SiBluesky } from 'react-icons/si';
-import { BsStarFill } from "react-icons/bs";
+import { BsStarFill } from 'react-icons/bs';
 
 const icons = {
   'arrow-left': FaArrowLeft,

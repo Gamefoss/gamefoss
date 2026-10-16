@@ -16,7 +16,9 @@ declare global {
 
 function hasAnalyticsConsent(): boolean {
   try {
-    const choice = JSON.parse(localStorage.getItem(CONSENT_STORAGE_KEY) || 'null');
+    const choice = JSON.parse(
+      localStorage.getItem(CONSENT_STORAGE_KEY) || 'null',
+    );
     return choice?.analytics === true;
   } catch {
     return false;
@@ -24,10 +26,14 @@ function hasAnalyticsConsent(): boolean {
 }
 
 function getTrackedElement(target: EventTarget | null): HTMLElement | null {
-  return target instanceof Element ? target.closest<HTMLElement>('[data-ga]') : null;
+  return target instanceof Element
+    ? target.closest<HTMLElement>('[data-ga]')
+    : null;
 }
 
-export function initAnalyticsTracking(documentRef: Document = document): () => void {
+export function initAnalyticsTracking(
+  documentRef: Document = document,
+): () => void {
   const handleClick = (event: Event) => {
     if (!hasAnalyticsConsent() || !window.gtag) return;
 

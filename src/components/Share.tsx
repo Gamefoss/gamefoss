@@ -49,22 +49,73 @@ export default function Share({ title, url, description }: Props) {
   const encodedUrl = encodeURIComponent(url);
   const encodedText = encodeURIComponent(`${title} — ${description}`);
   const links = [
-    { label: 'Twitter', href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`, icon: 'twitter' },
-    { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, icon: 'linkedin' },
-    { label: 'WhatsApp', href: `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`, icon: 'whatsapp' },
+    {
+      label: 'Twitter',
+      href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`,
+      icon: 'twitter',
+    },
+    {
+      label: 'LinkedIn',
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      icon: 'linkedin',
+    },
+    {
+      label: 'WhatsApp',
+      href: `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`,
+      icon: 'whatsapp',
+    },
   ] satisfies { label: string; href: string; icon: IconName }[];
 
   return (
     <section className="share" aria-labelledby="share-title">
-      <h2 className="share__title" id="share-title">Compartilhe</h2>
+      <h2 className="share__title" id="share-title">
+        Compartilhe
+      </h2>
       <div className="share__actions">
-        {canCopy && <Button variant="white" className="share__action" type="button" onClick={copyLink} icon="link" data-ga="share-copy-link">{copyLabel}</Button>}
-        {canShare && <Button variant="white" className="share__action" type="button" onClick={nativeShare} icon="share" data-ga="share-native">Compartilhar</Button>}
+        {canCopy && (
+          <Button
+            variant="white"
+            className="share__action"
+            type="button"
+            onClick={copyLink}
+            icon="link"
+            data-ga="share-copy-link"
+          >
+            {copyLabel}
+          </Button>
+        )}
+        {canShare && (
+          <Button
+            variant="white"
+            className="share__action"
+            type="button"
+            onClick={nativeShare}
+            icon="share"
+            data-ga="share-native"
+          >
+            Compartilhar
+          </Button>
+        )}
         {links.map(({ label, href, icon }) => (
-          <Button key={label} as="a" variant="white" className="share__action" href={href} target="_blank" rel="noopener" aria-label={`Compartilhar no ${label}`} icon={icon} data-ga={`share-${label.toLowerCase()}`}>{label}</Button>
+          <Button
+            key={label}
+            as="a"
+            variant="white"
+            className="share__action"
+            href={href}
+            target="_blank"
+            rel="noopener"
+            aria-label={`Compartilhar no ${label}`}
+            icon={icon}
+            data-ga={`share-${label.toLowerCase()}`}
+          >
+            {label}
+          </Button>
         ))}
       </div>
-      <p className="sr-only" role="status" aria-live="polite">{status}</p>
+      <p className="sr-only" role="status" aria-live="polite">
+        {status}
+      </p>
     </section>
   );
 }

@@ -5,7 +5,9 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 const isPreview = process.env.DEPLOY_ENV === 'development';
-const site = process.env.PUBLIC_SITE_URL || (isPreview ? 'https://gamefoss.com.br/dev' : 'https://gamefoss.com.br');
+const site =
+  process.env.PUBLIC_SITE_URL ||
+  (isPreview ? 'https://gamefoss.com.br/dev' : 'https://gamefoss.com.br');
 const base = process.env.PUBLIC_BASE_PATH || (isPreview ? '/dev' : '/');
 
 export default defineConfig({
