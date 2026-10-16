@@ -1285,22 +1285,28 @@ input {
 .episode-player__audio {
   flex: 1;
 }
+
 .ad-slot {
+  position: relative;
+  z-index: 0;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ad-slot__content {
   width: min(980px, calc(100% - 2rem));
   max-width: 100%;
   min-height: 130px;
-  margin: 2rem auto;
   border: 1px dashed var(--color-line);
   display: grid;
   place-items: center;
-  overflow: hidden;
   color: var(--color-muted);
-  position: relative;
-  z-index: 0;
+  overflow: hidden;
 }
 .ad-slot__label {
-  position: absolute;
-  bottom: -1.3rem;
   font: 0.6rem var(--font-mono);
 }
 .ad-slot__placeholder {
