@@ -14,6 +14,9 @@
     color: var(--color-ink);
     font-family: var(--font-body);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
   body::before {
     content: '';
@@ -29,6 +32,9 @@
     );
     background-size: 6px 6px;
     mix-blend-mode: multiply;
+  }
+  main {
+    flex: 1;
   }
   h1,
   h2,
