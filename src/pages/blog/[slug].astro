@@ -19,6 +19,9 @@ const author = (await getCollection('authors')).find(
 );
 const category = await getEntry(article.data.category);
 const articleUrl = new URL(withBase(`/blog/${article.id}/`), Astro.site).href;
+const articleImageUrl = article.data.cover
+  ? new URL(article.data.cover, Astro.site).href
+  : undefined;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -30,6 +33,7 @@ const jsonLd = {
   ).toISOString(),
   author: { '@type': 'Person', name: author?.data.name || article.data.author },
   mainEntityOfPage: articleUrl,
+  ...(articleImageUrl && { image: articleImageUrl }),
 };
 ---
 
@@ -37,6 +41,7 @@ const jsonLd = {
   title={article.data.seoTitle || article.data.title}
   description={article.data.seoDescription || article.data.description}
   image={article.data.cover}
+  imageAlt={article.data.coverAlt}
   type="article"
   jsonLd={jsonLd}
 >

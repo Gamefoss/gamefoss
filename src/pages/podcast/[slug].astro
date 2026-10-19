@@ -40,6 +40,7 @@ const jsonLd = {
   title={episode.title}
   description={episode.description.replace(/<[^>]+>/g, ' ').slice(0, 155)}
   image={artwork}
+  imageAlt={`Capa do episódio ${episode.title}`}
   jsonLd={jsonLd}
 >
   <header class="page-hero page-hero--article page-hero--episode">

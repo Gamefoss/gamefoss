@@ -15,15 +15,23 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   canonicalPath?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
+
+const usesDefaultSocialImage = Astro.props.image === undefined;
 const {
   title = SITE_NAME,
   description = SITE_DESCRIPTION,
-  image = '/images/og-default.svg',
+  image = '/images/og-default.jpg',
+  imageAlt = `${SITE_NAME} — ${SITE_DESCRIPTION}`,
+  imageWidth = usesDefaultSocialImage ? 1200 : undefined,
+  imageHeight = usesDefaultSocialImage ? 630 : undefined,
   canonicalPath = Astro.url.pathname,
   type = 'website',
   noindex = false,
@@ -86,15 +94,25 @@ const imageUrl = new URL(
       sizes="180x180"
     />
     <meta property="og:type" content={type} />
+    <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:secure_url" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt} />
+    {imageWidth && (
+      <meta property="og:image:width" content={String(imageWidth)} />
+    )}
+    {imageHeight && (
+      <meta property="og:image:height" content={String(imageHeight)} />
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     {jsonLd && (
       <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     )}
