@@ -19,7 +19,7 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<BaseLayout title={`Artigos — página ${page.currentPage}`}>
+<BaseLayout title={`Blog — página ${page.currentPage}`}>
   <header class="page-hero">
     <HeroDecoration icon="newspaper" />
     <div class="shell">
@@ -28,7 +28,7 @@ const { page } = Astro.props;
         <Icon name="minus" />
         <span>PÁGINA {page.currentPage}</span>
       </p>
-      <h1>Artigos</h1>
+      <h1>Blog</h1>
     </div>
   </header>
   <section class="section section--paper">
@@ -37,10 +37,6 @@ const { page } = Astro.props;
         <ArticleCard article={article} />
       ))}
     </div>
-    <Pagination
-      current={page.currentPage}
-      last={page.lastPage}
-      root="/artigos"
-    />
+    <Pagination current={page.currentPage} last={page.lastPage} root="/blog" />
   </section>
 </BaseLayout>

@@ -53,9 +53,10 @@ const categoryRedirects = [
   '/categorias/game-design/ /categoria/game-design/',
   '/categorias/fluxos/ /categoria/fluxos/',
 ];
+const archiveRedirects = ['/artigos/ /blog/'];
 const report = {
   migrated: [] as string[],
-  redirects: [...categoryRedirects],
+  redirects: [...archiveRedirects, ...categoryRedirects],
   missingImages: [] as string[],
   unsupportedMarkup: [] as string[],
 };
@@ -216,9 +217,7 @@ async function main() {
       frontmatter + componentImport + markdown + '\n',
     );
     report.migrated.push(post.slug);
-    report.redirects.push(
-      `${new URL(post.link).pathname} /artigos/${post.slug}/`,
-    );
+    report.redirects.push(`${new URL(post.link).pathname} /blog/${post.slug}/`);
   }
   for (const [slug, author] of authors)
     await writeFile(
