@@ -1,13 +1,9 @@
 ---
-import Icon from '@/components/Icon';
-
 const isPreview = import.meta.env.DEPLOY_ENV === 'development';
 ---
 
 {isPreview && (
   <div class="environment-banner">
-    <span>AMBIENTE DE HOMOLOGAÇÃO</span>
-    <Icon name="minus" />
-    <span>conteúdo não indexado</span>
+    AMBIENTE DE HOMOLOGAÇÃO - conteúdo não indexado
   </div>
 )}
