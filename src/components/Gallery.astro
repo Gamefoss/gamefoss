@@ -1,0 +1,150 @@
+---
+import { withBase } from '@/lib/site';
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+}
+
+interface Props {
+  images: GalleryImage[];
+  label: string;
+  columns?: 1 | 2 | 3;
+}
+
+const { images, label, columns = 3 } = Astro.props;
+---
+
+<div
+  class="gallery"
+  style={`--gallery-columns: ${columns}`}
+  data-gallery
+  aria-label={label}
+>
+  <div class="gallery__grid">
+    {images.map((image, index) => (
+      <button
+        class="gallery__item"
+        type="button"
+        data-gallery-open
+        data-index={index}
+        aria-label={`Abrir foto ${index + 1} de ${images.length}: ${label}`}
+      >
+        <img
+          src={withBase(image.src)}
+          alt={image.alt}
+          width={image.width || 1024}
+          height={image.height || 681}
+          loading="lazy"
+          decoding="async"
+        />
+        {image.caption && <span>{image.caption}</span>}
+      </button>
+    ))}
+  </div>
+
+  <dialog class="gallery__dialog" data-gallery-dialog aria-label={label}>
+    <div class="gallery__viewer">
+      <button
+        class="gallery__close"
+        type="button"
+        data-gallery-close
+        aria-label="Fechar galeria"
+      >
+        ×
+      </button>
+      <button
+        class="gallery__previous"
+        type="button"
+        data-gallery-previous
+        aria-label="Foto anterior"
+      >
+        ←
+      </button>
+      <figure>
+        <img
+          data-gallery-image
+          src={images[0] ? withBase(images[0].src) : undefined}
+          alt={images[0]?.alt || ''}
+        />
+        <figcaption data-gallery-caption></figcaption>
+      </figure>
+      <button
+        class="gallery__next"
+        type="button"
+        data-gallery-next
+        aria-label="Próxima foto"
+      >
+        →
+      </button>
+      <p class="gallery__counter" data-gallery-counter aria-live="polite"></p>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  const galleries = document.querySelectorAll<HTMLElement>('[data-gallery]');
+
+  galleries.forEach((gallery) => {
+    const items = Array.from(
+      gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-open]'),
+    );
+    const dialog = gallery.querySelector<HTMLDialogElement>(
+      '[data-gallery-dialog]',
+    );
+    const image = gallery.querySelector<HTMLImageElement>(
+      '[data-gallery-image]',
+    );
+    const caption = gallery.querySelector<HTMLElement>(
+      '[data-gallery-caption]',
+    );
+    const counter = gallery.querySelector<HTMLElement>(
+      '[data-gallery-counter]',
+    );
+    let activeIndex = 0;
+
+    if (!dialog || !image || !caption || !counter || items.length === 0) return;
+
+    const show = (index: number) => {
+      activeIndex = (index + items.length) % items.length;
+      const thumbnail = items[activeIndex].querySelector('img');
+      const itemCaption = items[activeIndex].querySelector('span');
+
+      if (!thumbnail) return;
+      image.src = thumbnail.src;
+      image.alt = thumbnail.alt;
+      caption.textContent = itemCaption?.textContent || '';
+      caption.hidden = !itemCaption;
+      counter.textContent = `${activeIndex + 1} / ${items.length}`;
+    };
+
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        show(index);
+        dialog.showModal();
+      });
+    });
+
+    gallery
+      .querySelector('[data-gallery-close]')
+      ?.addEventListener('click', () => dialog.close());
+    gallery
+      .querySelector('[data-gallery-previous]')
+      ?.addEventListener('click', () => show(activeIndex - 1));
+    gallery
+      .querySelector('[data-gallery-next]')
+      ?.addEventListener('click', () => show(activeIndex + 1));
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') show(activeIndex - 1);
+      if (event.key === 'ArrowRight') show(activeIndex + 1);
+    });
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
+</script>
