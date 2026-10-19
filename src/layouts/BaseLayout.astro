@@ -21,6 +21,7 @@ interface Props {
   canonicalPath?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
+  nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -35,6 +36,7 @@ const {
   canonicalPath = Astro.url.pathname,
   type = 'website',
   noindex = false,
+  nofollow = false,
   jsonLd,
 } = Astro.props;
 const isPreview = import.meta.env.DEPLOY_ENV === 'development';
@@ -48,6 +50,15 @@ const imageUrl = new URL(
   image.replace(/^\//, ''),
   `${import.meta.env.SITE.replace(/\/$/, '')}/`,
 );
+const robots = isPreview
+  ? 'noindex, nofollow'
+  : [
+      noindex ? 'noindex' : 'index',
+      nofollow ? 'nofollow' : 'follow',
+      ...(!noindex
+        ? ['max-image-preview:large', 'max-snippet:-1', 'max-video-preview:-1']
+        : []),
+    ].join(', ');
 ---
 
 <!doctype html>
@@ -60,10 +71,7 @@ const imageUrl = new URL(
     {googleSiteVerification && (
       <meta name="google-site-verification" content={googleSiteVerification} />
     )}
-    <meta
-      name="robots"
-      content={isPreview || noindex ? 'noindex, nofollow' : 'index, follow'}
-    />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
     <link
       rel="icon"
