@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/Gamefoss/gamefoss/compare/v1.3.0...v1.3.1) (2026-10-19)
+
+
+### Bug Fixes
+
+* **styles:** fixing ad slot sizing ([c177645](https://github.com/Gamefoss/gamefoss/commit/c177645a57aaf0bbc3b011a81be03661548f600d))
+
 ## [1.3.0](https://github.com/Gamefoss/gamefoss/compare/v1.2.0...v1.3.0) (2026-10-19)
 
 

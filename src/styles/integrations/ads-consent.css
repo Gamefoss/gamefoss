@@ -24,14 +24,14 @@
 .ad-slot__placeholder {
   font: 0.7rem var(--font-mono);
 }
-.ad-slot > .adsbygoogle {
+.ad-slot__content > .adsbygoogle {
   width: 100%;
   min-width: 0;
   justify-self: stretch;
 }
-.ad-slot > .adsbygoogle,
-.ad-slot > .adsbygoogle > div,
-.ad-slot iframe {
+.ad-slot__content > .adsbygoogle,
+.ad-slot__content > .adsbygoogle > div,
+.ad-slot__content iframe {
   max-width: 100% !important;
 }
 .consent {
