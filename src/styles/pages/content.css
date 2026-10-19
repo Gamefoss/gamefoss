@@ -24,7 +24,7 @@
   .page-hero p {
     max-width: 680px;
     color: var(--color-muted);
-    font-size: 1.15rem;
+    font-size: clamp(0.8rem, 2.5vw, 1.15rem);
   }
   .page-hero h1 + p {
     margin-top: 1.5rem;
@@ -170,7 +170,7 @@
     max-width: 760px;
     margin: 2rem 0 1.4rem;
     color: var(--color-surface);
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-size: clamp(0.75rem, 2vw, 1rem);
   }
   .prose {
     width: min(760px, calc(100% - 2rem));

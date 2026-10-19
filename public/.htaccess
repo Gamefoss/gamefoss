@@ -1,21 +1,22 @@
 Options -Indexes
 RewriteEngine On
 
-# Preserve the previous Ludokratia archive URL.
-Redirect 301 /ludokratia/ /artigos/
-Redirect 301 /ludokratia/o-que-e-um-game-com-bom-storytelling/ /artigos/o-que-e-um-game-com-bom-storytelling/
-Redirect 301 /ludokratia/arte-do-silencio-the-witness/ /artigos/arte-do-silencio-the-witness/
-Redirect 301 /ludokratia/video-the-turing-test-e-a-sala-chinesa/ /artigos/video-the-turing-test-e-a-sala-chinesa/
-Redirect 301 /ludokratia/a-ia-do-organismo-perfeito/ /artigos/a-ia-do-organismo-perfeito/
-Redirect 301 /ludokratia/dentro-do-circulo-magico/ /artigos/dentro-do-circulo-magico/
-Redirect 301 /ludokratia/the-turing-test-e-a-sala-chinesa/ /artigos/the-turing-test-e-a-sala-chinesa/
-Redirect 301 /ludokratia/herois-x-viloes-viloes-eficientes/ /artigos/herois-x-viloes-viloes-eficientes/
-Redirect 301 /ludokratia/herois-x-viloes-definindo-os-objetivos-do-jogador/ /artigos/herois-x-viloes-definindo-os-objetivos-do-jogador/
-Redirect 301 /ludokratia/killers-e-asteroids/ /artigos/killers-e-asteroids/
+# Preserve the previous article and Ludokratia URLs.
+Redirect 301 /artigos/ /blog/
+Redirect 301 /ludokratia/ /blog/
+Redirect 301 /ludokratia/o-que-e-um-game-com-bom-storytelling/ /blog/o-que-e-um-game-com-bom-storytelling/
+Redirect 301 /ludokratia/arte-do-silencio-the-witness/ /blog/arte-do-silencio-the-witness/
+Redirect 301 /ludokratia/video-the-turing-test-e-a-sala-chinesa/ /blog/video-the-turing-test-e-a-sala-chinesa/
+Redirect 301 /ludokratia/a-ia-do-organismo-perfeito/ /blog/a-ia-do-organismo-perfeito/
+Redirect 301 /ludokratia/dentro-do-circulo-magico/ /blog/dentro-do-circulo-magico/
+Redirect 301 /ludokratia/the-turing-test-e-a-sala-chinesa/ /blog/the-turing-test-e-a-sala-chinesa/
+Redirect 301 /ludokratia/herois-x-viloes-viloes-eficientes/ /blog/herois-x-viloes-viloes-eficientes/
+Redirect 301 /ludokratia/herois-x-viloes-definindo-os-objetivos-do-jogador/ /blog/herois-x-viloes-definindo-os-objetivos-do-jogador/
+Redirect 301 /ludokratia/killers-e-asteroids/ /blog/killers-e-asteroids/
 RedirectMatch 301 ^/podcasts/(.*)/$ /podcast/$1/
 
 # Retired editorial areas intentionally land on the current article archive.
-Redirect 301 /entretenimento/ /artigos/
+Redirect 301 /entretenimento/ /blog/
 
 ErrorDocument 404 /404.html
 

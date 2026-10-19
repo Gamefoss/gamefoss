@@ -365,6 +365,7 @@
 
   .author-profile__bio {
     margin: 0.5rem 0 0;
+    white-space: pre-line;
   }
 
   .author-profile__socials {

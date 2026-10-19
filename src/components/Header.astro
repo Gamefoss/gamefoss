@@ -3,11 +3,11 @@ import Logo from './Logo.astro';
 import Button from './Button';
 import { withBase } from '@/lib/site';
 const links = [
-  ['Podcast', '/podcast/'],
-  ['Artigos', '/artigos/'],
-  ['Autores', '/autores/'],
-  ['Sobre', '/sobre/'],
-  ['Contato', '/contato/'],
+  { label: 'Podcast', href: '/podcast/', tracking: 'podcast' },
+  { label: 'Blog', href: '/blog/', tracking: 'articles' },
+  { label: 'Autores', href: '/autores/', tracking: 'autores' },
+  { label: 'Sobre', href: '/sobre/', tracking: 'sobre' },
+  { label: 'Contato', href: '/contato/', tracking: 'contato' },
 ];
 ---
 
@@ -41,11 +41,8 @@ const links = [
       class="site-header__nav"
       aria-label="Navegação principal"
     >
-      {links.map(([label, href]) => (
-        <a
-          href={withBase(href)}
-          data-ga={`navigation-header-${label.toLowerCase()}`}
-        >
+      {links.map(({ label, href, tracking }) => (
+        <a href={withBase(href)} data-ga={`navigation-header-${tracking}`}>
           {label}
         </a>
       ))}

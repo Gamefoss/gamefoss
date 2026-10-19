@@ -5,10 +5,15 @@ import Carousel from '@/components/Carousel.astro';
 import Icon from '@/components/Icon';
 import HeroDecoration from '@/components/HeroDecoration.astro';
 import { withBase } from '@/lib/site';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 const authors = await getCollection('authors');
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Autores', path: '/autores/' },
+]);
 ---
 
-<BaseLayout title="Autores">
+<BaseLayout title="Autores" jsonLd={jsonLd}>
   <header class="page-hero">
     <HeroDecoration icon="users" />
     <div class="shell">

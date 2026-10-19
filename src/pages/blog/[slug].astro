@@ -4,6 +4,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
 import Share from '@/components/Share';
 import { formatDate, slugify, withBase } from '@/lib/site';
+import {
+  breadcrumbJsonLd,
+  organizationReference,
+  siteUrl,
+} from '@/lib/structured-data';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => !data.draft);
@@ -18,27 +23,59 @@ const author = (await getCollection('authors')).find(
   (item) => item.id === article.data.author,
 );
 const category = await getEntry(article.data.category);
-const articleUrl = new URL(withBase(`/artigos/${article.id}/`), Astro.site)
-  .href;
-const jsonLd = {
+const articleUrl = siteUrl(Astro.site, `/blog/${article.id}/`);
+const authorUrl = author
+  ? siteUrl(Astro.site, `/autores/${author.id}/`)
+  : undefined;
+const articleImageUrl = article.data.cover
+  ? siteUrl(Astro.site, article.data.cover)
+  : undefined;
+const articleJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
+  '@id': `${articleUrl}#article`,
+  url: articleUrl,
   headline: article.data.title,
   description: article.data.description,
   datePublished: article.data.publishedAt.toISOString(),
   dateModified: (
     article.data.updatedAt || article.data.publishedAt
   ).toISOString(),
-  author: { '@type': 'Person', name: author?.data.name || article.data.author },
-  mainEntityOfPage: articleUrl,
+  author: {
+    '@type': 'Person',
+    name: author?.data.name || article.data.author,
+    ...(authorUrl && { '@id': `${authorUrl}#person`, url: authorUrl }),
+  },
+  publisher: organizationReference(Astro.site),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  ...(articleImageUrl && { image: articleImageUrl }),
+  articleSection: category.data.name,
+  keywords: article.data.tags,
+  inLanguage: 'pt-BR',
 };
+const jsonLd = [
+  articleJsonLd,
+  breadcrumbJsonLd(Astro.site, [
+    { name: 'Início', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: article.data.title, path: `/blog/${article.id}/` },
+  ]),
+];
 ---
 
 <BaseLayout
   title={article.data.seoTitle || article.data.title}
   description={article.data.seoDescription || article.data.description}
   image={article.data.cover}
+  imageAlt={article.data.coverAlt}
   type="article"
+  articleMeta={{
+    publishedTime: article.data.publishedAt.toISOString(),
+    modifiedTime: article.data.updatedAt?.toISOString(),
+    author: authorUrl,
+    section: category.data.name,
+    tags: article.data.tags,
+  }}
   jsonLd={jsonLd}
 >
   <header class="page-hero page-hero--article">

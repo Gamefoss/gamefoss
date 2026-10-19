@@ -28,7 +28,7 @@ const author = showAuthor
 >
   <a
     class="article-card__image"
-    href={withBase(`/artigos/${article.id}/`)}
+    href={withBase(`/blog/${article.id}/`)}
     data-ga="article-card-image"
   >
     {article.data.cover ? (
@@ -59,10 +59,7 @@ const author = showAuthor
       </a>
     </div>
     <h3>
-      <a
-        href={withBase(`/artigos/${article.id}/`)}
-        data-ga="article-card-title"
-      >
+      <a href={withBase(`/blog/${article.id}/`)} data-ga="article-card-title">
         {article.data.title}
       </a>
     </h3>

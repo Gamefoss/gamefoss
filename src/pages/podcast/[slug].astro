@@ -7,7 +7,13 @@ import Share from '@/components/Share';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { getEpisodeArtwork } from '@/lib/podcast';
-import { formatDate, withBase } from '@/lib/site';
+import { formatDate } from '@/lib/site';
+import Icon from '@/components/Icon';
+import {
+  breadcrumbJsonLd,
+  podcastSeriesReference,
+  siteUrl,
+} from '@/lib/structured-data';
 
 export function getStaticPaths() {
   return (episodes as PodcastEpisode[]).map((episode) => ({
@@ -17,28 +23,39 @@ export function getStaticPaths() {
 }
 const { episode } = Astro.props as { episode: PodcastEpisode };
 const artwork = getEpisodeArtwork(episode);
-const episodeUrl = new URL(withBase(`/podcast/${episode.slug}/`), Astro.site)
-  .href;
+const episodeUrl = siteUrl(Astro.site, `/podcast/${episode.slug}/`);
 const episodeDescription = episode.description
   .replace(/<[^>]+>/g, ' ')
   .replace(/\s+/g, ' ')
   .trim();
-const jsonLd = {
+const episodeJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'PodcastEpisode',
+  '@id': `${episodeUrl}#podcast-episode`,
   name: episode.title,
-  image: new URL(artwork, Astro.site).href,
+  url: episodeUrl,
+  image: siteUrl(Astro.site, artwork),
   datePublished: episode.publishedAt,
-  description: episode.description.replace(/<[^>]+>/g, ' ').slice(0, 300),
+  description: episodeDescription.slice(0, 300),
   associatedMedia: { '@type': 'MediaObject', contentUrl: episode.audioUrl },
-  partOfSeries: { '@type': 'PodcastSeries', name: 'Gamefoss' },
+  partOfSeries: podcastSeriesReference(Astro.site),
+  inLanguage: 'pt-BR',
 };
+const jsonLd = [
+  episodeJsonLd,
+  breadcrumbJsonLd(Astro.site, [
+    { name: 'Início', path: '/' },
+    { name: 'Podcast', path: '/podcast/' },
+    { name: episode.title, path: `/podcast/${episode.slug}/` },
+  ]),
+];
 ---
 
 <BaseLayout
   title={episode.title}
   description={episode.description.replace(/<[^>]+>/g, ' ').slice(0, 155)}
   image={artwork}
+  imageAlt={`Capa do episódio ${episode.title}`}
   jsonLd={jsonLd}
 >
   <header class="page-hero page-hero--article page-hero--episode">
@@ -46,7 +63,11 @@ const jsonLd = {
       <img src={artwork} alt="" data-pagefind-meta="image[src]" />
     </div>
     <div class="page-hero__content shell">
-      <p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p>
+      <p class="eyebrow">
+        <span>PODCAST</span>
+        <Icon name="dot" />
+        <span>{formatDate(episode.publishedAt)}</span>
+      </p>
       <h1>{episode.title}</h1>
       {episode.duration && (
         <p class="page-hero__description">Duração: {episode.duration}</p>

@@ -1,9 +1,19 @@
 export const SITE_NAME = 'Gamefoss';
+export const SITE_URL = 'https://gamefoss.com.br';
 export const SITE_DESCRIPTION =
   'Games, tecnologia, sociedade e o que mais der na telha.';
-export const PODCAST_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
-export const SPOTIFY_SHOW =
-  'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi';
+export const SITE_SOCIALS = {
+  twitter: 'https://twitter.com/game_foss',
+  instagram: 'https://www.instagram.com/game_foss/',
+  youtube: 'https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw',
+  twitch: 'https://www.twitch.tv/game_foss',
+} as const;
+export const PODCAST_LINKS = {
+  feed: 'https://anchor.fm/s/4c499e08/podcast/rss',
+  spotify: 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi',
+  apple: 'https://podcasts.apple.com/us/podcast/gamefoss/id1455626041',
+  castbox: 'https://castbox.fm/channel/Gamefoss-id2058011',
+} as const;
 
 export function withBase(path = '/') {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');

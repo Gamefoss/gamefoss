@@ -1,10 +1,12 @@
 ---
+import HeroDecoration from '@/components/HeroDecoration.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
 ---
 
 <BaseLayout title="Privacidade">
   <header class="page-hero">
+    <HeroDecoration icon="mask" />
     <div class="shell">
       <p class="eyebrow">SEM PEGADINHAS</p>
       <h1>Privacidade</h1>

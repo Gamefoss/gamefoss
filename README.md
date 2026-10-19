@@ -16,7 +16,9 @@ Copy `.env.example` to `.env` for environment-specific values. A full production
 - Articles: `src/content/articles/*.mdx`
 - Authors: `src/content/authors/*.md`
 - Podcast episodes: fetched from Anchor RSS and generated into the ignored `.cache/episodes.json` before development, checks, and builds
-- MDX components: `YouTube`, `Figure`, and `Callout` under `src/components/`
+- MDX components: `YouTube`, `Figure`, `Gallery`, and `Callout` under `src/components/`
+
+Article media lives under `public/images/articles/<article-slug>/`. Production builds run `npm run images:optimize` after Astro copies these assets to `dist/`. The optimizer recompresses supported JPEG, PNG, WebP, and AVIF files only when the result is smaller; source files in `public/` are never modified. SVG, GIF, and animated images are left unchanged.
 
 Run `npm run content:migrate` to repeat the Ludokratia migration defined by `migration/ludokratia-manifest.json`. The command also writes migration diagnostics under `reports/migration/` and a redirect list to `public/legacy-redirects.conf`.
 

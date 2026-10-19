@@ -11,15 +11,19 @@
     "killers-e-asteroids"
   ],
   "redirects": [
-    "/ludokratia/o-que-e-um-game-com-bom-storytelling/ /artigos/o-que-e-um-game-com-bom-storytelling/",
-    "/ludokratia/arte-do-silencio-the-witness/ /artigos/arte-do-silencio-the-witness/",
-    "/ludokratia/video-the-turing-test-e-a-sala-chinesa/ /artigos/video-the-turing-test-e-a-sala-chinesa/",
-    "/ludokratia/a-ia-do-organismo-perfeito/ /artigos/a-ia-do-organismo-perfeito/",
-    "/ludokratia/dentro-do-circulo-magico/ /artigos/dentro-do-circulo-magico/",
-    "/ludokratia/the-turing-test-e-a-sala-chinesa/ /artigos/the-turing-test-e-a-sala-chinesa/",
-    "/ludokratia/herois-x-viloes-viloes-eficientes/ /artigos/herois-x-viloes-viloes-eficientes/",
-    "/ludokratia/herois-x-viloes-definindo-os-objetivos-do-jogador/ /artigos/herois-x-viloes-definindo-os-objetivos-do-jogador/",
-    "/ludokratia/killers-e-asteroids/ /artigos/killers-e-asteroids/"
+    "/artigos/ /blog/",
+    "/categorias/ia/ /categoria/ai/",
+    "/categorias/game-design/ /categoria/game-design/",
+    "/categorias/fluxos/ /categoria/fluxos/",
+    "/ludokratia/o-que-e-um-game-com-bom-storytelling/ /blog/o-que-e-um-game-com-bom-storytelling/",
+    "/ludokratia/arte-do-silencio-the-witness/ /blog/arte-do-silencio-the-witness/",
+    "/ludokratia/video-the-turing-test-e-a-sala-chinesa/ /blog/video-the-turing-test-e-a-sala-chinesa/",
+    "/ludokratia/a-ia-do-organismo-perfeito/ /blog/a-ia-do-organismo-perfeito/",
+    "/ludokratia/dentro-do-circulo-magico/ /blog/dentro-do-circulo-magico/",
+    "/ludokratia/the-turing-test-e-a-sala-chinesa/ /blog/the-turing-test-e-a-sala-chinesa/",
+    "/ludokratia/herois-x-viloes-viloes-eficientes/ /blog/herois-x-viloes-viloes-eficientes/",
+    "/ludokratia/herois-x-viloes-definindo-os-objetivos-do-jogador/ /blog/herois-x-viloes-definindo-os-objetivos-do-jogador/",
+    "/ludokratia/killers-e-asteroids/ /blog/killers-e-asteroids/"
   ],
   "missingImages": [],
   "unsupportedMarkup": []

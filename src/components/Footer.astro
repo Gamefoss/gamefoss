@@ -3,18 +3,7 @@ import Logo from './Logo.astro';
 import Button from './Button';
 import Icon from './Icon';
 import Socials from './Socials.astro';
-import { withBase } from '@/lib/site';
-
-const SPOTIFY_SHOW = 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi';
-const APPLE_PODCASTS =
-  'https://podcasts.apple.com/us/podcast/gamefoss/id1455626041?uo=4';
-const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
-const socials = {
-  twitter: 'https://twitter.com/game_foss',
-  instagram: 'https://www.instagram.com/game_foss/',
-  youtube: 'https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw',
-  twitch: 'https://www.twitch.tv/game_foss',
-};
+import { PODCAST_LINKS, SITE_SOCIALS, withBase } from '@/lib/site';
 ---
 
 <footer class="site-footer">
@@ -27,13 +16,13 @@ const socials = {
       </p>
     </div>
     <div class="site-footer__menus">
-      <nav aria-label="Artigos">
+      <nav aria-label="Blog">
         <a
           class="site-footer__heading"
-          href={withBase('/artigos/')}
+          href={withBase('/blog/')}
           data-ga="navigation-footer-articles"
         >
-          Artigos
+          Blog
         </a>
         <a
           href={withBase('/categorias/')}
@@ -58,7 +47,7 @@ const socials = {
         </a>
         <a
           class="site-footer__external"
-          href={SPOTIFY_SHOW}
+          href={PODCAST_LINKS.spotify}
           target="_blank"
           rel="noopener"
           data-ga="podcast-footer-spotify"
@@ -67,7 +56,7 @@ const socials = {
         </a>
         <a
           class="site-footer__external"
-          href={APPLE_PODCASTS}
+          href={PODCAST_LINKS.apple}
           target="_blank"
           rel="noopener"
           data-ga="podcast-footer-apple"
@@ -76,7 +65,7 @@ const socials = {
         </a>
         <a
           class="site-footer__external"
-          href={CASTBOX}
+          href={PODCAST_LINKS.castbox}
           target="_blank"
           rel="noopener"
           data-ga="podcast-footer-castbox"
@@ -113,7 +102,7 @@ const socials = {
   </div>
   <div class="site-footer__lower shell">
     <Socials
-      socials={socials}
+      socials={SITE_SOCIALS}
       owner="Gamefoss"
       label="Redes sociais"
       className="site-footer__socials"

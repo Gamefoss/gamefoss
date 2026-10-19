@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import Button from '@/components/Button';
 import { withBase } from '@/lib/site';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 export async function getStaticPaths() {
   const categories = await getCollection('categories');
@@ -21,9 +22,18 @@ export async function getStaticPaths() {
 
 const { category, articles } = Astro.props;
 const { Content } = await render(category);
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Categorias', path: '/categorias/' },
+  { name: category.data.name, path: `/categoria/${category.id}/` },
+]);
 ---
 
-<BaseLayout title={category.data.name} description={category.data.description}>
+<BaseLayout
+  title={category.data.name}
+  description={category.data.description}
+  jsonLd={jsonLd}
+>
   <header
     class="page-hero"
     data-pagefind-body

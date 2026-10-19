@@ -13,6 +13,7 @@
 @import './components/article-card.css';
 @import './components/episode-card.css';
 @import './components/pagination-people.css';
+@import './components/gallery.css';
 
 /* Page-level compositions. */
 @import './pages/taxonomy-about.css';
