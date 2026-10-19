@@ -9,7 +9,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import ConsentBanner from '@/components/ConsentBanner.astro';
 import EnvironmentBanner from '@/components/EnvironmentBanner.astro';
-import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+import { PODCAST_LINKS, SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
 
 interface Props {
   title?: string;
@@ -73,6 +73,12 @@ const robots = isPreview
     )}
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Podcast Gamefoss"
+      href={PODCAST_LINKS.feed}
+    />
     <link
       rel="icon"
       href={`${import.meta.env.BASE_URL}favicon.ico`}
