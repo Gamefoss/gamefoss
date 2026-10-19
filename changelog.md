@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Gamefoss/gamefoss/compare/v1.2.0...v1.3.0) (2026-10-19)
+
+
+### Features
+
+* **agents:** drafting agents.md ([8f4b0d0](https://github.com/Gamefoss/gamefoss/commit/8f4b0d0dbb48478091a117bf8996b23066239ed3))
+* **components:** adding gallery component ([99f4a51](https://github.com/Gamefoss/gamefoss/commit/99f4a51f4d34686e99c4d2c5abaf6b9fd6a1b54b))
+* **images:** image optimization deps ([4f81264](https://github.com/Gamefoss/gamefoss/commit/4f81264543c61d0a925b7eaf54d55819f2a63c06))
+* **layout:** tweaking few styles ([57b398c](https://github.com/Gamefoss/gamefoss/commit/57b398c2a6819226c153a251bd3e6d634596bee6))
+* **rss:** advertise rss through metadata ([916fbce](https://github.com/Gamefoss/gamefoss/commit/916fbce34d2e5a1f2a41c09a6dbf0a3e2388653e))
+* **seo:** adding default share image ([21c5e6b](https://github.com/Gamefoss/gamefoss/commit/21c5e6b1fd9b808a05fc7fd3a0cb6663c2b5e1cd))
+* **seo:** adding Open Graph metadata to article ([776d2da](https://github.com/Gamefoss/gamefoss/commit/776d2da1f17ca0b2d305cd3ff47041e48e49e53b))
+* **seo:** updating metadata for indexation ([01ad842](https://github.com/Gamefoss/gamefoss/commit/01ad8426d27603903194ba6bb6f6410dbbe166ba))
+* **seo:** updating robots with AI policy ([f6c6610](https://github.com/Gamefoss/gamefoss/commit/f6c66100b900f5488b4eac3d9bff7a907f5749df))
+* **seo:** updating schemas ([42db28b](https://github.com/Gamefoss/gamefoss/commit/42db28b2cc7128e88cb6da63e5ad1b4373bc881f))
+* **structure:** moving artigos to blog ([aceb35e](https://github.com/Gamefoss/gamefoss/commit/aceb35e289590723471992e0e3a1bcc1415b24b0))
+
+
+### Bug Fixes
+
+* **layout:** fixing dev banner ([77d47d4](https://github.com/Gamefoss/gamefoss/commit/77d47d441bb19f1cdf44334887131920ea322b3c))
+
 ## [1.2.0](https://github.com/Gamefoss/gamefoss/compare/v1.1.0...v1.2.0) (2026-10-16)
 
 
