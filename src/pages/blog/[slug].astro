@@ -69,6 +69,13 @@ const jsonLd = [
   image={article.data.cover}
   imageAlt={article.data.coverAlt}
   type="article"
+  articleMeta={{
+    publishedTime: article.data.publishedAt.toISOString(),
+    modifiedTime: article.data.updatedAt?.toISOString(),
+    author: authorUrl,
+    section: category.data.name,
+    tags: article.data.tags,
+  }}
   jsonLd={jsonLd}
 >
   <header class="page-hero page-hero--article">

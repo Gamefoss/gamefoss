@@ -20,6 +20,13 @@ interface Props {
   imageHeight?: number;
   canonicalPath?: string;
   type?: 'website' | 'article';
+  articleMeta?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    author?: string;
+    section?: string;
+    tags?: string[];
+  };
   noindex?: boolean;
   nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
@@ -35,6 +42,7 @@ const {
   imageHeight = usesDefaultSocialImage ? 630 : undefined,
   canonicalPath = Astro.url.pathname,
   type = 'website',
+  articleMeta,
   noindex = false,
   nofollow = false,
   jsonLd,
@@ -62,7 +70,11 @@ const robots = isPreview
 ---
 
 <!doctype html>
-<html lang="pt-BR" data-theme="gamefoss-retro">
+<html
+  lang="pt-BR"
+  data-theme="gamefoss-retro"
+  prefix="og: https://ogp.me/ns# article: https://ogp.me/ns/article#"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -121,6 +133,29 @@ const robots = isPreview
     )}
     {imageHeight && (
       <meta property="og:image:height" content={String(imageHeight)} />
+    )}
+    {type === 'article' && articleMeta && (
+      <>
+        <meta
+          property="article:published_time"
+          content={articleMeta.publishedTime}
+        />
+        {articleMeta.modifiedTime && (
+          <meta
+            property="article:modified_time"
+            content={articleMeta.modifiedTime}
+          />
+        )}
+        {articleMeta.author && (
+          <meta property="article:author" content={articleMeta.author} />
+        )}
+        {articleMeta.section && (
+          <meta property="article:section" content={articleMeta.section} />
+        )}
+        {articleMeta.tags?.map((tag) => (
+          <meta property="article:tag" content={tag} />
+        ))}
+      </>
     )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
