@@ -11,6 +11,7 @@ import { withBase } from '@/lib/site';
 import Icon from '@/components/Icon';
 import Button from '@/components/Button';
 import Carousel from '@/components/Carousel.astro';
+import { organizationJsonLd, websiteJsonLd } from '@/lib/structured-data';
 
 const articles = (
   await getCollection('articles', ({ data }) => !data.draft)
@@ -21,9 +22,10 @@ const articles = (
 });
 const podcast = episodes as PodcastEpisode[];
 const latest = podcast[0];
+const jsonLd = [organizationJsonLd(Astro.site), websiteJsonLd(Astro.site)];
 ---
 
-<BaseLayout>
+<BaseLayout jsonLd={jsonLd}>
   {latest && (
     <section class="section">
       <div class="featured-podcast shell">

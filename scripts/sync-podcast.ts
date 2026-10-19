@@ -1,7 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { sanitizeEpisodeHtml, type PodcastEpisode } from '../src/lib/podcast';
-import { PODCAST_FEED, slugify } from '../src/lib/site';
+import { PODCAST_LINKS, slugify } from '../src/lib/site';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -64,9 +64,7 @@ export function parsePodcast(xml: string): PodcastEpisode[] {
           attr(channel?.['itunes:image'], 'href') ||
           undefined,
         audioUrl,
-        spotifyUrl:
-          text(item.link) ||
-          'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi',
+        spotifyUrl: text(item.link) || PODCAST_LINKS.spotify,
       };
     },
   );
@@ -76,7 +74,7 @@ export function parsePodcast(xml: string): PodcastEpisode[] {
 }
 
 async function main() {
-  const response = await fetch(PODCAST_FEED, {
+  const response = await fetch(PODCAST_LINKS.feed, {
     headers: { 'user-agent': 'Gamefoss-site-builder/1.0' },
     signal: AbortSignal.timeout(30_000),
   });

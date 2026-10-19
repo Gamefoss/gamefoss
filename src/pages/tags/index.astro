@@ -2,16 +2,22 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { slugify, withBase } from '@/lib/site';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 const articles = await getCollection('articles', ({ data }) => !data.draft);
 const tags = [
   ...new Set(articles.flatMap((article) => article.data.tags)),
 ].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Tags', path: '/tags/' },
+]);
 ---
 
 <BaseLayout
   title="Tags"
   description="Assuntos encontrados nos artigos do Gamefoss."
+  jsonLd={jsonLd}
 >
   <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Página">
     <div class="shell">

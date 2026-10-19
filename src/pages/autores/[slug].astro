@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import Socials from '@/components/Socials.astro';
 import { withBase } from '@/lib/site';
+import { breadcrumbJsonLd, siteUrl } from '@/lib/structured-data';
 export async function getStaticPaths() {
   const authors = await getCollection('authors');
   return authors.map((author) => ({
@@ -18,9 +19,33 @@ const articles = (
     ({ data }) => !data.draft && data.author === author.id,
   )
 ).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const authorUrl = siteUrl(Astro.site, `/autores/${author.id}/`);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${authorUrl}#person`,
+    name: author.data.name,
+    url: authorUrl,
+    description: author.data.bio,
+    ...(author.data.portrait && {
+      image: siteUrl(Astro.site, author.data.portrait),
+    }),
+    sameAs: Object.values(author.data.socials || {}),
+  },
+  breadcrumbJsonLd(Astro.site, [
+    { name: 'Início', path: '/' },
+    { name: 'Autores', path: '/autores/' },
+    { name: author.data.name, path: `/autores/${author.id}/` },
+  ]),
+];
 ---
 
-<BaseLayout title={author.data.name} description={author.data.bio}>
+<BaseLayout
+  title={author.data.name}
+  description={author.data.bio}
+  jsonLd={jsonLd}
+>
   <header
     class="page-hero page-hero--author"
     data-pagefind-body

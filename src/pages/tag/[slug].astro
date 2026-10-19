@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { slugify, withBase } from '@/lib/site';
 import Button from '@/components/Button';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => !data.draft);
@@ -27,9 +28,19 @@ export async function getStaticPaths() {
 }
 
 const { tag, articles } = Astro.props;
+const tagSlug = slugify(tag);
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Tags', path: '/tags/' },
+  { name: tag, path: `/tag/${tagSlug}/` },
+]);
 ---
 
-<BaseLayout title={tag} description={`Artigos do Gamefoss sobre ${tag}.`}>
+<BaseLayout
+  title={tag}
+  description={`Artigos do Gamefoss sobre ${tag}.`}
+  jsonLd={jsonLd}
+>
   <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Tag">
     <div class="shell">
       <Button
