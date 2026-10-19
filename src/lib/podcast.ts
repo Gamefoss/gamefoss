@@ -45,5 +45,8 @@ export function sanitizeEpisodeHtml(value: string) {
 }
 
 export function removeHtmlTags(value: string) {
-  return value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return value
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }

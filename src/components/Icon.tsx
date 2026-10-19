@@ -33,8 +33,8 @@ import { FaMessage } from 'react-icons/fa6';
 import { SiCastbox } from 'react-icons/si';
 import { SiBluesky } from 'react-icons/si';
 import { BsStarFill, BsDot } from 'react-icons/bs';
-import { BiSolidMask } from "react-icons/bi";
-import { DiGoogleAnalytics } from "react-icons/di";
+import { BiSolidMask } from 'react-icons/bi';
+import { DiGoogleAnalytics } from 'react-icons/di';
 
 const icons = {
   'arrow-left': FaArrowLeft,
