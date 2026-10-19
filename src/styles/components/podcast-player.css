@@ -195,13 +195,11 @@
       overflow: hidden;
       font-size: 0.9rem;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
+      -webkit-line-clamp: 3;
 
       @variant md {
-        display: block;
-        overflow: visible;
         font-size: inherit;
-        -webkit-line-clamp: initial;
+        -webkit-line-clamp: 4;
       }
     }
   }

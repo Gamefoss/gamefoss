@@ -37,6 +37,7 @@
     margin: 0 0 0.5rem;
     color: var(--color-red);
     font: 500 0.72rem var(--font-mono);
+    font-size: 0.72rem;
     letter-spacing: 0.12em;
   }
   .eyebrow svg {

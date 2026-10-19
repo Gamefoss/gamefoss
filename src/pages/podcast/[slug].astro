@@ -8,6 +8,7 @@ import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { getEpisodeArtwork } from '@/lib/podcast';
 import { formatDate, withBase } from '@/lib/site';
+import Icon from '@/components/Icon';
 
 export function getStaticPaths() {
   return (episodes as PodcastEpisode[]).map((episode) => ({
@@ -46,7 +47,15 @@ const jsonLd = {
       <img src={artwork} alt="" data-pagefind-meta="image[src]" />
     </div>
     <div class="page-hero__content shell">
-      <p class="eyebrow">PODCAST · {formatDate(episode.publishedAt)}</p>
+      <p class="eyebrow">
+        <span>
+          PODCAST
+        </span>
+        <Icon name="dot" />
+        <span>
+          {formatDate(episode.publishedAt)}
+        </span>
+      </p>
       <h1>{episode.title}</h1>
       {episode.duration && (
         <p class="page-hero__description">Duração: {episode.duration}</p>
