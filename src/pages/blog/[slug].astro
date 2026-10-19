@@ -18,8 +18,7 @@ const author = (await getCollection('authors')).find(
   (item) => item.id === article.data.author,
 );
 const category = await getEntry(article.data.category);
-const articleUrl = new URL(withBase(`/artigos/${article.id}/`), Astro.site)
-  .href;
+const articleUrl = new URL(withBase(`/blog/${article.id}/`), Astro.site).href;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',

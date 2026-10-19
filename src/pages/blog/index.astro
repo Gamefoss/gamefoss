@@ -11,14 +11,14 @@ const pageSize = 6;
 ---
 
 <BaseLayout
-  title="Artigos"
+  title="Blog"
   description="Ensaios e reflexões sobre jogos, tecnologia e sociedade."
 >
   <header class="page-hero">
     <HeroDecoration icon="newspaper" />
     <div class="shell">
       <p class="eyebrow">LUDOKRATIA CONTINUA</p>
-      <h1>Artigos</h1>
+      <h1>Blog</h1>
       <p>
         Textos que olham além da tela: design, narrativa, tecnologia, cultura e
         as pessoas que fazem tudo isso acontecer.
@@ -34,7 +34,7 @@ const pageSize = 6;
     <Pagination
       current={1}
       last={Math.ceil(articles.length / pageSize)}
-      root="/artigos"
+      root="/blog"
     />
   </section>
 </BaseLayout>
