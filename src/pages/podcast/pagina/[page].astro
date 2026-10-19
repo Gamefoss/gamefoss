@@ -7,6 +7,7 @@ import Icon from '@/components/Icon';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import type { GetStaticPaths, Page } from 'astro';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 export const getStaticPaths = (({ paginate }) =>
   paginate(episodes as PodcastEpisode[], {
     pageSize: 8,
@@ -15,9 +16,17 @@ interface Props {
   page: Page<PodcastEpisode>;
 }
 const { page } = Astro.props;
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Podcast', path: '/podcast/' },
+  {
+    name: `Página ${page.currentPage}`,
+    path: `/podcast/pagina/${page.currentPage}/`,
+  },
+]);
 ---
 
-<BaseLayout title={`Podcast — página ${page.currentPage}`}>
+<BaseLayout title={`Podcast — página ${page.currentPage}`} jsonLd={jsonLd}>
   <header class="page-hero">
     <HeroDecoration icon="headphones" />
     <div class="shell">

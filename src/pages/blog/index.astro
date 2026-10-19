@@ -4,15 +4,21 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import Pagination from '@/components/Pagination.astro';
 import HeroDecoration from '@/components/HeroDecoration.astro';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 const articles = (
   await getCollection('articles', ({ data }) => !data.draft)
 ).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const pageSize = 6;
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+]);
 ---
 
 <BaseLayout
   title="Blog"
   description="Ensaios e reflexões sobre jogos, tecnologia e sociedade."
+  jsonLd={jsonLd}
 >
   <header class="page-hero">
     <HeroDecoration icon="newspaper" />

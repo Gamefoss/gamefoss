@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { withBase } from '@/lib/site';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 const categories = (await getCollection('categories')).sort(
   (a, b) =>
@@ -9,11 +10,16 @@ const categories = (await getCollection('categories')).sort(
     a.data.name.localeCompare(b.data.name, 'pt-BR'),
 );
 const articles = await getCollection('articles', ({ data }) => !data.draft);
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Categorias', path: '/categorias/' },
+]);
 ---
 
 <BaseLayout
   title="Categorias"
   description="Explore os artigos do Gamefoss por categoria."
+  jsonLd={jsonLd}
 >
   <header class="page-hero" data-pagefind-body data-pagefind-meta="type:Página">
     <div class="shell">

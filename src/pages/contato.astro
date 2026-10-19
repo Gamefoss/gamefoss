@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button, { type ButtonProps } from '@/components/Button';
 import HeroDecoration from '@/components/HeroDecoration.astro';
+import { PODCAST_LINKS, SITE_SOCIALS } from '@/lib/site';
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
 ---
 
@@ -38,17 +39,17 @@ const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
       {[
         {
           icon: 'instagram',
-          href: 'https://www.instagram.com/game_foss/',
+          href: SITE_SOCIALS.instagram,
           label: 'Instagram',
         },
         {
           icon: 'spotify',
-          href: 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi',
+          href: PODCAST_LINKS.spotify,
           label: 'Spotify',
         },
         {
           icon: 'youtube',
-          href: 'https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw',
+          href: SITE_SOCIALS.youtube,
           label: 'YouTube',
         },
       ].map(({ icon, href, label }) => (

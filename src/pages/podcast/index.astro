@@ -5,20 +5,25 @@ import Icon from '@/components/Icon';
 import HeroDecoration from '@/components/HeroDecoration.astro';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
-import { SPOTIFY_SHOW } from '@/lib/site';
+import { PODCAST_LINKS } from '@/lib/site';
 import Pagination from '@/components/Pagination.astro';
 import Button from '@/components/Button';
+import { breadcrumbJsonLd, podcastSeriesJsonLd } from '@/lib/structured-data';
 const podcast = episodes as PodcastEpisode[];
 const pageSize = 8;
-const APPLE_PODCASTS =
-  'https://podcasts.apple.com/us/podcast/gamefoss/id1455626041?uo=4';
-const CASTBOX = 'https://castbox.fm/channel/Gamefoss-id2058011';
-const RSS_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
+const jsonLd = [
+  podcastSeriesJsonLd(Astro.site),
+  breadcrumbJsonLd(Astro.site, [
+    { name: 'Início', path: '/' },
+    { name: 'Podcast', path: '/podcast/' },
+  ]),
+];
 ---
 
 <BaseLayout
   title="Podcast"
   description="Todos os episódios do podcast Gamefoss."
+  jsonLd={jsonLd}
 >
   <header class="page-hero">
     <HeroDecoration icon="headphones" />
@@ -33,7 +38,7 @@ const RSS_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
       <div class="podcast-platforms">
         <Button
           as="a"
-          href={SPOTIFY_SHOW}
+          href={PODCAST_LINKS.spotify}
           target="_blank"
           rel="noopener"
           icon="spotify"
@@ -43,7 +48,7 @@ const RSS_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
         <Button
           as="a"
           variant="white"
-          href={APPLE_PODCASTS}
+          href={PODCAST_LINKS.apple}
           target="_blank"
           rel="noopener"
           icon="apple"
@@ -53,7 +58,7 @@ const RSS_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
         <Button
           as="a"
           variant="white"
-          href={CASTBOX}
+          href={PODCAST_LINKS.castbox}
           target="_blank"
           rel="noopener"
           icon="castbox"
@@ -63,7 +68,7 @@ const RSS_FEED = 'https://anchor.fm/s/4c499e08/podcast/rss';
         <Button
           as="a"
           variant="white"
-          href={RSS_FEED}
+          href={PODCAST_LINKS.feed}
           target="_blank"
           rel="noopener"
           icon="rss"

@@ -7,6 +7,7 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import Pagination from '@/components/Pagination.astro';
 import HeroDecoration from '@/components/HeroDecoration.astro';
 import Icon from '@/components/Icon';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = (
     await getCollection('articles', ({ data }) => !data.draft)
@@ -17,9 +18,17 @@ interface Props {
   page: Page<CollectionEntry<'articles'>>;
 }
 const { page } = Astro.props;
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  {
+    name: `Página ${page.currentPage}`,
+    path: `/blog/pagina/${page.currentPage}/`,
+  },
+]);
 ---
 
-<BaseLayout title={`Blog — página ${page.currentPage}`}>
+<BaseLayout title={`Blog — página ${page.currentPage}`} jsonLd={jsonLd}>
   <header class="page-hero">
     <HeroDecoration icon="newspaper" />
     <div class="shell">
