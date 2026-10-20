@@ -59,6 +59,8 @@ jobs:
         run: cp public/dev-robots.txt public/robots.txt
       - run: npm test
       - run: npm run check
+        env:
+          YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}
       - name: Build
         run: npm run build
         env:
@@ -70,6 +72,7 @@ jobs:
           PUBLIC_ADSENSE_SLOT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT || '' }}
           PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
           PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}
       - name: Validate generated links
         run: npm run validate:links
         env:
