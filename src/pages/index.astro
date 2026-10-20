@@ -63,39 +63,6 @@ const jsonLd = [organizationJsonLd(Astro.site), websiteJsonLd(Astro.site)];
       </div>
     </section>
   )}
-  {latestVideos.length > 0 && (
-    <section class="section">
-      <div class="shell">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">
-              ASSISTA NO GAMEFOSS <Icon name="youtube" />
-            </p>
-            <h2>Vídeos</h2>
-          </div>
-          <Button
-            as="a"
-            variant="accent"
-            compact
-            href={withBase('/videos/')}
-            icon="arrow-right"
-            iconPosition="right"
-          >
-            Ver todos
-          </Button>
-        </div>
-        <Carousel
-          label="Vídeos mais recentes"
-          className="video-carousel"
-          trackClass="video-grid"
-        >
-          {latestVideos.map((video) => (
-            <VideoCard video={video} />
-          ))}
-        </Carousel>
-      </div>
-    </section>
-  )}
   <section class="section section--paper">
     <div class="shell">
       <div class="section-heading">
@@ -129,5 +96,38 @@ const jsonLd = [organizationJsonLd(Astro.site), websiteJsonLd(Astro.site)];
       </Carousel>
     </div>
   </section>
+  {latestVideos.length > 0 && (
+    <section class="section section--blue">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">
+              ASSISTA no Youtube <Icon name="youtube" />
+            </p>
+            <h2>Vídeos</h2>
+          </div>
+          <Button
+            as="a"
+            variant="accent"
+            compact
+            href={withBase('/videos/')}
+            icon="arrow-right"
+            iconPosition="right"
+          >
+            Ver todos
+          </Button>
+        </div>
+        <Carousel
+          label="Vídeos mais recentes"
+          className="video-carousel"
+          trackClass="video-grid"
+        >
+          {latestVideos.map((video) => (
+            <VideoCard video={video} />
+          ))}
+        </Carousel>
+      </div>
+    </section>
+  )}
   <AdSlot />
 </BaseLayout>

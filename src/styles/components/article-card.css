@@ -40,23 +40,26 @@
     flex-direction: column;
     border: 3px solid var(--color-ink);
     background: #fff;
-    box-shadow: 7px 7px 0 var(--color-red);
-    transition: background-color 0.15s ease;
+    box-shadow: 7px 7px 0 var(--article-shadow);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
   }
   .article-grid .article-card {
-    box-shadow: 7px 7px 0 var(--color-red);
+    --article-shadow: var(--color-red);
   }
   .article-grid .article-card:nth-child(4n + 2) {
-    box-shadow: 7px 7px 0 var(--color-accent);
+    --article-shadow: var(--color-accent);
   }
   .article-grid .article-card:nth-child(4n + 3) {
-    box-shadow: 7px 7px 0 var(--color-blue);
+    --article-shadow: var(--color-blue);
   }
   .article-grid .article-card:nth-child(4n) {
-    box-shadow: 7px 7px 0 var(--color-teal);
+    --article-shadow: var(--color-teal);
   }
   .article-card:hover {
-    background: color-mix(in srgb, var(--color-accent) 18%, #fff);
+    transform: translate(2px, 2px);
+    box-shadow: 5px 5px 0 var(--article-shadow);
   }
   .article-card__image {
     display: block;
