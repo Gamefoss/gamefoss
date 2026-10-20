@@ -1,7 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { sanitizeEpisodeHtml, type PodcastEpisode } from '../src/lib/podcast';
-import { PODCAST_LINKS, slugify } from '../src/lib/site';
+import { sanitizeEpisodeHtml, type PodcastEpisode } from '@/lib/podcast';
+import { PODCAST_LINKS, slugify } from '@/lib/site';
 
 const parser = new XMLParser({
   ignoreAttributes: false,

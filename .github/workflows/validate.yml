@@ -20,12 +20,15 @@ jobs:
       - run: npm run format:check
       - run: npm test
       - run: npm run check
+        env:
+          YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}
       - run: npm run build
         env:
           DEPLOY_ENV: production
           PUBLIC_SITE_URL: https://gamefoss.com.br
           PUBLIC_BASE_PATH: /
           PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}
       - run: npm run validate:links
       - uses: actions/upload-artifact@v4
         with:
