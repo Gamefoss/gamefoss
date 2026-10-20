@@ -12,6 +12,9 @@ import Icon from '@/components/Icon';
 import Button from '@/components/Button';
 import Carousel from '@/components/Carousel.astro';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/structured-data';
+import VideoCard from '@/components/VideoCard.astro';
+import videos from '@generated/videos.json';
+import type { YouTubeVideo } from '@/lib/videos';
 
 const articles = (
   await getCollection('articles', ({ data }) => !data.draft)
@@ -22,6 +25,7 @@ const articles = (
 });
 const podcast = episodes as PodcastEpisode[];
 const latest = podcast[0];
+const latestVideos = (videos as YouTubeVideo[]).slice(0, 3);
 const jsonLd = [organizationJsonLd(Astro.site), websiteJsonLd(Astro.site)];
 ---
 
@@ -56,6 +60,39 @@ const jsonLd = [organizationJsonLd(Astro.site), websiteJsonLd(Astro.site)];
             </Button>
           </div>
         </aside>
+      </div>
+    </section>
+  )}
+  {latestVideos.length > 0 && (
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">
+              ASSISTA NO GAMEFOSS <Icon name="youtube" />
+            </p>
+            <h2>Vídeos</h2>
+          </div>
+          <Button
+            as="a"
+            variant="accent"
+            compact
+            href={withBase('/videos/')}
+            icon="arrow-right"
+            iconPosition="right"
+          >
+            Ver todos
+          </Button>
+        </div>
+        <Carousel
+          label="Vídeos mais recentes"
+          className="video-carousel"
+          trackClass="video-grid"
+        >
+          {latestVideos.map((video) => (
+            <VideoCard video={video} />
+          ))}
+        </Carousel>
       </div>
     </section>
   )}

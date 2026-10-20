@@ -1,0 +1,93 @@
+---
+import AdSlot from '@/components/AdSlot.astro';
+import Button from '@/components/Button';
+import Icon from '@/components/Icon';
+import Share from '@/components/Share';
+import YouTube from '@/components/YouTube.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { formatDate } from '@/lib/site';
+import {
+  breadcrumbJsonLd,
+  siteUrl,
+  videoObjectJsonLd,
+} from '@/lib/structured-data';
+import type { YouTubeVideo } from '@/lib/videos';
+import videos from '@generated/videos.json';
+
+export function getStaticPaths() {
+  return (videos as YouTubeVideo[]).map((video) => ({
+    params: { slug: video.slug },
+    props: { video },
+  }));
+}
+
+const { video } = Astro.props as { video: YouTubeVideo };
+const videoUrl = siteUrl(Astro.site, `/videos/${video.slug}/`);
+const videoDescription =
+  video.descriptionText || `Assista ao vídeo ${video.title}, do Gamefoss.`;
+const videoJsonLd = videoObjectJsonLd(Astro.site, {
+  ...video,
+  description: videoDescription,
+});
+const jsonLd = [
+  videoJsonLd,
+  breadcrumbJsonLd(Astro.site, [
+    { name: 'Início', path: '/' },
+    { name: 'Vídeos', path: '/videos/' },
+    { name: video.title, path: `/videos/${video.slug}/` },
+  ]),
+];
+---
+
+<BaseLayout
+  title={video.title}
+  description={videoDescription.slice(0, 155)}
+  image={video.thumbnail}
+  imageAlt={`Miniatura do vídeo ${video.title}`}
+  type="article"
+  articleMeta={{ publishedTime: video.publishedAt, section: 'Vídeos' }}
+  jsonLd={jsonLd}
+>
+  <header class="page-hero page-hero--article">
+    <div class="page-hero__backdrop" aria-hidden="true">
+      <img src={video.thumbnail} alt="" data-pagefind-meta="image[src]" />
+    </div>
+    <div class="page-hero__content shell">
+      <p class="eyebrow">
+        <span>VÍDEO</span>
+        <Icon name="dot" />
+        <span>{formatDate(video.publishedAt)}</span>
+      </p>
+      <h1>{video.title}</h1>
+    </div>
+  </header>
+  <div class="video-page__embed">
+    <YouTube id={video.id} title={video.title} />
+  </div>
+  <article
+    class="prose video-page__description"
+    data-pagefind-body
+    data-pagefind-meta="type:Vídeo"
+  >
+    <div set:html={video.description} />
+    <div class="video-page__actions">
+      <Button
+        as="a"
+        href={video.youtubeUrl}
+        target="_blank"
+        rel="noopener"
+        icon="youtube"
+        data-ga="video-watch-youtube"
+      >
+        Ver no YouTube
+      </Button>
+    </div>
+    <Share
+      client:load
+      title={video.title}
+      url={videoUrl}
+      description={videoDescription}
+    />
+  </article>
+  <AdSlot />
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import Icon from '@/components/Icon';
+import { formatDate, withBase } from '@/lib/site';
+import { formatVideoDuration, type YouTubeVideo } from '@/lib/videos';
+
+interface Props {
+  video: YouTubeVideo;
+}
+
+const { video } = Astro.props;
+---
+
+<article class="video-card">
+  <a
+    class="video-card__image"
+    href={withBase(`/videos/${video.slug}/`)}
+    aria-label={`Ver detalhes do vídeo ${video.title}`}
+    data-ga="video-card-thumbnail"
+  >
+    <img
+      src={video.thumbnail}
+      alt={`Miniatura do vídeo ${video.title}`}
+      loading="lazy"
+    />
+    <span class="video-card__play" aria-hidden="true">
+      <Icon name="play" />
+    </span>
+    <span class="video-card__duration">
+      {formatVideoDuration(video.durationSeconds)}
+    </span>
+  </a>
+  <div class="video-card__body">
+    <p class="eyebrow">{formatDate(video.publishedAt)}</p>
+    <h3>
+      <a href={withBase(`/videos/${video.slug}/`)} data-ga="video-card-title">
+        {video.title}
+      </a>
+    </h3>
+  </div>
+</article>
