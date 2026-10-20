@@ -357,7 +357,7 @@
     }
   }
 
-  .podcast-platforms {
+  .page-hero__actions {
     justify-content: center;
 
     @variant md {

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroDecoration from '@/components/HeroDecoration.astro';
+import Icon from '@/components/Icon';
+import Pagination from '@/components/Pagination.astro';
+import VideoCard from '@/components/VideoCard.astro';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
+import type { YouTubeVideo } from '@/lib/videos';
+import videos from '@generated/videos.json';
+import type { GetStaticPaths, Page } from 'astro';
+
+export const getStaticPaths = (({ paginate }) =>
+  paginate(videos as YouTubeVideo[], { pageSize: 6 })) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<YouTubeVideo>;
+}
+
+const { page } = Astro.props;
+const jsonLd = breadcrumbJsonLd(Astro.site, [
+  { name: 'Início', path: '/' },
+  { name: 'Vídeos', path: '/videos/' },
+  {
+    name: `Página ${page.currentPage}`,
+    path: `/videos/pagina/${page.currentPage}/`,
+  },
+]);
+---
+
+<BaseLayout title={`Vídeos — página ${page.currentPage}`} jsonLd={jsonLd}>
+  <header class="page-hero">
+    <HeroDecoration icon="youtube" />
+    <div class="shell">
+      <p class="eyebrow">
+        <span>ARQUIVO</span>
+        <Icon name="minus" />
+        <span>PÁGINA {page.currentPage}</span>
+      </p>
+      <h1>Nossos Vídeos</h1>
+    </div>
+  </header>
+  <section class="section">
+    <div class="video-grid shell">
+      {page.data.map((video) => (
+        <VideoCard video={video} />
+      ))}
+    </div>
+    <Pagination
+      current={page.currentPage}
+      last={page.lastPage}
+      root="/videos"
+    />
+  </section>
+</BaseLayout>

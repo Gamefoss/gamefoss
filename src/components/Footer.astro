@@ -37,6 +37,24 @@ import { PODCAST_LINKS, SITE_SOCIALS, withBase } from '@/lib/site';
           Autores
         </a>
       </nav>
+      <nav aria-label="Vídeos">
+        <a
+          class="site-footer__heading"
+          href={withBase('/videos/')}
+          data-ga="navigation-footer-videos"
+        >
+          Vídeos
+        </a>
+        <a
+          class="site-footer__external"
+          href={SITE_SOCIALS.youtube}
+          target="_blank"
+          rel="noopener"
+          data-ga="navigation-footer-youtube"
+        >
+          YouTube <Icon name="external-link" />
+        </a>
+      </nav>
       <nav aria-label="Podcast">
         <a
           class="site-footer__heading"

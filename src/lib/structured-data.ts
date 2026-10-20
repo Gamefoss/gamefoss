@@ -89,6 +89,37 @@ export function podcastSeriesJsonLd(site?: URL): JsonLd {
   };
 }
 
+export function videoObjectJsonLd(
+  site: URL | undefined,
+  video: {
+    id: string;
+    slug: string;
+    title: string;
+    description: string;
+    thumbnail: string;
+    publishedAt: string;
+    durationSeconds: number;
+    youtubeUrl: string;
+  },
+): JsonLd {
+  const url = siteUrl(site, `/videos/${video.slug}/`);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    '@id': `${url}#video`,
+    name: video.title,
+    description: video.description.slice(0, 500),
+    thumbnailUrl: [video.thumbnail],
+    uploadDate: video.publishedAt,
+    duration: `PT${video.durationSeconds}S`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.id)}`,
+    contentUrl: video.youtubeUrl,
+    url,
+    inLanguage: 'pt-BR',
+    publisher: organizationReference(site),
+  };
+}
+
 export function breadcrumbJsonLd(
   site: URL | undefined,
   items: BreadcrumbItem[],

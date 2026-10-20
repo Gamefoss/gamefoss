@@ -4,6 +4,7 @@ import {
   organizationJsonLd,
   podcastSeriesJsonLd,
   siteUrl,
+  videoObjectJsonLd,
   websiteJsonLd,
 } from './structured-data';
 
@@ -50,5 +51,26 @@ describe('structured data', () => {
         item: 'https://gamefoss.com.br/blog/',
       },
     ]);
+  });
+
+  it('builds canonical video metadata with a privacy-enhanced embed', () => {
+    const video = videoObjectJsonLd(previewSite, {
+      id: 'abc123',
+      slug: 'video-exemplo',
+      title: 'Vídeo exemplo',
+      description: 'Descrição',
+      thumbnail: 'https://img.test/video.jpg',
+      publishedAt: '2026-10-20T12:00:00.000Z',
+      durationSeconds: 181,
+      youtubeUrl: 'https://www.youtube.com/watch?v=abc123',
+    });
+
+    expect(video.url).toBe('https://gamefoss.com.br/videos/video-exemplo/');
+    expect(video.embedUrl).toBe(
+      'https://www.youtube-nocookie.com/embed/abc123',
+    );
+    expect(video.publisher).toMatchObject({
+      '@id': 'https://gamefoss.com.br/#organization',
+    });
   });
 });

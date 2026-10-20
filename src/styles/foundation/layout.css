@@ -68,6 +68,10 @@
     background: var(--color-paper);
     color: var(--color-ink);
   }
+  .section--blue {
+    background: var(--color-blue-light);
+    color: var(--color-ink);
+  }
   .section-heading {
     @apply flex items-end justify-between;
 

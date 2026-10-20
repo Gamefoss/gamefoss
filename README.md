@@ -16,6 +16,7 @@ Copy `.env.example` to `.env` for environment-specific values. A full production
 - Articles: `src/content/articles/*.mdx`
 - Authors: `src/content/authors/*.md`
 - Podcast episodes: fetched from Anchor RSS and generated into the ignored `.cache/episodes.json` before development, checks, and builds
+- Videos: fetched from the Gamefoss YouTube channel with the YouTube Data API and generated into the ignored `.cache/videos.json`
 - MDX components: `YouTube`, `Figure`, `Gallery`, and `Callout` under `src/components/`
 
 Article media lives under `public/images/articles/<article-slug>/`. Production builds run `npm run images:optimize` after Astro copies these assets to `dist/`. The optimizer recompresses supported JPEG, PNG, WebP, and AVIF files only when the result is smaller; source files in `public/` are never modified. SVG, GIF, and animated images are left unchanged.
@@ -40,11 +41,11 @@ Styles are mobile-first and use only Tailwind's default `md` (tablet) and `lg` (
 3. Promote the exact release through a pull request from `release/latest` to `main`.
 4. A human-authored merge to `main` runs `standard-version`, commits the generated version and `changelog.md`, creates a version tag and GitHub Release with a production ZIP, then deploys to `https://gamefoss.com.br/`.
 
-The deployment workflow can also rebuild either environment manually to pick up new podcast episodes. Manual production runs always check out `main`; development runs always check out `release/latest`.
+The deployment workflow can also rebuild either environment manually to pick up new podcast episodes and videos. Manual production runs always check out `main`; development runs always check out `release/latest`.
 
-The RSS feed is the only podcast source of truth. `npm run dev`, `npm run check`, and `npm run build` fetch it before Astro starts; the generated cache is never committed. Consequently, those commands require network access and fail rather than build stale episode data when the feed is unavailable.
+The RSS feed and YouTube channel are the sources of truth for podcast episodes and videos. `npm run dev`, `npm run check`, and `npm run build` synchronize both before Astro starts; generated caches are never committed. Consequently, those commands require network access and fail rather than build stale data when an external source is unavailable.
 
-Create GitHub Environments named `development` and `production`. In each, configure `FTP_SERVER`, `FTP_USERNAME`, `FTP_TARGET_DIR`, and `PUBLIC_CONTACT_EMAIL` as variables and `FTP_PASSWORD` as a secret. Production may additionally define `PUBLIC_GTAG_ID`, `PUBLIC_ADSENSE_CLIENT`, and `PUBLIC_ADSENSE_SLOT`. Set the development FTP target explicitly to `/dev/` and production to the hosting web root.
+Create GitHub Environments named `development` and `production`. In each, configure `FTP_SERVER`, `FTP_USERNAME`, `FTP_TARGET_DIR`, and `PUBLIC_CONTACT_EMAIL` as variables and `FTP_PASSWORD` and `YOUTUBE_DATA_API` as secrets. `YOUTUBE_DATA_API` is the API key for a Google Cloud project with YouTube Data API v3 enabled. Production may additionally define `PUBLIC_GTAG_ID`, `PUBLIC_ADSENSE_CLIENT`, and `PUBLIC_ADSENSE_SLOT`. Set the development FTP target explicitly to `/dev/` and production to the hosting web root.
 
 Analytics and advertising values use the identifiers copied from their Google snippets:
 

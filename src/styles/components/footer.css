@@ -39,6 +39,12 @@
     flex-direction: column;
     gap: 0.7rem;
     font: 0.8rem var(--font-interface);
+    @variant sm {
+      align-items: center;
+    }
+    @variant md {
+      align-items: start;
+    }
   }
   .site-footer__grid > div:first-child > p {
     margin-top: 1.75rem;
@@ -46,7 +52,7 @@
   .site-footer__menus {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(1.5rem, 4vw, 3rem);
+    gap: clamp(1.5rem, 4vw, 1rem);
   }
   .site-footer .site-footer__heading {
     margin-bottom: 0.25rem;
@@ -57,7 +63,6 @@
   .site-footer__external {
     display: inline-flex;
     align-items: center;
-    align-self: flex-start;
     gap: 0.4rem;
   }
   .site-footer__external svg {
@@ -65,10 +70,16 @@
     height: 0.7rem;
   }
   .site-footer__cookie {
-    align-self: flex-start;
     margin-top: 0.2rem;
     padding: 0.55rem 0.65rem;
     font-size: 0.62rem;
+    align-self: flex-start;
+    @variant sm {
+      align-self: center;
+    }
+    @variant md {
+      align-self: flex-start;
+    }
   }
   .site-footer__lower {
     margin-top: 1.5rem;
@@ -111,7 +122,7 @@
     height: auto;
   }
   .contact-channels,
-  .podcast-platforms {
+  .page-hero__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -150,7 +161,7 @@
     grid-template-columns: 1fr;
     text-align: left;
 
-    & nav {
+    /*& nav {
       align-items: stretch;
       gap: 0;
 
@@ -160,25 +171,25 @@
         align-items: center;
         justify-content: flex-start;
       }
-    }
+    } */
 
-    @variant md {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    @variant sm {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       text-align: center;
 
-      & nav {
+      /* & nav {
         align-items: center;
 
         & > a {
           justify-content: center;
         }
-      }
+      } */
     }
 
     @variant lg {
       text-align: left;
 
-      & nav {
+      /* & nav {
         align-items: stretch;
         gap: 0.7rem;
 
@@ -186,20 +197,7 @@
           min-height: 0;
           justify-content: initial;
         }
-      }
-    }
-  }
-
-  .site-footer__external,
-  .site-footer__cookie {
-    align-self: flex-start;
-
-    @variant md {
-      align-self: center;
-    }
-
-    @variant lg {
-      align-self: flex-start;
+      } */
     }
   }
 
