@@ -6,8 +6,8 @@ import {
   parseYouTubeDuration,
   SHORT_VIDEO_MAX_DURATION_SECONDS,
   type YouTubeVideo,
-} from '../src/lib/videos';
-import { SITE_SOCIALS, slugify } from '../src/lib/site';
+} from '@/lib/videos';
+import { SITE_SOCIALS, slugify } from '@/lib/site';
 
 const YOUTUBE_API_ROOT = 'https://www.googleapis.com/youtube/v3';
 export const YOUTUBE_CHANNEL_ID = new URL(SITE_SOCIALS.youtube).pathname
