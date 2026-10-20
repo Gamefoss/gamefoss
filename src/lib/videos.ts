@@ -37,18 +37,43 @@ export function formatVideoDuration(durationSeconds: number) {
     : `${minutes}:${String(seconds).padStart(2, '0')}`;
 }
 
-export function formatYouTubeDescription(value: string) {
-  const escaped = value
+function escapeHtml(value: string) {
+  return value
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
-  const linked = escaped.replace(/https?:\/\/[^\s<]+/g, (match) => {
-    const trailing = match.match(/[),.!?:;]+$/)?.[0] || '';
-    const url = trailing ? match.slice(0, -trailing.length) : match;
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>${trailing}`;
-  });
+}
+
+function linkifyYouTubeDescription(value: string) {
+  const tokens = /https?:\/\/[^\s<]+|(?<![\p{L}\p{N}_])#[\p{L}\p{N}_]+/gu;
+  let result = '';
+  let lastIndex = 0;
+
+  for (const match of value.matchAll(tokens)) {
+    const index = match.index;
+    result += escapeHtml(value.slice(lastIndex, index));
+
+    if (match[0].startsWith('#')) {
+      const tag = match[0].slice(1);
+      result += `<a href="https://www.youtube.com/hashtag/${encodeURIComponent(tag)}" target="_blank" rel="noopener noreferrer">${escapeHtml(match[0])}</a>`;
+      lastIndex = index + match[0].length;
+      continue;
+    }
+
+    const trailing = match[0].match(/[),.!?:;]+$/)?.[0] || '';
+    const url = trailing ? match[0].slice(0, -trailing.length) : match[0];
+    const escapedUrl = escapeHtml(url);
+    result += `<a href="${escapedUrl}" target="_blank" rel="noopener noreferrer">${escapedUrl}</a>${escapeHtml(trailing)}`;
+    lastIndex = index + match[0].length;
+  }
+
+  return result + escapeHtml(value.slice(lastIndex));
+}
+
+export function formatYouTubeDescription(value: string) {
+  const linked = linkifyYouTubeDescription(value);
   const paragraphs = linked
     .split(/\n{2,}/)
     .map((paragraph) => `<p>${paragraph.replace(/\n/g, '<br>')}</p>`)

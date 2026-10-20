@@ -24,4 +24,22 @@ describe('YouTube video helpers', () => {
     );
     expect(html).toContain('</a>.');
   });
+
+  it('links YouTube hashtags without changing URL fragments', () => {
+    const html = formatYouTubeDescription(
+      "Veja #GameDesign, #jogos_indígenas e https://example.com/video#capitulo. Não ligue teste#solto nem 'entidades'.",
+    );
+
+    expect(html).toContain(
+      '<a href="https://www.youtube.com/hashtag/GameDesign" target="_blank" rel="noopener noreferrer">#GameDesign</a>',
+    );
+    expect(html).toContain(
+      '<a href="https://www.youtube.com/hashtag/jogos_ind%C3%ADgenas" target="_blank" rel="noopener noreferrer">#jogos_indígenas</a>',
+    );
+    expect(html).toContain(
+      '<a href="https://example.com/video#capitulo" target="_blank" rel="noopener noreferrer">https://example.com/video#capitulo</a>',
+    );
+    expect(html).toContain('teste#solto');
+    expect(html).toContain("'entidades'");
+  });
 });
