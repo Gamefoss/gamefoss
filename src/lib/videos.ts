@@ -12,8 +12,6 @@ export interface YouTubeVideo {
   youtubeUrl: string;
 }
 
-export const SHORT_VIDEO_MAX_DURATION_SECONDS = 180;
-
 export function parseYouTubeDuration(value: string) {
   const match = value.match(
     /^P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/,

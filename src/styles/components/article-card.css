@@ -288,6 +288,16 @@
     @variant md {
       display: none;
     }
+
+    &.carousel__controls--arrows-only {
+      grid-template-columns: repeat(2, 44px);
+      justify-content: space-between;
+    }
+
+    &.carousel__controls--dots-only {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .carousel__button,

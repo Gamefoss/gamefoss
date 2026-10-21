@@ -13,12 +13,18 @@
 @import './components/article-card.css';
 @import './components/episode-card.css';
 @import './components/video-card.css';
-@import './components/pagination-people.css';
+@import './components/page-hero.css';
+@import './components/pagination.css';
 @import './components/gallery.css';
 
 /* Page-level compositions. */
-@import './pages/taxonomy-about.css';
+@import './pages/about.css';
+@import './pages/author.css';
+@import './pages/category.css';
 @import './pages/content.css';
+@import './pages/error.css';
+@import './pages/tag.css';
+@import './pages/taxonomy.css';
 
 /* Third-party widgets and service integrations. */
 @import './integrations/ads-consent.css';
