@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/Gamefoss/gamefoss/compare/v1.4.0...v1.5.0) (2026-10-21)
+
+
+### Features
+
+* **components:** adding carousel options ([12236a7](https://github.com/Gamefoss/gamefoss/commit/12236a7dcdba39693029d2999f333e7525d9d85f))
+* **styles:** styling refactor ([946b256](https://github.com/Gamefoss/gamefoss/commit/946b256d33e377e805f347319743fc4acc2f0770))
+* **videos:** adding custom exclusion rules ([6d52979](https://github.com/Gamefoss/gamefoss/commit/6d52979b81bf3aac4bbc0e663b4e781617930969))
+
+
+### Bug Fixes
+
+* **layout:** small homepage layout adjust ([f9348d5](https://github.com/Gamefoss/gamefoss/commit/f9348d5ad102b1144f83c50b8b069a73f1646205))
+
 ## [1.4.0](https://github.com/Gamefoss/gamefoss/compare/v1.3.1...v1.4.0) (2026-10-20)
 
 
