@@ -4,10 +4,10 @@ import {
   formatYouTubeDescription,
   normalizeVideoDescription,
   parseYouTubeDuration,
-  SHORT_VIDEO_MAX_DURATION_SECONDS,
   type YouTubeVideo,
 } from '@/lib/videos';
 import { SITE_SOCIALS, slugify } from '@/lib/site';
+import { VIDEO_RULES, type VideoRules } from '../config/videos';
 
 const YOUTUBE_API_ROOT = 'https://www.googleapis.com/youtube/v3';
 export const YOUTUBE_CHANNEL_ID = new URL(SITE_SOCIALS.youtube).pathname
@@ -70,6 +70,7 @@ async function youtubeRequest<T>(
 export async function fetchYouTubeVideos(
   apiKey: string,
   fetcher: typeof fetch = fetch,
+  rules: VideoRules = VIDEO_RULES,
 ): Promise<YouTubeVideo[]> {
   if (!apiKey) throw new Error('YOUTUBE_DATA_API is required');
 
@@ -120,6 +121,7 @@ export async function fetchYouTubeVideos(
     resources.push(...(videos.items || []));
   }
 
+  const excludedVideoIds = new Set(rules.excludedVideoIds);
   const candidates = resources.flatMap((video) => {
     const id = video.id;
     const title = video.snippet?.title?.trim();
@@ -143,7 +145,11 @@ export async function fetchYouTubeVideos(
     )
       return [];
     const durationSeconds = parseYouTubeDuration(duration);
-    if (durationSeconds <= SHORT_VIDEO_MAX_DURATION_SECONDS) return [];
+    if (
+      durationSeconds <= rules.excludeAtOrBelowDurationSeconds ||
+      excludedVideoIds.has(id)
+    )
+      return [];
     const publishedDate = new Date(publishedAt);
     if (Number.isNaN(publishedDate.valueOf())) return [];
     const descriptionText = normalizeVideoDescription(
