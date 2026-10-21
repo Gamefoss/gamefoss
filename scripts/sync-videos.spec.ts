@@ -84,6 +84,45 @@ describe('fetchYouTubeVideos', () => {
       ),
     ).rejects.toThrow('uploads playlist');
   });
+
+  it('applies configurable duration and video ID exclusions', async () => {
+    const fetcher = vi.fn(async (input: string | URL | Request) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith('/channels'))
+        return jsonResponse({
+          items: [
+            { contentDetails: { relatedPlaylists: { uploads: 'uploads' } } },
+          ],
+        });
+      if (url.pathname.endsWith('/playlistItems'))
+        return jsonResponse({
+          items: [
+            { contentDetails: { videoId: 'short' } },
+            { contentDetails: { videoId: 'excluded' } },
+            { contentDetails: { videoId: 'included' } },
+          ],
+        });
+      return jsonResponse({
+        items: [
+          videoResource('short', 'Curto', '2026-03-01T12:00:00Z', 'PT3M'),
+          videoResource(
+            'excluded',
+            'Excluído por ID',
+            '2026-02-01T12:00:00Z',
+            'PT5M',
+          ),
+          videoResource('included', 'Incluído', '2026-01-01T12:00:00Z', 'PT5M'),
+        ],
+      });
+    });
+
+    const result = await fetchYouTubeVideos('key', fetcher as typeof fetch, {
+      excludeAtOrBelowDurationSeconds: 180,
+      excludedVideoIds: ['excluded'],
+    });
+
+    expect(result.map((video) => video.id)).toEqual(['included']);
+  });
 });
 
 function videoResource(

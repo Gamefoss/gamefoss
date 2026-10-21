@@ -35,6 +35,10 @@ const jsonLd = breadcrumbJsonLd(Astro.site, [
         label="Selecionar autor"
         className="character-carousel"
         trackClass="character-select__grid"
+        showArrows
+        options={{
+          loop: true,
+        }}
       >
         {authors.map((author, index) => (
           <a

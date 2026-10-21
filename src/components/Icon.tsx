@@ -28,6 +28,7 @@ import {
   FaYoutube,
   FaPlay,
   FaRegHeart,
+  FaLightbulb,
 } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { SiCastbox } from 'react-icons/si';
@@ -70,6 +71,7 @@ const icons = {
   play: FaPlay,
   star: BsStarFill,
   dot: BsDot,
+  lightbulb: FaLightbulb,
   mask: BiSolidMask,
   'google-analytics': DiGoogleAnalytics,
 } satisfies Record<string, IconType>;

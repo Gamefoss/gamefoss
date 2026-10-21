@@ -21,6 +21,8 @@ Copy `.env.example` to `.env` for environment-specific values. A full production
 
 Article media lives under `public/images/articles/<article-slug>/`. Production builds run `npm run images:optimize` after Astro copies these assets to `dist/`. The optimizer recompresses supported JPEG, PNG, WebP, and AVIF files only when the result is smaller; source files in `public/` are never modified. SVG, GIF, and animated images are left unchanged.
 
+Video inclusion rules live in `config/videos.ts`. The configuration controls the maximum duration excluded as a short video and accepts exact YouTube video IDs to omit, such as podcast uploads already represented in the Podcast section.
+
 Run `npm run content:migrate` to repeat the Ludokratia migration defined by `migration/ludokratia-manifest.json`. The command also writes migration diagnostics under `reports/migration/` and a redirect list to `public/legacy-redirects.conf`.
 
 ## Styling
