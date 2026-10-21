@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Gamefoss/gamefoss/compare/v1.3.1...v1.4.0) (2026-10-20)
+
+
+### Features
+
+* **components:** adding videos to website ([693dcbd](https://github.com/Gamefoss/gamefoss/commit/693dcbd35299b4f0cead0977354202e3455ae62f))
+* **content:** adding video sourcing ([a0e86e0](https://github.com/Gamefoss/gamefoss/commit/a0e86e08dc4f322006e347279c105c7ffea29cbd))
+* **layout:** adding videos link to footer ([6fa558b](https://github.com/Gamefoss/gamefoss/commit/6fa558b00e0802fd3f090b62931deda8876d8988))
+* **layout:** integrating videos ([136b068](https://github.com/Gamefoss/gamefoss/commit/136b068d39861b668bc197d19708197cfce3a17a))
+* **videos:** parsing youtube links on ([6fa0489](https://github.com/Gamefoss/gamefoss/commit/6fa04896977da58a4909dfbafd7a316ded978bad))
+
+
+### Bug Fixes
+
+* **pipeline:** fixing workflows ([c03bb48](https://github.com/Gamefoss/gamefoss/commit/c03bb488da499d5fc6b8c710cbb6e6c16a91195a))
+* **test:** fixing tests paths ([a4fdd3d](https://github.com/Gamefoss/gamefoss/commit/a4fdd3d5e9647907d99e276a2ed47fd48512855b))
+
 ### [1.3.1](https://github.com/Gamefoss/gamefoss/compare/v1.3.0...v1.3.1) (2026-10-19)
 
 
