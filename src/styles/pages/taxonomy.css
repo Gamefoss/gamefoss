@@ -1,0 +1,43 @@
+@layer components {
+    .taxonomy-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .taxonomy-card {
+        border: 3px solid var(--color-ink);
+        padding: clamp(1.25rem, 3vw, 2rem);
+        background: var(--color-surface);
+        box-shadow: 7px 7px 0 var(--color-brand);
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+    }
+
+    .taxonomy-card:hover {
+        color: inherit;
+        transform: translate(3px, 3px);
+        box-shadow: 4px 4px 0 var(--color-brand);
+    }
+
+    .taxonomy-card h2 {
+        margin: 0.65rem 0;
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+    }
+
+    .taxonomy-card p {
+        margin: 0;
+        color: var(--color-muted);
+    }
+    
+    .taxonomy-grid {
+        grid-template-columns: 1fr;
+
+        @variant lg {
+            rid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    
+}

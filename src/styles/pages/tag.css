@@ -1,0 +1,39 @@
+@layer components {
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem;
+        border-top: 2px solid var(--color-ink);
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+    }
+
+    .article-tags>span {
+        margin-right: 0.25rem;
+        font: 600 0.72rem var(--font-interface);
+        text-transform: uppercase;
+    }
+
+    .page-hero--article .article-tags {
+        border-top-color: color-mix(in srgb, var(--color-surface) 45%, transparent);
+        margin-top: 1.5rem;
+        color: var(--color-surface);
+    }
+
+    .page-hero--article .article-tags .chip {
+        border-color: var(--color-accent);
+        color: var(--color-surface);
+    }
+
+    .page-hero--article .article-tags .chip:hover {
+        background: var(--color-accent);
+        color: var(--color-ink);
+    }
+}

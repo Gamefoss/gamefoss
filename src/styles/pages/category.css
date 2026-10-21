@@ -1,0 +1,16 @@
+@layer components {
+    .category-editorial {
+        border-bottom: 3px solid var(--color-ink);
+        background: var(--color-brand-dark);
+        color: var(--color-surface);
+    }
+
+    .category-editorial .prose {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .category-editorial .prose p {
+        color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    }
+}

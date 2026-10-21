@@ -1,0 +1,96 @@
+@layer components {
+    @keyframes error-prompt-blink {
+        50% {
+            opacity: 0.25;
+        }
+    }
+    .error-hero {
+        display: grid;
+        min-height: clamp(32rem, 68vh, 48rem);
+        place-items: center;
+        padding: clamp(4rem, 9vw, 7rem) 0;
+        text-align: center;
+        background: linear-gradient(90deg,
+                transparent 49.8%,
+                color-mix(in srgb, var(--color-ink) 10%, transparent) 50%,
+                transparent 50.2%);
+        background-size: 4rem 100%;
+    }
+
+    .error-hero .error-hero__decoration {
+        width: clamp(7rem, 15vw, 13rem);
+    }
+
+    .error-hero .error-hero__decoration--left {
+        top: 8%;
+        right: auto;
+        bottom: auto;
+        left: 6%;
+        transform: rotate(12deg);
+    }
+
+    .error-hero .error-hero__decoration--right {
+        right: 7%;
+        bottom: 4%;
+        transform: rotate(-10deg);
+    }
+
+    .error-hero__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .error-hero .eyebrow {
+        justify-content: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .error-hero__lives {
+        display: flex;
+        gap: 0.45rem;
+        color: var(--color-brand);
+        font-size: 1rem;
+    }
+
+    .error-hero h1 {
+        max-width: none;
+        color: var(--color-ink);
+        font-size: clamp(8rem, 25vw, 18rem);
+        margin: 2rem 0;
+        text-shadow:
+            0.04em 0.04em 0 var(--color-brand),
+            0.08em 0.08em 0 var(--color-blue);
+        transform: rotate(-2deg);
+    }
+
+    .error-hero .error-hero__message {
+        max-width: 38rem;
+        margin: 1.5rem auto 0.65rem;
+        color: var(--color-ink);
+        font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    }
+
+    .error-hero .error-hero__prompt {
+        margin: 0 0 1.75rem;
+        color: var(--color-brand-dark);
+        font: 600 0.72rem var(--font-interface);
+        letter-spacing: 0.12em;
+        animation: error-prompt-blink 1.2s steps(2, end) infinite;
+    }
+
+    .error-hero__actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .error-hero .error-hero__prompt {
+            animation: none;
+        }
+    }
+}
