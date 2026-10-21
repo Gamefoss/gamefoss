@@ -5,40 +5,77 @@ interface Props {
   label: string;
   className?: string;
   trackClass?: string;
+  showArrows?: boolean;
+  showDots?: boolean;
+  options?: {
+    loop?: boolean;
+    dragFree?: boolean;
+    slidesToScroll?: number | 'auto';
+    skipSnaps?: boolean;
+    duration?: number;
+    startIndex?: number;
+  };
 }
 
-const { label, className = '', trackClass = '' } = Astro.props;
+const {
+  label,
+  className = '',
+  trackClass = '',
+  showArrows = false,
+  showDots = true,
+  options = {},
+} = Astro.props;
+const showControls = showArrows || showDots;
 ---
 
-<section class:list={['carousel', className]} aria-label={label} data-carousel>
+<section
+  class:list={['carousel', className]}
+  aria-label={label}
+  data-carousel
+  data-carousel-options={JSON.stringify(options)}
+>
   <div class="carousel__viewport" data-carousel-viewport>
     <div class:list={['carousel__track', trackClass]}>
       <slot />
     </div>
   </div>
-  <div class="carousel__controls">
-    <button
-      class="carousel__button carousel__button--prev"
-      type="button"
-      aria-label="Item anterior"
-      data-carousel-prev
-    >
-      <Icon name="arrow-left" />
-    </button>
+  {showControls && (
     <div
-      class="carousel__dots"
-      aria-label="Escolher item"
-      data-carousel-dots
-    ></div>
-    <button
-      class="carousel__button carousel__button--next"
-      type="button"
-      aria-label="Próximo item"
-      data-carousel-next
+      class:list={[
+        'carousel__controls',
+        { 'carousel__controls--arrows-only': showArrows && !showDots },
+        { 'carousel__controls--dots-only': showDots && !showArrows },
+      ]}
     >
-      <Icon name="arrow-right" />
-    </button>
-  </div>
+      {showArrows && (
+        <button
+          class="carousel__button carousel__button--prev"
+          type="button"
+          aria-label="Item anterior"
+          data-carousel-prev
+        >
+          <Icon name="arrow-left" />
+        </button>
+      )}
+      {showDots && (
+        <div
+          class="carousel__dots"
+          aria-label="Escolher item"
+          data-carousel-dots
+        />
+      )}
+      {showArrows && (
+        <button
+          class="carousel__button carousel__button--next"
+          type="button"
+          aria-label="Próximo item"
+          data-carousel-next
+        >
+          <Icon name="arrow-right" />
+        </button>
+      )}
+    </div>
+  )}
 </section>
 
 <script>
@@ -53,7 +90,9 @@ const { label, className = '', trackClass = '' } = Astro.props;
     );
     const next = root.querySelector<HTMLButtonElement>('[data-carousel-next]');
     const dots = root.querySelector<HTMLElement>('[data-carousel-dots]');
-    if (!viewport || !previous || !next || !dots) return;
+    if (!viewport) return;
+
+    const options = JSON.parse(root.dataset.carouselOptions ?? '{}');
 
     const mobile = window.matchMedia('(width < 48rem)');
     let carousel: ReturnType<typeof EmblaCarousel> | undefined;
@@ -70,21 +109,24 @@ const { label, className = '', trackClass = '' } = Astro.props;
       carousel = EmblaCarousel(viewport, {
         align: () => gutter,
         containScroll: 'trimSnaps',
+        ...options,
       });
-      const dotButtons = carousel.scrollSnapList().map((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'carousel__dot';
-        dot.setAttribute('aria-label', `Ir para o item ${index + 1}`);
-        dot.addEventListener('click', () => carousel?.scrollTo(index));
-        dots.append(dot);
-        return dot;
-      });
+      const dotButtons = dots
+        ? carousel.scrollSnapList().map((_, index) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'carousel__dot';
+            dot.setAttribute('aria-label', `Ir para o item ${index + 1}`);
+            dot.addEventListener('click', () => carousel?.scrollTo(index));
+            dots.append(dot);
+            return dot;
+          })
+        : [];
 
       const update = () => {
         if (!carousel) return;
-        previous.disabled = !carousel.canScrollPrev();
-        next.disabled = !carousel.canScrollNext();
+        if (previous) previous.disabled = !carousel.canScrollPrev();
+        if (next) next.disabled = !carousel.canScrollNext();
         dotButtons.forEach((dot, index) =>
           dot.setAttribute(
             'aria-current',
@@ -93,8 +135,8 @@ const { label, className = '', trackClass = '' } = Astro.props;
         );
       };
 
-      previous.onclick = () => carousel?.scrollPrev();
-      next.onclick = () => carousel?.scrollNext();
+      if (previous) previous.onclick = () => carousel?.scrollPrev();
+      if (next) next.onclick = () => carousel?.scrollNext();
       carousel.on('select', update);
       carousel.on('reInit', update);
       update();
@@ -105,7 +147,7 @@ const { label, className = '', trackClass = '' } = Astro.props;
       else if (carousel) {
         carousel.destroy();
         carousel = undefined;
-        dots.replaceChildren();
+        dots?.replaceChildren();
       }
     };
 
