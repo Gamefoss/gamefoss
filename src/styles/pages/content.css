@@ -36,11 +36,11 @@
     font-size: 1.08rem;
   }
 
-  .page-hero+.prose {
+  .page-hero + .prose {
     padding-top: clamp(2.5rem, 5vw, 4rem);
   }
 
-  .page-hero+.prose> :first-child {
+  .page-hero + .prose > :first-child {
     margin-top: 0;
   }
 
@@ -71,15 +71,15 @@
     box-shadow: 8px 8px 0 var(--color-red);
   }
 
-  .prose p:nth-of-type(4n + 2)>img:only-child {
+  .prose p:nth-of-type(4n + 2) > img:only-child {
     box-shadow: 8px 8px 0 var(--color-accent);
   }
 
-  .prose p:nth-of-type(4n + 3)>img:only-child {
+  .prose p:nth-of-type(4n + 3) > img:only-child {
     box-shadow: 8px 8px 0 var(--color-blue);
   }
 
-  .prose p:nth-of-type(4n)>img:only-child {
+  .prose p:nth-of-type(4n) > img:only-child {
     box-shadow: 8px 8px 0 var(--color-teal);
   }
 
