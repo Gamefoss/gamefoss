@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/Gamefoss/gamefoss/compare/v1.7.0...v1.8.0) (2026-10-22)
+
+
+### Features
+
+* **components:** refactoring button component ([b71ecb0](https://github.com/Gamefoss/gamefoss/commit/b71ecb0d4a10d527172cc7c09a59e4ac3c9943a0))
+
+
+### Bug Fixes
+
+* **layout:** fixing taxonomy listing grid ([b3d0b12](https://github.com/Gamefoss/gamefoss/commit/b3d0b125888231a67dff8f3053fa5553c8ca6ac0))
+
 ## [1.7.0](https://github.com/Gamefoss/gamefoss/compare/v1.6.1...v1.7.0) (2026-10-22)
 
 
