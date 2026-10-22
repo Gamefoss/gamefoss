@@ -69,7 +69,9 @@ jobs:
           PUBLIC_BASE_PATH: ${{ needs.resolve.outputs.environment == 'development' && '/dev' || '/' }}
           PUBLIC_GTAG_ID: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_GTAG_ID || '' }}
           PUBLIC_ADSENSE_CLIENT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_CLIENT || '' }}
-          PUBLIC_ADSENSE_SLOT: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT || '' }}
+          PUBLIC_ADSENSE_SLOT_BANNER: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT_BANNER || '' }}
+          PUBLIC_ADSENSE_SLOT_RECTANGLE: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT_RECTANGLE || '' }}
+          PUBLIC_ADSENSE_SLOT_ARTICLE: ${{ needs.resolve.outputs.environment == 'production' && vars.PUBLIC_ADSENSE_SLOT_ARTICLE || '' }}
           PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
           PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
           YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}

@@ -1,20 +1,26 @@
 ---
+type Format = 'banner' | 'rectangle' | 'article';
+
 interface Props {
-  format?: 'banner' | 'rectangle';
+  format?: Format;
 }
 const { format = 'banner' } = Astro.props;
 const client = import.meta.env.PUBLIC_ADSENSE_CLIENT;
-const slot = import.meta.env.PUBLIC_ADSENSE_SLOT;
+const slots: Record<Format, string | undefined> = {
+  banner: import.meta.env.PUBLIC_ADSENSE_SLOT_BANNER,
+  rectangle: import.meta.env.PUBLIC_ADSENSE_SLOT_RECTANGLE,
+  article: import.meta.env.PUBLIC_ADSENSE_SLOT_ARTICLE,
+};
 ---
 
 <aside class:list={['ad-slot', `ad-slot--${format}`]} aria-label="Publicidade">
   <div class="ad-slot__content">
-    {client && slot ? (
+    {client && slots[format] ? (
       <ins
         class="adsbygoogle"
         style="display:block"
         data-ad-client={client}
-        data-ad-slot={slot}
+        data-ad-slot={slots[format]}
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
@@ -24,7 +30,7 @@ const slot = import.meta.env.PUBLIC_ADSENSE_SLOT;
   </div>
   <span class="ad-slot__label">PUBLICIDADE</span>
 </aside>
-{client && slot && <script is:inline>
+{client && slots[format] && <script is:inline>
   try {
     (adsbygoogle = window.adsbygoogle || []).push({});
   } catch (e) {}
