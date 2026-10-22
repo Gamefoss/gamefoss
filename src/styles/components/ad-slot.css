@@ -1,0 +1,42 @@
+@layer components {
+  .ad-slot {
+    position: relative;
+    z-index: 0;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ad-slot__content {
+    width: min(980px, calc(100% - 2rem));
+    max-width: 100%;
+    min-height: 130px;
+    border: 1px dashed var(--color-line);
+    display: grid;
+    place-items: center;
+    color: var(--color-muted);
+    overflow: hidden;
+  }
+
+  .ad-slot__label {
+    font: 0.6rem var(--font-mono);
+  }
+
+  .ad-slot__placeholder {
+    font: 0.7rem var(--font-mono);
+  }
+
+  .ad-slot__content > .adsbygoogle {
+    width: 100%;
+    min-width: 0;
+    justify-self: stretch;
+  }
+
+  .ad-slot__content > .adsbygoogle,
+  .ad-slot__content > .adsbygoogle > div,
+  .ad-slot__content iframe {
+    max-width: 100% !important;
+  }
+}
