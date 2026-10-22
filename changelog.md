@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/Gamefoss/gamefoss/compare/v1.6.1...v1.7.0) (2026-10-22)
+
+
+### Features
+
+* **videos:** updating YouTube link ([5135707](https://github.com/Gamefoss/gamefoss/commit/51357077296bdd2c572bcee6a051592aec6c2b46))
+
 ### [1.6.1](https://github.com/Gamefoss/gamefoss/compare/v1.6.0...v1.6.1) (2026-10-22)
 
 
