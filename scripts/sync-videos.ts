@@ -11,7 +11,6 @@ import { VIDEO_RULES, type VideoRules } from '../config/videos';
 
 const YOUTUBE_API_ROOT = 'https://www.googleapis.com/youtube/v3';
 
-
 interface YouTubeListResponse<T> {
   items?: T[];
   nextPageToken?: string;
