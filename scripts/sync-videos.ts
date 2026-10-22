@@ -6,14 +6,11 @@ import {
   parseYouTubeDuration,
   type YouTubeVideo,
 } from '@/lib/videos';
-import { SITE_SOCIALS, slugify } from '@/lib/site';
+import { slugify, YOUTUBE_CHANNEL_ID } from '@/lib/site';
 import { VIDEO_RULES, type VideoRules } from '../config/videos';
 
 const YOUTUBE_API_ROOT = 'https://www.googleapis.com/youtube/v3';
-export const YOUTUBE_CHANNEL_ID = new URL(SITE_SOCIALS.youtube).pathname
-  .split('/')
-  .filter(Boolean)
-  .at(-1)!;
+
 
 interface YouTubeListResponse<T> {
   items?: T[];
