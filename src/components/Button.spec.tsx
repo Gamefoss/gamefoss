@@ -56,4 +56,10 @@ describe('Button', () => {
     expect(markup).toContain('<svg');
     expect(markup).not.toContain('<span>');
   });
+
+  it('renders numeric zero as button content', () => {
+    const markup = renderToStaticMarkup(<Button>{0}</Button>);
+
+    expect(markup).toContain('<span>0</span>');
+  });
 });

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Button, { type ButtonProps } from '@/components/Button';
+import Button from '@/components/Button';
 import HeroDecoration from '@/components/HeroDecoration.astro';
-import { PODCAST_LINKS, SITE_SOCIALS } from '@/lib/site';
+import { SITE_SOCIALS } from '@/lib/site';
+import Socials from '@/components/Socials.astro';
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
 ---
 
@@ -35,35 +36,11 @@ const email = import.meta.env.PUBLIC_CONTACT_EMAIL || 'contato@gamefoss.com.br';
     </p>
     <h2>Outros canais</h2>
     <p>Você também pode nos encontrar em outras plataformas.</p>
-    <div class="contact-channels">
-      {[
-        {
-          icon: 'instagram',
-          href: SITE_SOCIALS.instagram,
-          label: 'Instagram',
-        },
-        {
-          icon: 'spotify',
-          href: PODCAST_LINKS.spotify,
-          label: 'Spotify',
-        },
-        {
-          icon: 'youtube',
-          href: SITE_SOCIALS.youtube,
-          label: 'YouTube',
-        },
-      ].map(({ icon, href, label }) => (
-        <Button
-          as="a"
-          variant="accent"
-          icon={icon as ButtonProps['icon']}
-          href={href}
-          target="_blank"
-          rel="noopener"
-        >
-          {label}
-        </Button>
-      ))}
-    </div>
+    <Socials
+      socials={SITE_SOCIALS}
+      owner="Gamefoss"
+      className="contact-channels"
+      showLabel
+    />
   </article>
 </BaseLayout>

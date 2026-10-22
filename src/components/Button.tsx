@@ -3,6 +3,7 @@ import type {
   ButtonHTMLAttributes,
   ReactNode,
 } from 'react';
+import classnames from 'classnames';
 import Icon, { type IconName } from './Icon';
 
 type Variant = 'primary' | 'ghost' | 'accent' | 'white';
@@ -52,15 +53,16 @@ export default function Button(props: ButtonProps) {
     compact = false,
     className,
   } = props;
-  const classes = [
-    'button',
-    variant !== 'primary' && `button--${variant}`,
-    iconOnly && 'button--icon-only',
-    compact && 'button--compact',
+
+  const classes = classnames(
+    {
+      button: true,
+      [`button--${variant}`]: variant !== 'primary',
+      'button--icon-only': iconOnly,
+      'button--compact': compact,
+    },
     className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  );
   const content = (
     <>
       {icon && (iconOnly || iconPosition === 'left') && <Icon name={icon} />}

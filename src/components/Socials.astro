@@ -10,7 +10,8 @@ type SocialNetwork =
   | 'twitter'
   | 'github'
   | 'linkedin'
-  | 'twitch';
+  | 'twitch'
+  | 'spotify';
 
 interface Props {
   socials: Partial<Record<SocialNetwork, string>>;
@@ -18,6 +19,7 @@ interface Props {
   label?: string;
   className?: string;
   gaPrefix?: string;
+  showLabel?: boolean;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   label = `Redes sociais de ${owner}`,
   className,
   gaPrefix = 'social',
+  showLabel = false,
 } = Astro.props;
 
 const socialMeta = {
@@ -37,6 +40,7 @@ const socialMeta = {
   github: { label: 'GitHub', icon: 'github' },
   linkedin: { label: 'LinkedIn', icon: 'linkedin' },
   twitch: { label: 'Twitch', icon: 'twitch' },
+  spotify: { label: 'Spotify', icon: 'spotify' },
 } satisfies Record<SocialNetwork, { label: string; icon: IconName }>;
 
 const links = Object.entries(socials).filter(
@@ -46,18 +50,37 @@ const links = Object.entries(socials).filter(
 
 {links.length > 0 && (
   <nav class:list={['socials', className]} aria-label={label}>
-    {links.map(([network, href]) => (
-      <Button
-        as="a"
-        variant="accent"
-        icon={socialMeta[network].icon}
-        iconOnly
-        href={href}
-        target="_blank"
-        rel="me noopener"
-        aria-label={`${owner} no ${socialMeta[network].label}`}
-        data-ga={`${gaPrefix}-${network}`}
-      />
-    ))}
+    {links.map(([network, href]) => {
+      if (showLabel) {
+        return (
+          <Button
+            as="a"
+            variant="accent"
+            icon={socialMeta[network].icon}
+            href={href}
+            target="_blank"
+            rel="me noopener"
+            aria-label={`${owner} no ${socialMeta[network].label}`}
+            data-ga={`${gaPrefix}-${network}`}
+          >
+            {socialMeta[network].label}
+          </Button>
+        );
+      }
+
+      return (
+        <Button
+          as="a"
+          variant="accent"
+          icon={socialMeta[network].icon}
+          iconOnly
+          href={href}
+          target="_blank"
+          rel="me noopener"
+          aria-label={`${owner} no ${socialMeta[network].label}`}
+          data-ga={`${gaPrefix}-${network}`}
+        />
+      );
+    })}
   </nav>
 )}

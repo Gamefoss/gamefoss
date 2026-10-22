@@ -5,6 +5,7 @@ export const SITE_DESCRIPTION =
 export const YOUTUBE_CHANNEL_ID = 'UC-56xFSGCZva048yeG-wFTw';
 
 export const SITE_SOCIALS = {
+  spotify: 'https://open.spotify.com/show/7es718XuZbCWSm6D0cErsi',
   twitter: 'https://twitter.com/game_foss',
   instagram: 'https://www.instagram.com/game_foss/',
   youtube: 'https://www.youtube.com/@game_foss',
