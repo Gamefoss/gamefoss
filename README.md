@@ -53,7 +53,9 @@ Analytics and advertising values use the identifiers copied from their Google sn
 
 - `PUBLIC_GTAG_ID`: the GA4 web stream Measurement ID (`G-...`).
 - `PUBLIC_ADSENSE_CLIENT`: the complete AdSense client/publisher value (`ca-pub-...`).
-- `PUBLIC_ADSENSE_SLOT_BANNER`: the numeric `data-ad-slot` value from the responsive display ad unit.
+- `PUBLIC_ADSENSE_SLOT_BANNER`: the numeric `data-ad-slot` value from the responsive display ad for banner format.
+- `PUBLIC_ADSENSE_SLOT_RECTANGLE`: the numeric `data-ad-slot` value from the responsive display ad for rectangle format.
+- `PUBLIC_ADSENSE_SLOT_ARTICLE`: the numeric `data-ad-slot` value from the responsive display ad for in article ads.
 
 Clicks on elements carrying `data-ga` are reported as the GA4 event `ui_interaction`, with `interaction_name` set to the attribute value and `link_url` included for links. The delegated listener only emits events after Analytics consent has been granted.
 

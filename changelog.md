@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/Gamefoss/gamefoss/compare/v1.6.1...v1.7.0) (2026-10-22)
+
+
+### Features
+
+* **videos:** updating YouTube link ([5135707](https://github.com/Gamefoss/gamefoss/commit/51357077296bdd2c572bcee6a051592aec6c2b46))
+
+### [1.6.1](https://github.com/Gamefoss/gamefoss/compare/v1.6.0...v1.6.1) (2026-10-22)
+
+
+### Bug Fixes
+
+* adding missing variables to README ([82a9c85](https://github.com/Gamefoss/gamefoss/commit/82a9c85ed0736e34be1a2f55669d17846183d9d4))
+
+## [1.6.0](https://github.com/Gamefoss/gamefoss/compare/v1.5.0...v1.6.0) (2026-10-22)
+
+
+### Features
+
+* **ads:** adding other ads slots ([4b027b0](https://github.com/Gamefoss/gamefoss/commit/4b027b093c1cb93f2d1612bae9191d892da7ac4d))
+* **components:** renaming consent banner ([16aa93d](https://github.com/Gamefoss/gamefoss/commit/16aa93d2625c2bbd08c406c6f5c2b09ee2796a0d))
+
 ## [1.5.0](https://github.com/Gamefoss/gamefoss/compare/v1.4.0...v1.5.0) (2026-10-21)
 
 

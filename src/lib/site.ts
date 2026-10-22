@@ -2,10 +2,12 @@ export const SITE_NAME = 'Gamefoss';
 export const SITE_URL = 'https://gamefoss.com.br';
 export const SITE_DESCRIPTION =
   'Games, tecnologia, sociedade e o que mais der na telha.';
+export const YOUTUBE_CHANNEL_ID = 'UC-56xFSGCZva048yeG-wFTw';
+
 export const SITE_SOCIALS = {
   twitter: 'https://twitter.com/game_foss',
   instagram: 'https://www.instagram.com/game_foss/',
-  youtube: 'https://www.youtube.com/channel/UC-56xFSGCZva048yeG-wFTw',
+  youtube: 'https://www.youtube.com/@game_foss',
   twitch: 'https://www.twitch.tv/game_foss',
 } as const;
 export const PODCAST_LINKS = {
