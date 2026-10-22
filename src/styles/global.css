@@ -7,6 +7,7 @@
 
 /* Reusable UI. Import order preserves the intentional cascade. */
 @import './components/actions.css';
+@import './components/ad-slot.css';
 @import './components/header.css';
 @import './components/footer.css';
 @import './components/podcast-player.css';

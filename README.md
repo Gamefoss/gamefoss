@@ -47,13 +47,13 @@ The deployment workflow can also rebuild either environment manually to pick up 
 
 The RSS feed and YouTube channel are the sources of truth for podcast episodes and videos. `npm run dev`, `npm run check`, and `npm run build` synchronize both before Astro starts; generated caches are never committed. Consequently, those commands require network access and fail rather than build stale data when an external source is unavailable.
 
-Create GitHub Environments named `development` and `production`. In each, configure `FTP_SERVER`, `FTP_USERNAME`, `FTP_TARGET_DIR`, and `PUBLIC_CONTACT_EMAIL` as variables and `FTP_PASSWORD` and `YOUTUBE_DATA_API` as secrets. `YOUTUBE_DATA_API` is the API key for a Google Cloud project with YouTube Data API v3 enabled. Production may additionally define `PUBLIC_GTAG_ID`, `PUBLIC_ADSENSE_CLIENT`, and `PUBLIC_ADSENSE_SLOT`. Set the development FTP target explicitly to `/dev/` and production to the hosting web root.
+Create GitHub Environments named `development` and `production`. In each, configure `FTP_SERVER`, `FTP_USERNAME`, `FTP_TARGET_DIR`, and `PUBLIC_CONTACT_EMAIL` as variables and `FTP_PASSWORD` and `YOUTUBE_DATA_API` as secrets. `YOUTUBE_DATA_API` is the API key for a Google Cloud project with YouTube Data API v3 enabled. Production may additionally define `PUBLIC_GTAG_ID`, `PUBLIC_ADSENSE_CLIENT`, and `PUBLIC_ADSENSE_SLOT_BANNER`. Set the development FTP target explicitly to `/dev/` and production to the hosting web root.
 
 Analytics and advertising values use the identifiers copied from their Google snippets:
 
 - `PUBLIC_GTAG_ID`: the GA4 web stream Measurement ID (`G-...`).
 - `PUBLIC_ADSENSE_CLIENT`: the complete AdSense client/publisher value (`ca-pub-...`).
-- `PUBLIC_ADSENSE_SLOT`: the numeric `data-ad-slot` value from the responsive display ad unit.
+- `PUBLIC_ADSENSE_SLOT_BANNER`: the numeric `data-ad-slot` value from the responsive display ad unit.
 
 Clicks on elements carrying `data-ga` are reported as the GA4 event `ui_interaction`, with `interaction_name` set to the attribute value and `link_url` included for links. The delegated listener only emits events after Analytics consent has been granted.
 
