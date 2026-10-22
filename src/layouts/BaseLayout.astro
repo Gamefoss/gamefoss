@@ -7,7 +7,7 @@ import '@fontsource/space-grotesk/700.css';
 import '@fontsource/ibm-plex-mono/500.css';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import ConsentBanner from '@/components/ConsentBanner.astro';
+import CookiesBanner from '@/components/CookiesBanner.astro';
 import EnvironmentBanner from '@/components/EnvironmentBanner.astro';
 import { PODCAST_LINKS, SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
 
@@ -177,7 +177,7 @@ const robots = isPreview
       <slot />
     </main>
     <Footer />
-    <ConsentBanner />
+    <CookiesBanner />
     <script>
       import { initAnalyticsTracking } from '@/lib/analytics';
       initAnalyticsTracking();
