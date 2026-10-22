@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/Gamefoss/gamefoss/compare/v1.6.0...v1.6.1) (2026-10-22)
+
+
+### Bug Fixes
+
+* adding missing variables to README ([82a9c85](https://github.com/Gamefoss/gamefoss/commit/82a9c85ed0736e34be1a2f55669d17846183d9d4))
+
 ## [1.6.0](https://github.com/Gamefoss/gamefoss/compare/v1.5.0...v1.6.0) (2026-10-22)
 
 
