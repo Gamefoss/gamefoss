@@ -192,7 +192,7 @@ async function main() {
       if (await download(url, `${directory}/${filename}`))
         content = content.replaceAll(
           url,
-          `../../../public/images/articles/${post.slug}/${filename}`,
+          `/images/articles/${post.slug}/${filename}`,
         );
     }
     content = content.replace(/<!--\s*\/?wp:[\s\S]*?-->/g, '');
