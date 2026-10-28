@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/Gamefoss/gamefoss/compare/v1.8.1...v1.9.0) (2026-10-28)
+
+
+### Features
+
+* **components:** create a Giphy component to embed gifs ([cbb1b65](https://github.com/Gamefoss/gamefoss/commit/cbb1b65de39d531e09c10542c2c2c56e027bc01e))
+* **content:** adding new category ([bba3cdd](https://github.com/Gamefoss/gamefoss/commit/bba3cddfd0065e33b74e0ec0e4e754b071331006))
+
+
+### Bug Fixes
+
+* **styles:** fixing body overflow x ([6df4898](https://github.com/Gamefoss/gamefoss/commit/6df4898a1e2ade464d00bcd07327d68e6429a202))
+
 ### [1.8.1](https://github.com/Gamefoss/gamefoss/compare/v1.8.0...v1.8.1) (2026-10-24)
 
 ## [1.8.0](https://github.com/Gamefoss/gamefoss/compare/v1.7.0...v1.8.0) (2026-10-22)
