@@ -4,4 +4,4 @@ description: Novidades do projeto, mudanças, planos e histórias da equipe
 order: 4
 ---
 
-Tudo o que acontece por trás dos microfones do GameFoss
+Um pouco do que acontece por trás dos controles. Novidades, planos, histórias e os desafios que enfrentamos para manter o GameFoss.
