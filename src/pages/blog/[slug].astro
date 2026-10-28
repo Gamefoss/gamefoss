@@ -10,6 +10,9 @@ import {
   siteUrl,
 } from '@/lib/structured-data';
 
+import { Disqus } from "astro-disqus";
+import { DISQUS_SHORTNAME } from '@/lib/site';
+
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => !data.draft);
   return articles.map((article) => ({
@@ -141,6 +144,7 @@ const jsonLd = [
       url={articleUrl}
       description={article.data.description}
     />
+    <Disqus embed={`https://${DISQUS_SHORTNAME}.disqus.com/embed.js`} />
   </article>
   <AdSlot />
 </BaseLayout>

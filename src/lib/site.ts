@@ -18,6 +18,8 @@ export const PODCAST_LINKS = {
   castbox: 'https://castbox.fm/channel/Gamefoss-id2058011',
 } as const;
 
+export const DISQUS_SHORTNAME = 'gamefoss';
+
 export function withBase(path = '/') {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const normalized = path.startsWith('/') ? path : `/${path}`;
