@@ -21,7 +21,7 @@ const articles = (
 ).sort((a, b) => {
   if (a.data.featured !== b.data.featured)
     return Number(b.data.featured) - Number(a.data.featured);
-  return b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
+  return b.data.publishedAt.localeCompare(a.data.publishedAt);
 });
 const podcast = episodes as PodcastEpisode[];
 const latest = podcast[0];

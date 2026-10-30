@@ -206,7 +206,7 @@ async function main() {
     const componentImport = usesMdx
       ? "import YouTube from '@/components/YouTube.astro';\n\n"
       : '';
-    const frontmatter = `---\ntitle: ${yaml(post.title.rendered)}\ndescription: ${yaml(post.excerpt.rendered).slice(0, 400)}\npublishedAt: ${post.date}\nauthor: ${authorSlug}\ncategory: ${entry.category}\ntags: ${JSON.stringify(tags)}\n${cover ? `cover: ${cover}\ncoverAlt: ${yaml(String(media.alt_text || post.title.rendered))}\n` : ''}legacyUrl: ${post.link}\ndraft: false\nfeatured: false\n---\n\n`;
+    const frontmatter = `---\ntitle: ${yaml(post.title.rendered)}\ndescription: ${yaml(post.excerpt.rendered).slice(0, 400)}\npublishedAt: ${post.date.slice(0, 10)}\nauthor: ${authorSlug}\ncategory: ${entry.category}\ntags: ${JSON.stringify(tags)}\n${cover ? `cover: ${cover}\ncoverAlt: ${yaml(String(media.alt_text || post.title.rendered))}\n` : ''}legacyUrl: ${post.link}\ndraft: false\nfeatured: false\n---\n\n`;
     const extension = usesMdx ? 'mdx' : 'md';
     const alternateExtension = usesMdx ? 'md' : 'mdx';
     await unlink(

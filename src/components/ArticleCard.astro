@@ -76,7 +76,7 @@ const author = showAuthor
         <span>{author.data.name}</span>
       </a>
     )}
-    <time datetime={article.data.publishedAt.toISOString()}>
+    <time datetime={article.data.publishedAt}>
       {formatDate(article.data.publishedAt)}
     </time>
   </div>
