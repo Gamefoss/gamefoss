@@ -19,7 +19,7 @@
     "content:migrate": "tsx scripts/migrate-wordpress.ts",
     "validate:links": "tsx scripts/validate-links.ts",
     "validate": "npm run test && npm run check && npm run build && npm run validate:links",
-    "release": "standard-version --infile changelog.md"
+    "release": "commit-and-tag-version --infile changelog.md"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.5",
@@ -47,11 +47,11 @@
     "@types/sanitize-html": "^2.16.0",
     "@types/turndown": "^5.0.6",
     "@vitejs/plugin-react": "^6.1.2",
+    "commit-and-tag-version": "^13.3.0",
     "pagefind": "^1.4.0",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.1",
     "sharp": "^0.35.5",
-    "standard-version": "^9.5.0",
     "tsx": "^4.20.6",
     "turndown": "^7.2.4",
     "turndown-plugin-gfm": "^1.0.2",

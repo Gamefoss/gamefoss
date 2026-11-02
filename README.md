@@ -41,7 +41,7 @@ Styles are mobile-first and use only Tailwind's default `md` (tablet) and `lg` (
 1. Open feature pull requests against `release/latest`.
 2. Merges to `release/latest` deploy to `https://gamefoss.com.br/dev/`.
 3. Promote the exact release through a pull request from `release/latest` to `main`.
-4. A human-authored merge to `main` runs `standard-version`, commits the generated version and `changelog.md`, creates a version tag and GitHub Release with a production ZIP, then deploys to `https://gamefoss.com.br/`.
+4. A human-authored merge to `main` runs `commit-and-tag-version`, commits the generated version and `changelog.md`, creates a version tag and GitHub Release with a production ZIP, then deploys to `https://gamefoss.com.br/`.
 
 The deployment workflow can also rebuild either environment manually to pick up new podcast episodes and videos. Manual production runs always check out `main`; development runs always check out `release/latest`.
 
