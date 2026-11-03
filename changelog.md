@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.10.0](https://github.com/Gamefoss/gamefoss/compare/v1.9.0...v1.10.0) (2026-11-03)
+
+### Features
+
+* **styles:** updating list styles ([19bd58e](https://github.com/Gamefoss/gamefoss/commit/19bd58e022ecf05ebee1bdb24778e70179838948))
+* **tooling:** deprecating standard-version to commit-and-tag-version ([9cd5d07](https://github.com/Gamefoss/gamefoss/commit/9cd5d07446dd02b4fc493f13c7722d8a32bcacb4))
+
+### Bug Fixes
+
+* **content:** fixing article timestamps ([9ded066](https://github.com/Gamefoss/gamefoss/commit/9ded06682deaf3de18f52610e6a41322514c053f))
+* **images:** fix image paths for dev ([184355d](https://github.com/Gamefoss/gamefoss/commit/184355dc3738a602cd77b9ec308486a1fe940c5f))
+
 ## [1.9.0](https://github.com/Gamefoss/gamefoss/compare/v1.8.1...v1.9.0) (2026-10-28)
 
 
