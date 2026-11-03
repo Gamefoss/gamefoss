@@ -17,7 +17,11 @@
 
   .page-hero--article h1 {
     max-width: 1050px;
-    font-size: clamp(2rem, 7.5vw, 6rem);
+    font-size: clamp(1.75rem, 7.5vw, 3.50rem);
+    line-height: 0.95;
+    @variant md {
+      line-height: 0.85;
+    }
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
   }
 
