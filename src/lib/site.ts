@@ -29,7 +29,11 @@ export function formatDate(date: Date | string) {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
-    timeZone: 'America/Sao_Paulo',
+    // Calendar dates have no timezone; timestamps retain the local display time.
+    timeZone:
+      typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)
+        ? 'UTC'
+        : 'America/Sao_Paulo',
   }).format(new Date(date));
 }
 

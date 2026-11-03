@@ -2,14 +2,20 @@ import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+// YAML parses unquoted calendar dates as Date objects. Keep their literal day.
+const calendarDate = z.preprocess(
+  (value) => (value instanceof Date ? value.toISOString().slice(0, 10) : value),
+  z.iso.date(),
+);
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z
     .object({
       title: z.string(),
       description: z.string(),
-      publishedAt: z.coerce.date(),
-      updatedAt: z.coerce.date().optional(),
+      publishedAt: calendarDate,
+      updatedAt: calendarDate.optional(),
       author: z.string(),
       category: reference('categories'),
       tags: z.array(z.string()).default([]),

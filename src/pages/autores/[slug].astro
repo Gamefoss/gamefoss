@@ -18,7 +18,7 @@ const articles = (
     'articles',
     ({ data }) => !data.draft && data.author === author.id,
   )
-).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+).sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt));
 const authorUrl = siteUrl(Astro.site, `/autores/${author.id}/`);
 const jsonLd = [
   {

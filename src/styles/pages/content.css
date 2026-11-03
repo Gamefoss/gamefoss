@@ -50,7 +50,7 @@
 
   .prose h2,
   .prose h3 {
-    margin: 2.5em 0 0.7em;
+    margin: 1.5em 0 0.5em;
     line-height: 1.05;
     letter-spacing: -0.04em;
   }
@@ -88,6 +88,19 @@
     padding-left: 1.5rem;
     border-left: 4px solid var(--color-red);
     color: var(--color-muted);
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-left: 1.5rem;
+  }
+
+  .prose ul {
+    list-style: disc;
+  }
+
+  .prose ol {
+    list-style: decimal;
   }
 
   .prose__meta {
