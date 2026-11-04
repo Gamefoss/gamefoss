@@ -1,7 +1,7 @@
 @reference '@/styles/global.css';
 
 @layer components {
-  .grid {
+  .grid-component {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(var(--grid-cols-xs), 1fr);

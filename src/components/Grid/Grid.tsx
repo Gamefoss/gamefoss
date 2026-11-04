@@ -36,7 +36,7 @@ function Grid(props: GridProps & React.HTMLAttributes<HTMLDivElement>) {
 
   return (
     <div
-      className={classNames(styles.grid, className)}
+      className={classNames('grid-component', styles['grid-component'], className)}
       {...divProps}
       style={
         {

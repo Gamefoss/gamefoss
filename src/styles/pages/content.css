@@ -48,8 +48,12 @@
     margin-top: 0;
   }
 
-  .prose p {
+  .prose p, .prose .grid-component, .prose .chart {
     margin: 0 0 1.4rem;
+  }
+
+  .prose .grid-component .chart {
+    margin: 0;
   }
 
   .prose h2,

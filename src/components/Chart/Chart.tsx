@@ -13,6 +13,7 @@ import {
 } from 'recharts';
 import styles from './Chart.module.css';
 import { numberFormatter, slugify } from '@/lib/site';
+import classNames from 'classnames';
 
 type Datum = Record<string, string | number>;
 
@@ -32,6 +33,8 @@ type Props = {
   caption?: string;
   valueSuffix?: string;
   valueDomain?: [number, number];
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 const palette = [
@@ -41,7 +44,8 @@ const palette = [
   'var(--chart-color-4)',
 ];
 
-export default function Chart({
+export default function Chart(props: Props) {
+  const {
   type,
   title,
   description,
@@ -51,7 +55,9 @@ export default function Chart({
   caption,
   valueSuffix = '',
   valueDomain,
-}: Props) {
+  className,
+  style,
+} = props;
   const titleId = `chart-${slugify(title)}`;
   const formatValue = (value: number) =>
     `${numberFormatter.format(value)}${valueSuffix}`;
@@ -163,7 +169,7 @@ export default function Chart({
   };
 
   return (
-    <figure className={styles.chart} aria-labelledby={titleId}>
+    <figure className={classNames('chart', className, styles.chart)} aria-labelledby={titleId} style={style}>
       <header className={styles.header}>
         <h3 className={styles.title} id={titleId}>
           {title}

@@ -6,8 +6,6 @@
     --chart-color-2: var(--color-blue);
     --chart-color-3: var(--color-teal);
     --chart-color-4: var(--color-accent);
-
-    margin: 1rem 0;
     border: 3px solid var(--color-ink);
     background: var(--color-surface);
     box-shadow: 8px 8px 0 var(--color-blue);
