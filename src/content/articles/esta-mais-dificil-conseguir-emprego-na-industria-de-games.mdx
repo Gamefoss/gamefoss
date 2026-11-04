@@ -11,8 +11,9 @@ draft: false
 featured: false
 ---
 
-import Chart from '@/components/Chart';
+import Chart from '@/components/Chart/Chart';
 import Giphy from '@/components/Giphy';
+import Grid from '@/components/Grid/Grid';
 
 “Está muito difícil conseguir emprego com jogos.” A frase aparece em conversas entre desenvolvedores e comunidades profissionais. Pessoas com anos de experiência relatam longos períodos procurando trabalho. Quem tenta entrar na indústria disputa vagas com profissionais que participaram de grandes lançamentos.
 
@@ -22,21 +23,35 @@ Os dados disponíveis indicam que essa percepção é real. O problema não se l
 
 A pesquisa *[State of the Game Industry 2026](https://reg.gdconf.com/2026-SOTI/)*, organizada pela Game Developers Conference, ouviu mais de 2.300 profissionais. Entre eles, 28% haviam sido demitidos nos dois anos anteriores. Nos Estados Unidos, a proporção chegava a 33%.
 
-<Chart
-    client:visible
-    type="bar"
-    title="Profissionais demitidos nos dois anos anteriores"
-    description="Percentual dos participantes da pesquisa State of the Game Industry 2026"
-    data={[
-        { grupo: 'Geral 🌎', percentual: 28 },
-        { grupo: 'EUA 🇺🇸', percentual: 33 },
-    ]}
-    categoryKey="grupo"
-    series={[{ dataKey: 'percentual', label: 'Participantes' }]}
-    valueSuffix="%"
-    valueDomain={[0, 40]}
-    caption="Fonte: Game Developers Conference, State of the Game Industry 2026."
-/>
+<Grid sm={2}>
+    <Chart
+        client:visible
+        type="pie"
+        title="Demitidos no Mundo"
+        data={[
+            { grupo: 'Demitidos', percentual: 28 },
+            { grupo: 'Não demitidos', percentual: 72 },
+        ]}
+        categoryKey="grupo"
+        series={[{ dataKey: 'percentual', label: 'Participantes' }]}
+        valueSuffix="%"
+        valueDomain={[0, 100]}
+    />
+
+    <Chart
+        client:visible
+        type="pie"
+        title="Demitidos nos EUA 🇺🇸"
+        data={[
+            { grupo: 'Demitidos', percentual: 33 },
+            { grupo: 'Não demitidos', percentual: 67 },
+        ]}
+        categoryKey="grupo"
+        series={[{ dataKey: 'percentual', label: 'Participantes' }]}
+        valueSuffix="%"
+        valueDomain={[0, 100]}
+    />
+</Grid>
 
 Quase metade dos profissionais atingidos, 48%, ainda não havia encontrado outro emprego. Mesmo entre os demitidos de um a dois anos antes, 36% continuavam sem recolocação. Metade dos participantes também afirmou que sua empresa atual ou mais recente havia realizado cortes no último ano.
 

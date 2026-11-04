@@ -1,4 +1,4 @@
-@reference '../styles/global.css';
+@reference '@/styles/global.css';
 
 @layer components {
   .chart {
@@ -7,7 +7,7 @@
     --chart-color-3: var(--color-teal);
     --chart-color-4: var(--color-accent);
 
-    margin: 2.5rem 0;
+    margin: 1rem 0;
     border: 3px solid var(--color-ink);
     background: var(--color-surface);
     box-shadow: 8px 8px 0 var(--color-blue);
@@ -19,7 +19,8 @@
     @variant md {
       padding: 1.25rem 1.25rem 0;
     }
-    > h3, p {
+    > h3,
+    p {
       margin: 0;
     }
   }
