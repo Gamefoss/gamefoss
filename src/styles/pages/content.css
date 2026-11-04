@@ -81,16 +81,31 @@
     box-shadow: 8px 8px 0 var(--color-red);
   }
 
-  .prose p:nth-of-type(4n + 2) > img:only-child {
+  .prose .content-figure {
+    margin: 2rem 0;
+  }
+
+  .prose .content-figure img {
+    margin: 0 auto;
+  }
+
+  .prose .content-figure:nth-of-type(4n + 2) img {
     box-shadow: 8px 8px 0 var(--color-accent);
   }
 
-  .prose p:nth-of-type(4n + 3) > img:only-child {
+  .prose .content-figure:nth-of-type(4n + 3) img {
     box-shadow: 8px 8px 0 var(--color-blue);
   }
 
-  .prose p:nth-of-type(4n) > img:only-child {
+  .prose .content-figure:nth-of-type(4n) img {
     box-shadow: 8px 8px 0 var(--color-teal);
+  }
+
+  .prose .content-figure figcaption {
+    margin: 0.8rem 0 0;
+    color: var(--color-muted);
+    font: 0.78rem/1.4 var(--font-mono);
+    text-align: center;
   }
 
   .prose blockquote {
