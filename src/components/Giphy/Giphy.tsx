@@ -1,9 +1,10 @@
 type Props = {
   id: string;
   alt: string;
+  caption?: string;
 };
 
-export function Giphy({ id, alt }: Props) {
+export function Giphy({ id, alt, caption = alt }: Props) {
   return (
     <figure className="content-figure">
       <img
@@ -11,7 +12,7 @@ export function Giphy({ id, alt }: Props) {
         alt={alt}
         loading="lazy"
       />
-      {alt.trim() && <figcaption>{alt}</figcaption>}
+      {caption.trim() && <figcaption>{caption}</figcaption>}
     </figure>
   );
 }
