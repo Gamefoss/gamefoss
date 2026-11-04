@@ -48,7 +48,9 @@
     margin-top: 0;
   }
 
-  .prose p, .prose .grid-component, .prose .chart {
+  .prose p,
+  .prose .grid-component,
+  .prose .chart {
     margin: 0 0 1.4rem;
   }
 

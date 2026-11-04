@@ -1,21 +1,42 @@
 @reference '@/styles/global.css';
 
 @layer components {
-  .grid-component {
+  .grid-component,
+  .floaty-grid-component {
     display: grid;
     gap: 1rem;
+    align-items: center;
+  }
+
+  .grid-component {
     grid-template-columns: repeat(var(--grid-cols-xs), 1fr);
+
     @variant sm {
       grid-template-columns: repeat(var(--grid-cols-sm), 1fr);
     }
+
     @variant md {
       grid-template-columns: repeat(var(--grid-cols-md), 1fr);
     }
+
     @variant lg {
       grid-template-columns: repeat(var(--grid-cols-lg), 1fr);
     }
+
     @variant xl {
       grid-template-columns: repeat(var(--grid-cols-xl), 1fr);
+    }
+  }
+
+  .floaty-grid-component {
+    @variant sm {
+      &.floaty-grid-component__floaty--left {
+        grid-template-columns: 0.5fr 1fr;
+      }
+
+      &.floaty-grid-component__floaty--right {
+        grid-template-columns: 1fr 0.5fr;
+      }
     }
   }
 }

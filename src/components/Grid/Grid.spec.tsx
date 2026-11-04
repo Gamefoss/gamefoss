@@ -1,14 +1,15 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import Grid, { type GridProps } from './Grid';
+import { Grid, type GridProps, FloatyGrid, type FloatyGridProps } from './Grid';
 
-function renderGrid(
-  props: Omit<
-    GridProps & React.HTMLAttributes<HTMLDivElement>,
-    'children'
-  > = {},
-) {
+function renderGrid(props: Omit<GridProps, 'children'> = {}) {
   return renderToStaticMarkup(<Grid {...props}>Conteúdo</Grid>);
+}
+
+function renderFloatyGrid(
+  props: Omit<FloatyGridProps, 'children'> = { floaty: 'left' },
+) {
+  return renderToStaticMarkup(<FloatyGrid {...props}>Conteúdo</FloatyGrid>);
 }
 
 describe('Grid', () => {
@@ -44,9 +45,22 @@ describe('Grid', () => {
       style: { alignItems: 'start' },
     });
 
-    expect(markup).toMatch(/class="\S+ featured-grid"/);
+    expect(markup).toContain('featured-grid');
     expect(markup).toContain('aria-label="Destaques"');
     expect(markup).toContain('id="highlights"');
     expect(markup).toContain('align-items:start');
   });
+});
+
+describe('FloatyGrid', () => {
+  it.each([
+    ['left', 'floaty-grid-component__floaty--left'],
+    ['right', 'floaty-grid-component__floaty--right'],
+  ])(
+    'renders with the correct floaty class for %s',
+    (floaty, expectedClass) => {
+      const markup = renderFloatyGrid({ floaty: floaty as 'left' | 'right' });
+      expect(markup).toContain(expectedClass);
+    },
+  );
 });

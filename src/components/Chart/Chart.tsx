@@ -46,18 +46,18 @@ const palette = [
 
 export default function Chart(props: Props) {
   const {
-  type,
-  title,
-  description,
-  data,
-  categoryKey,
-  series,
-  caption,
-  valueSuffix = '',
-  valueDomain,
-  className,
-  style,
-} = props;
+    type,
+    title,
+    description,
+    data,
+    categoryKey,
+    series,
+    caption,
+    valueSuffix = '',
+    valueDomain,
+    className,
+    style,
+  } = props;
   const titleId = `chart-${slugify(title)}`;
   const formatValue = (value: number) =>
     `${numberFormatter.format(value)}${valueSuffix}`;
@@ -169,7 +169,11 @@ export default function Chart(props: Props) {
   };
 
   return (
-    <figure className={classNames('chart', className, styles.chart)} aria-labelledby={titleId} style={style}>
+    <figure
+      className={classNames('chart', className, styles.chart)}
+      aria-labelledby={titleId}
+      style={style}
+    >
       <header className={styles.header}>
         <h3 className={styles.title} id={titleId}>
           {title}

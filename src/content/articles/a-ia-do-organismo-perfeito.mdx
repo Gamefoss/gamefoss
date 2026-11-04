@@ -12,12 +12,14 @@ draft: false
 featured: false
 ---
 import AdSlot from '@/components/AdSlot.astro';
+import { FloatyGrid } from '@/components/Grid/Grid';
 
-![Poster do Filme](/images/articles/a-ia-do-organismo-perfeito/image-1.jpg)
 
-_Alien_, o Oitavo Passageiro é um clássico filme de terror e ficção científica lançado em 1979. Na esteira de sucesso do filme surgiu uma franquia de livros, brinquedos e jogos.
-**Alien Isolation** é uma tentativa bem-sucedida de adaptação deste clássico para o mundo dos games. O fluxo de tensão nesse _survival horror sci-fi_ consegue transportar o jogador para o universo opressivo, criado por Ridley Scott.
-Neste artigo analisamos a estrutura desenvolvida para criar a inteligência artificial por trás do organismo perfeito, também conhecido como **Alien** ou **Xenomorfo**.
+<FloatyGrid floaty="right">
+    _Alien_, o Oitavo Passageiro é um clássico filme de terror e ficção científica lançado em 1979. Na esteira de sucesso do filme surgiu uma franquia de livros, brinquedos e jogos. **Alien Isolation** é uma tentativa bem-sucedida de adaptação deste clássico para o mundo dos games. O fluxo de tensão nesse _survival horror sci-fi_ consegue transportar o jogador para o universo opressivo, criado por Ridley Scott. Neste artigo analisamos a estrutura desenvolvida para criar a inteligência artificial por trás do organismo perfeito, também conhecido como **Alien** ou **Xenomorfo**.
+    
+    ![Poster do Filme](/images/articles/a-ia-do-organismo-perfeito/image-1.jpg)
+</FloatyGrid>
 
 ---
 
@@ -63,21 +65,22 @@ O Xenomorfo tem seu próprio sistema de IA, que o ajuda na localização do joga
 
 A **IA do _Alien_** é composta por um sistema de **Árvore do Comportamento** (_Behavior Tree_), que se subdivide para cada comportamento específico.
 
-> A **Árvore do Comportamento** é um modelo matemático modular usado em ciência da computação para descrever um plano de execução de tarefas. Desse modo é possível dividir uma tarefa complexa (criar um _Alien_) em várias tarefas menores (atacar, procurar, fugir etc.).
->
-> Cada uma dessas subdivisões é chamada de Nó (Node), que podem continuar sua ramificação para execução de tarefas ainda mais específicas.
->
-> ![](/images/articles/a-ia-do-organismo-perfeito/image-2.png)
->
-> exemplificação
+**Árvore do Comportamento** é um modelo matemático modular usado em ciência da computação para descrever um plano de execução de tarefas. Desse modo é possível dividir uma tarefa complexa (criar um _Alien_) em várias tarefas menores (atacar, procurar, fugir etc.).
 
-A árvore do comportamento do Alien é composta por mais de uma centena de nós. O nível mais alto de decisão deste sistema, ou seja, a parte da árvore responsável por escolher qual dos subsistemas vai atuar para executar determinada tarefa tem sozinho em torno de 30 nós.
+Cada uma dessas subdivisões é chamada de Nó (Node), que podem continuar sua ramificação para execução de tarefas ainda mais específicas.
 
-![](/images/articles/a-ia-do-organismo-perfeito/image-3.png)
+<FloatyGrid floaty="right">
+    A árvore do comportamento do Alien é composta por mais de uma centena de nós. O nível mais alto de decisão deste sistema, ou seja, a parte da árvore responsável por escolher qual dos subsistemas vai atuar para executar determinada tarefa tem sozinho em torno de 30 nós.
+    
+    ![exemplificação da árvore do comportamento do Alien](/images/articles/a-ia-do-organismo-perfeito/image-2.png)
+</FloatyGrid>
 
-Algumas das árvores de comportamento do Alien
 
-Para tornar o jogo mais interessante, parte desta árvore é bloqueada no começo e os diferentes nós vão sendo desbloqueados quando determinadas condições são atingidas durante o gameplay. Isso garante variabilidade ao comportamento apresentado pelo Alien no decorrer do tempo.
+<FloatyGrid floaty="left">
+    ![Algumas das árvores de comportamento do Alien](/images/articles/a-ia-do-organismo-perfeito/image-3.png)
+
+    Para tornar o jogo mais interessante, parte desta árvore é bloqueada no começo e os diferentes nós vão sendo desbloqueados quando determinadas condições são atingidas durante o gameplay. Isso garante variabilidade ao comportamento apresentado pelo Alien no decorrer do tempo.
+</FloatyGrid>
 
 ### Sensores
 
