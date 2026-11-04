@@ -14,14 +14,14 @@ export type GridProps = {
   lg?: number;
   /** The number of columns for extra-large screens and above. */
   xl?: number;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 /**
  * A responsive grid component that adjusts the number of columns based on screen size.
  * @param props The props for the Grid component, including children and column counts for different screen sizes.
  * @returns A JSX element representing the responsive grid.
  */
-function Grid(props: GridProps & React.HTMLAttributes<HTMLDivElement>) {
+export function Grid(props: GridProps) {
   const {
     children,
     base = 1,
@@ -36,7 +36,11 @@ function Grid(props: GridProps & React.HTMLAttributes<HTMLDivElement>) {
 
   return (
     <div
-      className={classNames('grid-component', styles['grid-component'], className)}
+      className={classNames(
+        'grid-component',
+        styles['grid-component'],
+        className,
+      )}
       {...divProps}
       style={
         {
@@ -48,6 +52,36 @@ function Grid(props: GridProps & React.HTMLAttributes<HTMLDivElement>) {
           ...style,
         } as React.CSSProperties
       }
+    >
+      {children}
+    </div>
+  );
+}
+
+export type FloatyGridProps = {
+  /** The float direction for the grid component. */
+  floaty: 'left' | 'right';
+} & React.HTMLAttributes<HTMLDivElement>;
+
+/**
+ * A grid component that floats to the left or right based on the `floaty` prop.
+ * @param props The props for the FloatyGrid component, including the float direction and children.
+ * @returns A JSX element representing the floaty grid.
+ */
+export function FloatyGrid(props: FloatyGridProps) {
+  const { floaty, children, ...divProps } = props;
+
+  return (
+    <div
+      className={classNames(
+        'floaty-grid-component',
+        styles['floaty-grid-component'],
+        {
+          [styles['floaty-grid-component__floaty--left']]: floaty === 'left',
+          [styles['floaty-grid-component__floaty--right']]: floaty === 'right',
+        },
+      )}
+      {...divProps}
     >
       {children}
     </div>

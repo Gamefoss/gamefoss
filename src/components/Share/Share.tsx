@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import Button from './Button';
-import type { IconName } from './Icon';
+import { Button } from '@/components/Button/Button';
+import type { IconName } from '@/components/Icon/Icon';
 
 interface Props {
   title: string;
@@ -8,7 +8,7 @@ interface Props {
   description: string;
 }
 
-export default function Share({ title, url, description }: Props) {
+export function Share({ title, url, description }: Props) {
   const [canCopy, setCanCopy] = useState(false);
   const [canShare, setCanShare] = useState(false);
   const [copyLabel, setCopyLabel] = useState('Copiar link');

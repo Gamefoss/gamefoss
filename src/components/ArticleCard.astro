@@ -1,7 +1,7 @@
 ---
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { formatDate, withBase } from '@/lib/site';
-import Icon from '@/components/Icon';
+import { Icon } from '@/components/Icon/Icon';
 interface Props {
   article: CollectionEntry<'articles'>;
   featured?: boolean;

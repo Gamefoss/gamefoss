@@ -84,7 +84,7 @@ interface Props {
   className?: string;
 }
 
-export default function Icon({ name, label, className }: Props) {
+export function Icon({ name, label, className }: Props) {
   const Component = icons[name];
 
   return (

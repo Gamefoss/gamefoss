@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { rehypeContentImages } from './scripts/rehype-content-images';
 import { rehypeImageBase } from './scripts/rehype-image-base';
 
 const isPreview = process.env.DEPLOY_ENV === 'development';
@@ -16,7 +18,11 @@ export default defineConfig({
   site,
   base,
   trailingSlash: 'always',
-  markdown: { rehypePlugins: [[rehypeImageBase, { base }]] },
+  markdown: {
+    processor: unified({
+      rehypePlugins: [[rehypeImageBase, { base }], rehypeContentImages],
+    }),
+  },
   integrations: [mdx(), react(), sitemap({ filter: () => !isPreview })],
   // Tailwind supports Astro's bundled Vite version; the cast avoids duplicate
   // Vite type identities when npm keeps a second compatible Vite package.

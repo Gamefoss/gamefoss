@@ -4,7 +4,7 @@ import type {
   ReactNode,
 } from 'react';
 import classnames from 'classnames';
-import Icon, { type IconName } from './Icon';
+import { Icon, type IconName } from '@/components/Icon/Icon';
 
 type Variant = 'primary' | 'ghost' | 'accent' | 'white';
 
@@ -43,7 +43,7 @@ type NativeButtonProps = SharedProps &
 
 export type ButtonProps = LinkProps | NativeButtonProps;
 
-export default function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
   const {
     children,
     variant = 'primary',
