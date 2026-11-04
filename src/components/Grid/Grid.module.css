@@ -1,0 +1,21 @@
+@reference '@/styles/global.css';
+
+@layer components {
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(var(--grid-cols-xs), 1fr);
+    @variant sm {
+      grid-template-columns: repeat(var(--grid-cols-sm), 1fr);
+    }
+    @variant md {
+      grid-template-columns: repeat(var(--grid-cols-md), 1fr);
+    }
+    @variant lg {
+      grid-template-columns: repeat(var(--grid-cols-lg), 1fr);
+    }
+    @variant xl {
+      grid-template-columns: repeat(var(--grid-cols-xl), 1fr);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "gamefoss",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -38,6 +38,7 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-icons": "^5.7.0",
+    "recharts": "^3.10.1",
     "sanitize-html": "^2.17.0",
     "tailwindcss": "^4.1.14"
   },
