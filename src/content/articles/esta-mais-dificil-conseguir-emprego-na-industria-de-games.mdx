@@ -14,6 +14,7 @@ featured: false
 import Chart from '@/components/Chart/Chart';
 import Giphy from '@/components/Giphy';
 import Grid from '@/components/Grid/Grid';
+import AdSlot from '@/components/AdSlot.astro';
 
 “Está muito difícil conseguir emprego com jogos.” A frase aparece em conversas entre desenvolvedores e comunidades profissionais. Pessoas com anos de experiência relatam longos períodos procurando trabalho. Quem tenta entrar na indústria disputa vagas com profissionais que participaram de grandes lançamentos.
 
@@ -27,10 +28,10 @@ A pesquisa *[State of the Game Industry 2026](https://reg.gdconf.com/2026-SOTI/)
     <Chart
         client:visible
         type="pie"
-        title="Demitidos no Mundo"
+        title="Demitidos no Mundo 🌎"
         data={[
             { grupo: 'Demitidos', percentual: 28 },
-            { grupo: 'Não demitidos', percentual: 72 },
+            { grupo: 'Empregados', percentual: 72 },
         ]}
         categoryKey="grupo"
         series={[{ dataKey: 'percentual', label: 'Participantes' }]}
@@ -44,7 +45,7 @@ A pesquisa *[State of the Game Industry 2026](https://reg.gdconf.com/2026-SOTI/)
         title="Demitidos nos EUA 🇺🇸"
         data={[
             { grupo: 'Demitidos', percentual: 33 },
-            { grupo: 'Não demitidos', percentual: 67 },
+            { grupo: 'Empregados', percentual: 67 },
         ]}
         categoryKey="grupo"
         series={[{ dataKey: 'percentual', label: 'Participantes' }]}
@@ -88,6 +89,8 @@ Juros maiores agravaram a situação. Estúdios independentes passaram a encontr
 Chamar tudo isso de “correção pós-pandemia” é conveniente demais. Parte da expansão realmente se baseava em expectativas exageradas. A crise também nasceu de aquisições mal planejadas, projetos caros iniciados sem uma estratégia sustentável e apostas simultâneas em tendências como jogos como serviço.
 
 Os trabalhadores não decidiram essas estratégias, mas ficaram com grande parte do risco.
+
+<AdSlot />
 
 ## Nem um bom jogo protege a equipe
 
@@ -138,6 +141,9 @@ O dado mostra um período de forte crescimento, mas antecede a fase mais intensa
 O país pode estar vivendo um movimento diferente, impulsionado por novos estúdios e contratos de desenvolvimento externo. Isso não garante estabilidade: terceirização e trabalho por projeto podem crescer sem produzir empregos permanentes. Brasileiros que procuram vagas remotas no exterior também enfrentam diretamente o excesso global de candidatos.
 
 >A falta de dados atuais é parte da história. Sabemos que a indústria brasileira cresceu, mas não sabemos quantas das oportunidades criadas durante a expansão sobreviveram.
+
+
+<AdSlot />
 
 ## Crise passageira ou novo modelo?
 
