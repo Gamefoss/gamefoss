@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import Button from './Button';
+import { Button } from './Button';
 
 describe('Button', () => {
   it('renders a styled link with a left icon', () => {

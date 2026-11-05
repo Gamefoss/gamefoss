@@ -17,7 +17,11 @@
 
   .page-hero--article h1 {
     max-width: 1050px;
-    font-size: clamp(2rem, 7.5vw, 6rem);
+    font-size: clamp(1.75rem, 7.5vw, 3.5rem);
+    line-height: 0.95;
+    @variant md {
+      line-height: 0.85;
+    }
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
   }
 
@@ -44,8 +48,14 @@
     margin-top: 0;
   }
 
-  .prose p {
+  .prose p,
+  .prose .grid-component,
+  .prose .chart {
     margin: 0 0 1.4rem;
+  }
+
+  .prose .grid-component .chart {
+    margin: 0;
   }
 
   .prose h2,
@@ -71,16 +81,31 @@
     box-shadow: 8px 8px 0 var(--color-red);
   }
 
-  .prose p:nth-of-type(4n + 2) > img:only-child {
+  .prose .content-figure {
+    margin: 2rem 0;
+  }
+
+  .prose .content-figure img {
+    margin: 0 auto;
+  }
+
+  .prose .content-figure:nth-of-type(4n + 2) img {
     box-shadow: 8px 8px 0 var(--color-accent);
   }
 
-  .prose p:nth-of-type(4n + 3) > img:only-child {
+  .prose .content-figure:nth-of-type(4n + 3) img {
     box-shadow: 8px 8px 0 var(--color-blue);
   }
 
-  .prose p:nth-of-type(4n) > img:only-child {
+  .prose .content-figure:nth-of-type(4n) img {
     box-shadow: 8px 8px 0 var(--color-teal);
+  }
+
+  .prose .content-figure figcaption {
+    margin: 0.8rem 0 0;
+    color: var(--color-muted);
+    font: 0.78rem/1.4 var(--font-mono);
+    text-align: center;
   }
 
   .prose blockquote {

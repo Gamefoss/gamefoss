@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import EpisodeCard from '@/components/EpisodeCard.astro';
-import Icon from '@/components/Icon';
+import { Icon } from '@/components/Icon/Icon';
 import HeroDecoration from '@/components/HeroDecoration.astro';
 import episodes from '@generated/episodes.json';
 import type { PodcastEpisode } from '@/lib/podcast';
 import { PODCAST_LINKS } from '@/lib/site';
 import Pagination from '@/components/Pagination.astro';
-import Button from '@/components/Button';
+import { Button } from '@/components/Button/Button';
 import { breadcrumbJsonLd, podcastSeriesJsonLd } from '@/lib/structured-data';
 const podcast = episodes as PodcastEpisode[];
 const pageSize = 8;

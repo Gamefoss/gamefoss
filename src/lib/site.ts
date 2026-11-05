@@ -45,3 +45,7 @@ export function slugify(value: string) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 }
+
+export const numberFormatter = new Intl.NumberFormat('pt-BR', {
+  maximumFractionDigits: 1,
+});

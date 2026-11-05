@@ -8,3 +8,4 @@ coverage/
 reports/migration/*.tmp
 .vscode/
 *.code-workspace
+.idea/
