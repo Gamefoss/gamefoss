@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.11.0](https://github.com/Gamefoss/gamefoss/compare/v1.10.1...v1.11.0) (2026-11-05)
+
+### Features
+
+* **component:** adding caption to article img ([02d2968](https://github.com/Gamefoss/gamefoss/commit/02d2968f52fa0a1091e8d6aecd7725a7025309e1))
+* **components:** adding Chart component ([b24990e](https://github.com/Gamefoss/gamefoss/commit/b24990edcd30f7401c8328ba79712a5cafc3f103))
+* **components:** creating a FloatyGrid component ([67e4f65](https://github.com/Gamefoss/gamefoss/commit/67e4f653613baca33deae17bf30eae6a0e281cff))
+* **components:** creating Grid component ([71c6214](https://github.com/Gamefoss/gamefoss/commit/71c62140f3753ee8a2847ee7faa850f325ccb1f8))
+* **components:** updating components paths ([bd0a1a7](https://github.com/Gamefoss/gamefoss/commit/bd0a1a723a547fe915441f11820a100ea80f25aa))
+* **styles:** updating article styles ([4e895d7](https://github.com/Gamefoss/gamefoss/commit/4e895d70791e86bfef10375ffab3242eaf8e5ff9))
+
+### Bug Fixes
+
+* **test:** fixing broken tests ([f93bdf7](https://github.com/Gamefoss/gamefoss/commit/f93bdf7a441bff967b86ac7a01293e443daecb68))
+
 ## [1.10.1](https://github.com/Gamefoss/gamefoss/compare/v1.10.0...v1.10.1) (2026-11-03)
 
 ## [1.10.0](https://github.com/Gamefoss/gamefoss/compare/v1.9.0...v1.10.0) (2026-11-03)
