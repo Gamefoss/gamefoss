@@ -43,7 +43,7 @@ const jsonLd = breadcrumbJsonLd(Astro.site, [
       >
         {authors.map((author, index) => (
           <div class="character-card" style={`--player-index: ${index + 1}`}>
-            <span class="character-card__number">P{index + 1}</span>
+            <span class="character-card__number" aria-hidden>P{index + 1}</span>
             <div class="character-card__portrait">
               <a href={withBase(`/autores/${author.id}/`)}>
                 {author.data.portrait ? (
