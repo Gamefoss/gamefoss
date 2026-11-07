@@ -185,31 +185,33 @@ export default function Chart(props: Props) {
         <Content />
       </div>
 
-      <table className={styles.table}>
-        <caption>{title}</caption>
-        <thead>
-          <tr>
-            <th scope="col">Categoria</th>
-            {series.map((item) => (
-              <th key={item.dataKey} scope="col">
-                {item.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={String(item[categoryKey])}>
-              <th scope="row">{item[categoryKey]}</th>
-              {series.map((chartSeries) => (
-                <td key={chartSeries.dataKey}>
-                  {formatValue(Number(item[chartSeries.dataKey]))}
-                </td>
+      <div className={styles.tableWrapper}>
+        <table>
+          <caption>{title}</caption>
+          <thead>
+            <tr>
+              <th scope="col">Categoria</th>
+              {series.map((item) => (
+                <th key={item.dataKey} scope="col">
+                  {item.label}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map((item) => (
+              <tr key={String(item[categoryKey])}>
+                <th scope="row">{item[categoryKey]}</th>
+                {series.map((chartSeries) => (
+                  <td key={chartSeries.dataKey}>
+                    {formatValue(Number(item[chartSeries.dataKey]))}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
     </figure>
