@@ -11,7 +11,8 @@ type SocialNetwork =
   | 'github'
   | 'linkedin'
   | 'twitch'
-  | 'spotify';
+  | 'spotify'
+  | 'tiktok';
 
 interface Props {
   socials: Partial<Record<SocialNetwork, string>>;
@@ -41,6 +42,7 @@ const socialMeta = {
   linkedin: { label: 'LinkedIn', icon: 'linkedin' },
   twitch: { label: 'Twitch', icon: 'twitch' },
   spotify: { label: 'Spotify', icon: 'spotify' },
+  tiktok: { label: 'TikTok', icon: 'tiktok' },
 } satisfies Record<SocialNetwork, { label: string; icon: IconName }>;
 
 const links = Object.entries(socials).filter(
