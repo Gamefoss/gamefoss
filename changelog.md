@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.12.0](https://github.com/Gamefoss/gamefoss/compare/v1.11.2...v1.12.0) (2026-11-09)
+
+### Features
+
+* **components:** adding tiktok ([56f0952](https://github.com/Gamefoss/gamefoss/commit/56f09525c2d45699893f3f4eda15cd846d6f60da))
+* **styles:** adding table style ([1f75e45](https://github.com/Gamefoss/gamefoss/commit/1f75e459e766621f10f47ccfc0b78f5b88ee2ed8))
+* **styles:** updating styles for authors pages ([d9bea00](https://github.com/Gamefoss/gamefoss/commit/d9bea00fe1ba83d6cb042d62981a15c09593c064))
+
+### Bug Fixes
+
+* adding aria hidden on the authors page ([e5a5cd6](https://github.com/Gamefoss/gamefoss/commit/e5a5cd66c49e9d81d462a2ebed19bc821d43c7c5))
+
 ## [1.11.2](https://github.com/Gamefoss/gamefoss/compare/v1.11.1...v1.11.2) (2026-11-07)
 
 ### Bug Fixes
