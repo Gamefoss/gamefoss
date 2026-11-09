@@ -29,6 +29,7 @@ import {
   FaPlay,
   FaRegHeart,
   FaLightbulb,
+  FaTiktok,
 } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { SiCastbox } from 'react-icons/si';
@@ -72,6 +73,7 @@ const icons = {
   star: BsStarFill,
   dot: BsDot,
   lightbulb: FaLightbulb,
+  tiktok: FaTiktok,
   mask: BiSolidMask,
   'google-analytics': DiGoogleAnalytics,
 } satisfies Record<string, IconType>;

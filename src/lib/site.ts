@@ -10,6 +10,7 @@ export const SITE_SOCIALS = {
   instagram: 'https://www.instagram.com/game_foss/',
   youtube: 'https://www.youtube.com/@game_foss',
   twitch: 'https://www.twitch.tv/game_foss',
+  tiktok: 'https://www.tiktok.com/@game_foss',
 } as const;
 export const PODCAST_LINKS = {
   feed: 'https://anchor.fm/s/4c499e08/podcast/rss',

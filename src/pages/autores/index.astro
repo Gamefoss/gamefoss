@@ -6,6 +6,7 @@ import { Icon } from '@/components/Icon/Icon';
 import HeroDecoration from '@/components/HeroDecoration.astro';
 import { withBase } from '@/lib/site';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
+import { Button, type ButtonProps } from '@/components/Button/Button';
 const authors = await getCollection('authors');
 const jsonLd = breadcrumbJsonLd(Astro.site, [
   { name: 'Início', path: '/' },
@@ -41,35 +42,53 @@ const jsonLd = breadcrumbJsonLd(Astro.site, [
         }}
       >
         {authors.map((author, index) => (
-          <a
-            class="character-card"
-            href={withBase(`/autores/${author.id}/`)}
-            style={`--player-index: ${index + 1}`}
-          >
-            <span class="character-card__number">P{index + 1}</span>
+          <div class="character-card" style={`--player-index: ${index + 1}`}>
+            <span class="character-card__number" aria-hidden>
+              P{index + 1}
+            </span>
             <div class="character-card__portrait">
-              {author.data.portrait ? (
-                <img
-                  src={withBase(author.data.portrait)}
-                  alt={
-                    author.data.portraitAlt || `Retrato de ${author.data.name}`
-                  }
-                />
-              ) : (
-                <span>{author.data.name.slice(0, 1)}</span>
-              )}
+              <a href={withBase(`/autores/${author.id}/`)}>
+                {author.data.portrait ? (
+                  <img
+                    src={withBase(author.data.portrait)}
+                    alt={
+                      author.data.portraitAlt ||
+                      `Retrato de ${author.data.name}`
+                    }
+                  />
+                ) : (
+                  <span>{author.data.name.slice(0, 1)}</span>
+                )}
+              </a>
             </div>
             <div class="character-card__info">
-              <span class="eyebrow" aria-hidden>
+              <span class="character-card__info__eyebrow" aria-hidden>
                 {['READY!', 'SET!', 'GO!'][index % 3]}
               </span>
-              <h2>{author.data.name}</h2>
-              <p>{author.data.bio}</p>
-              <span class="character-card__select">
-                Selecionar <Icon name="arrow-right" />
-              </span>
+              <h2>
+                <a href={withBase(`/autores/${author.id}/`)}>
+                  {author.data.name}
+                </a>
+              </h2>
+              <p>
+                <a href={withBase(`/autores/${author.id}/`)}>
+                  {author.data.bio}
+                </a>
+              </p>
+              <Button
+                as="a"
+                href={withBase(`/autores/${author.id}/`)}
+                variant="accent"
+                className="character-card__select"
+                icon={
+                  ['heart', 'star', 'gamepad'][index % 3] as ButtonProps['icon']
+                }
+                iconPosition="right"
+              >
+                Selecionar
+              </Button>
             </div>
-          </a>
+          </div>
         ))}
       </Carousel>
     </div>
