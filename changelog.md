@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.11.2](https://github.com/Gamefoss/gamefoss/compare/v1.11.1...v1.11.2) (2026-11-07)
+
+### Bug Fixes
+
+* **styles:** fixing rechart overflowing page ([8f760ad](https://github.com/Gamefoss/gamefoss/commit/8f760ad86fd231d9674ffdfef0050ef5c950a168))
+
 ## [1.11.1](https://github.com/Gamefoss/gamefoss/compare/v1.11.0...v1.11.1) (2026-11-05)
 
 ## [1.11.0](https://github.com/Gamefoss/gamefoss/compare/v1.10.1...v1.11.0) (2026-11-05)
