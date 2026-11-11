@@ -36,10 +36,7 @@ export function Grid(props: GridProps) {
 
   return (
     <div
-      className={classNames(
-        'grid-component',
-        className,
-      )}
+      className={classNames('grid-component', className)}
       {...divProps}
       style={
         {
@@ -72,13 +69,10 @@ export function FloatyGrid(props: FloatyGridProps) {
 
   return (
     <div
-      className={classNames(
-        'floaty-grid-component',
-        {
-          'floaty-grid-component__floaty--left': floaty === 'left',
-          'floaty-grid-component__floaty--right': floaty === 'right',
-        },
-      )}
+      className={classNames('floaty-grid-component', {
+        'floaty-grid-component__floaty--left': floaty === 'left',
+        'floaty-grid-component__floaty--right': floaty === 'right',
+      })}
       {...divProps}
     >
       {children}
