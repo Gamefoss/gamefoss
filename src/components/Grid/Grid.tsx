@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './Grid.module.css';
+import './Grid.css';
 
 export type GridProps = {
   /** The content to be displayed inside the grid. */
@@ -38,7 +38,6 @@ export function Grid(props: GridProps) {
     <div
       className={classNames(
         'grid-component',
-        styles['grid-component'],
         className,
       )}
       {...divProps}
@@ -75,10 +74,9 @@ export function FloatyGrid(props: FloatyGridProps) {
     <div
       className={classNames(
         'floaty-grid-component',
-        styles['floaty-grid-component'],
         {
-          [styles['floaty-grid-component__floaty--left']]: floaty === 'left',
-          [styles['floaty-grid-component__floaty--right']]: floaty === 'right',
+          'floaty-grid-component__floaty--left': floaty === 'left',
+          'floaty-grid-component__floaty--right': floaty === 'right',
         },
       )}
       {...divProps}
