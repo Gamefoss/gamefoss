@@ -3,14 +3,14 @@ import { Button } from '@/components/Button/Button';
 import AudioPlayer from './AudioPlayer.astro';
 import { Icon } from '@/components/Icon/Icon';
 import type { PodcastEpisode } from '@/lib/podcast';
-import { getEpisodeArtwork, removeHtmlTags } from '@/lib/podcast';
+import { extractEpisodeExcerpt, getEpisodeArtwork } from '@/lib/podcast';
 import { withBase } from '@/lib/site';
 
 interface Props {
   episode: PodcastEpisode;
 }
 const { episode } = Astro.props;
-const excerpt = removeHtmlTags(episode.description);
+const excerpt = extractEpisodeExcerpt(episode.description);
 const artwork = getEpisodeArtwork(episode);
 ---
 
