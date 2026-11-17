@@ -50,3 +50,12 @@ export function removeHtmlTags(value: string) {
     .replace(/\s+/g, ' ')
     .trim();
 }
+
+export function extractEpisodeExcerpt(description: string) {
+  const firstParagraph = description.match(/<p\b[^>]*>([\s\S]*?)<\/p>/i);
+
+  return removeHtmlTags(firstParagraph?.[1] ?? description).replace(
+    /\s+([.,!?;:])/g,
+    '$1',
+  );
+}
