@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import styles from './Chart.module.css';
+import './Chart.css';
 import { numberFormatter, slugify } from '@/lib/site';
 import classNames from 'classnames';
 
@@ -78,7 +78,7 @@ export default function Chart(props: Props) {
       contentStyle={{}}
       formatter={(value, name) => [formatValue(Number(value)), String(name)]}
       labelStyle={{ fontWeight: 700, marginBottom: '0.35rem' }}
-      wrapperClassName={styles.tooltip}
+      wrapperClassName="chart-tooltip"
     />
   );
 
@@ -170,22 +170,22 @@ export default function Chart(props: Props) {
 
   return (
     <figure
-      className={classNames('chart', className, styles.chart)}
+      className={classNames('chart', className)}
       aria-labelledby={titleId}
       style={style}
     >
-      <header className={styles.header}>
-        <h3 className={styles.title} id={titleId}>
+      <header className="chart-header">
+        <h3 className="chart-title" id={titleId}>
           {title}
         </h3>
-        {description && <p className={styles.description}>{description}</p>}
+        {description && <p className="chart-description">{description}</p>}
       </header>
 
-      <div className={styles.plot}>
+      <div className="chart-plot">
         <Content />
       </div>
 
-      <div className={styles.tableWrapper}>
+      <div className="chart-tableWrapper">
         <table>
           <caption>{title}</caption>
           <thead>
@@ -213,7 +213,7 @@ export default function Chart(props: Props) {
         </table>
       </div>
 
-      {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+      {caption && <figcaption className="chart-caption">{caption}</figcaption>}
     </figure>
   );
 }
